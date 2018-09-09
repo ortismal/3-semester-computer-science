@@ -12,21 +12,23 @@ public class MyArrayList<T> implements MyList {
 
     @Override
     public Object get(int x){
-        return "";
+        return data[x];
     }
 
     @Override
     public void add(Object x){
-        data = Arrays.copyOf(data, data.length+1);
+        if(data.length - size < 1) {
+            data = Arrays.copyOf(data, data.length + 1);
+        }
         data[size++] = (T) x;
     }
 
     @Override
-    public Object remove(int index){
-
-        Object x = data[index];
-
-        return "";
+    public void remove(int index){
+        if(index < size){
+            data[index] = data[index+1];
+        }
+        data = Arrays.copyOf(data, data.length-1);
     }
 
 }
