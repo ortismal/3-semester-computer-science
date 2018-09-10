@@ -18,7 +18,12 @@ public class main {
         System.out.println("Array size: " + list.size());
 
         //Testing remove()
-        list.remove(7);
+        list.remove(6);
+        print(list);
+        System.out.println("Array size: " + list.size());
+
+        //Testing remove()
+        list.remove(2);
         print(list);
         System.out.println("Array size: " + list.size());
 

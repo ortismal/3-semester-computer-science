@@ -6,4 +6,4 @@ public interface MyList <T> {
         T get(int index);
         String toString();
 
-        }
+}

@@ -2,12 +2,12 @@ import java.util.Arrays;
 
 public class MyArrayList<T> implements MyList {
 
-    private T[] data = (T[]) new Object[5];
+    private T[] data = (T[]) new Object[0];
     private int size = 0;
 
     @Override
     public int size(){
-        return data.length;
+        return size;
     }
 
     @Override
@@ -18,17 +18,19 @@ public class MyArrayList<T> implements MyList {
     @Override
     public void add(Object x){
         if(data.length - size < 1) {
-            data = Arrays.copyOf(data, data.length + 1);
+            data = Arrays.copyOf(data, data.length + 10);
         }
         data[size++] = (T) x;
     }
 
     @Override
     public void remove(int index){
-        if(index < size){
+        while(index < size){
             data[index] = data[index+1];
+            index++;
         }
-        data = Arrays.copyOf(data, data.length-1);
+        size--;
+        //data = Arrays.copyOf(data, size);
     }
 
 }
