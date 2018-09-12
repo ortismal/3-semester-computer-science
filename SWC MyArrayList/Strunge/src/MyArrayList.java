@@ -28,7 +28,7 @@ public class MyArrayList<T> implements MyList {
         //Checks if the index is within the array
         Object obj = null;
         if (index < size) {
-            obj = data[index];
+        obj = data[index];
             while (index < size) {
                 data[index] = data[index + 1];
                 index++;
