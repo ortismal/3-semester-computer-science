@@ -15,9 +15,11 @@ public class MyArrayListMain {
         System.out.println("Length of current ArrayList : " + test.size());
         System.out.println("Check index 3 : " + test.get(3) + " Is at index 3.");
         System.out.println("Removing the element at index 2, which is : " + test.remove(2) + "\nAnd hereafter, check the arraylist again.");
-        for (int i = 0; i < test.size(); i++){
-            System.out.print(test.get(i) + " ");
+        System.out.print("[" + test.get(0));
+        for (int i = 1; i < test.size(); i++){
+            System.out.print(", " + test.get(i));
         }
+        System.out.print("]");
         System.out.println("\nAmount of indexes : " + test.size());
     }
 }

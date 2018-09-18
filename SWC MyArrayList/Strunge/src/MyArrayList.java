@@ -42,12 +42,22 @@ public class MyArrayList<T> implements MyList {
     }
 
     @Override
-    //Gets the element at the target index (in this case using "for" loop)
+    //Gets the element at the target index
     public Object get(int index){
         //See lin. 28
         if (index < size){
             return data[index];
         }
         else return null;
+    }
+
+    @Override
+    public String toString() {
+        String s = "[" + data[0];
+        for (int i = 1; i < size ; i++) {
+            s+= ", " + data[i].toString();
+
+        }
+        return s + "]";
     }
 }
