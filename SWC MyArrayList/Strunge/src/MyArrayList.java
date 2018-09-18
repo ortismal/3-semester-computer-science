@@ -17,7 +17,7 @@ public class MyArrayList<T> implements MyList {
         //Check if there is anymore room in the list
         if (data.length - size < 1){
             //Copies old array, and adds its indexes to a new array, which is longer
-            data = Arrays.copyOf(data, data.length + 10);
+            data = Arrays.copyOf(data, data.length + 5);
         }
         //Increments size, and sets the element as the same as size, at size 5 it does (5*2) so that Object[5] becomes Object[10]
         data[size++] = (T) element;
