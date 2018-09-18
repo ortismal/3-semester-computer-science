@@ -10,6 +10,7 @@ public class MyArrayList<T> implements MyList {
         return size;
     }
 
+
     @Override
     public Object get(int x){
         return data[x];
@@ -18,7 +19,7 @@ public class MyArrayList<T> implements MyList {
     @Override
     public void add(Object x){
         if(data.length - size < 1) {
-            data = Arrays.copyOf(data, data.length + 10);
+            data = Arrays.copyOf(data, size + 10);
         }
         data[size++] = (T) x;
     }
@@ -30,7 +31,15 @@ public class MyArrayList<T> implements MyList {
             index++;
         }
         size--;
-        //data = Arrays.copyOf(data, size);
+    }
+
+    @Override
+    public String toString() {
+        String s = "[" + get(0);
+        for (int i = 1; i < size; i++) {
+            s += ", " + get(i);
+        }
+        return s + "]";
     }
 
 }

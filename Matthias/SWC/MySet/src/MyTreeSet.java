@@ -1,9 +1,9 @@
 public interface MyTreeSet <E> {
 
+    boolean add(Object x);
+    boolean contains(Object x);
+    void remove(Object x);
     int size();
-    void add(Object x);
-    void remove(int index);
-    E get(int index);
     String toString();
 
 }

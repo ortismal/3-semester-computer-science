@@ -12,27 +12,22 @@ public class main {
         list.add(6);
         list.add(7);
 
-        print(list);
+        System.out.println(list.toString());
 
         //Testing size()
         System.out.println("Array size: " + list.size());
 
         //Testing remove()
         list.remove(6);
-        print(list);
+        System.out.println(list.toString());
         System.out.println("Array size: " + list.size());
 
         //Testing remove()
         list.remove(2);
-        print(list);
+        System.out.println(list.toString());
         System.out.println("Array size: " + list.size());
+        list.remove(4);
+        System.out.println(list.toString());
 
-    }
-
-        //Testing get()
-    public static void print(MyArrayList list){
-        for(int i = 0; i < list.size(); i++){
-            System.out.println(list.get(i));
-        }
     }
 }
