@@ -2,7 +2,7 @@ import java.io.*;
 import java.net.*;
 import java.util.Scanner;
 
-public class UDPConnection {
+public class UDPClient {
 
     public static void connect() throws Exception {
 
@@ -10,16 +10,16 @@ public class UDPConnection {
         int length;
 
         Scanner inFromKbd = new Scanner(System.in);
-        DatagramSocket receivingSocket = new DatagramSocket(6701);
+        DatagramSocket receivingSocket = new DatagramSocket(6710);
         DatagramSocket sendingSocket = new DatagramSocket();
-        InetAddress IPAdress = InetAddress.getByName("127.0.0.1");
+        InetAddress IPAdress = InetAddress.getByName("10.111.180.4");
         byte[] data = new byte[1024];
 
         System.out.println("Please type your message: ");
         sentence = inFromKbd.nextLine();
         length = sentence.length();
         data = sentence.getBytes();
-        DatagramPacket sendPacket = new DatagramPacket(data, 1, IPAdress, 6700);
+        DatagramPacket sendPacket = new DatagramPacket(data,  length, IPAdress, 6710);
         sendingSocket.send(sendPacket);
         sentence = "            ";
         data = sentence.getBytes();
