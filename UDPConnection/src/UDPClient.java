@@ -1,4 +1,3 @@
-import java.io.*;
 import java.net.*;
 import java.util.Scanner;
 
@@ -12,7 +11,7 @@ public class UDPClient {
         Scanner inFromKbd = new Scanner(System.in);
         DatagramSocket receivingSocket = new DatagramSocket(6710);
         DatagramSocket sendingSocket = new DatagramSocket();
-        InetAddress IPAdress = InetAddress.getByName("10.111.180.4");
+        InetAddress IPAdress = InetAddress.getByName("10.111.176.211");
         byte[] data = new byte[1024];
 
         System.out.println("Please type your message: ");

@@ -2,22 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e253ee6-e3ca-4bc5-8bb8-4534690dd08d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/.idea/src.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UDPServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../TCPServer_test/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TCPServer_test/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TCPServer_test/out/production/TCPServer_test/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TCPServer_test/out/production/TCPServer_test/TCPClient_test.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TCPServer_test/out/production/TCPServer_test/TCPServer_test.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TCPServer_test/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../TCPServer_test/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TCPServer_test/out/production/TCPConnection/TCPClient_test.class" beforeDir="false" afterPath="$PROJECT_DIR$/../TCPServer_test/out/production/TCPConnection/TCPClient_test.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../TCPServer_test/src/TCPClient_test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../TCPServer_test/src/TCPClient_test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UDPConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UDPClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UDPConnection/UDPClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UDPConnection/UDPClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UDPClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UDPClient.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,12 +37,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="21" />
-          <entry key="java" value="724" />
+          <entry key="java" value="735" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="724" />
+          <entry key="JAVA" value="735" />
           <entry key="PLAIN_TEXT" value="21" />
         </counts>
       </usages-collector>
@@ -69,23 +59,19 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/UDPServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" column="84" selection-start-line="27" selection-start-column="84" selection-end-line="27" selection-end-column="84" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="17">
+              <caret line="1" column="4" lean-forward="true" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/UDPClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="40" lean-forward="true" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+            <state>
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -109,6 +95,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/UDPConnection.java" />
+        <option value="$PROJECT_DIR$/src/UDPServer.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/UDPClient.java" />
       </list>
@@ -120,7 +107,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="width" value="1920" />
     <option name="height" value="1080" />
   </component>
@@ -153,7 +140,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537792119526" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537793769141" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -198,15 +185,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1537789114448</updated>
-      <workItem from="1537789117904" duration="2967000" />
+      <workItem from="1537789117904" duration="4611000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2967000" />
+    <option name="totallyTimeSpent" value="4611000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="85" y="-8" width="1843" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Designer" />
@@ -252,23 +240,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UDPServer.java">
+    <entry file="file://$PROJECT_DIR$/src/UDPClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="84" selection-start-line="27" selection-start-column="84" selection-end-line="27" selection-end-column="84" />
+        <state>
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UDPClient.java">
+    <entry file="file://$PROJECT_DIR$/src/UDPServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="40" lean-forward="true" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="1" column="4" lean-forward="true" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
         </state>
       </provider>
     </entry>
