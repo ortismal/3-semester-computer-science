@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class UDPClient {
 
-    public static void connect() throws Exception {
+    public static void main(String[] args) throws Exception {
 
         String sentence;
         int length;
@@ -11,8 +11,8 @@ public class UDPClient {
         Scanner inFromKbd = new Scanner(System.in);
         DatagramSocket receivingSocket = new DatagramSocket(6710);
         DatagramSocket sendingSocket = new DatagramSocket();
-        InetAddress IPAdress = InetAddress.getByName("10.111.176.211");
-        byte[] data = new byte[1024];
+        InetAddress IPAdress = InetAddress.getByName("10.111.176.45");
+        byte[] data;
 
         System.out.println("Please type your message: ");
         sentence = inFromKbd.nextLine();
