@@ -36,6 +36,7 @@ class TCPClient_test {
 
         }
 
+        clientSocket.close();
 
 
     }

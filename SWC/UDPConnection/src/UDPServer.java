@@ -3,16 +3,18 @@ import java.net.*;
 
 public class UDPServer
 {
-    public static void connect() throws Exception
-    {
+    public static void main(String[] args) throws Exception {
+
         String sentence;
         int length;
 
+        while (true){
         BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
         DatagramSocket receivingSocket = new DatagramSocket(6710);
         DatagramSocket sendingSocket = new DatagramSocket();
-        InetAddress IPAddress = InetAddress.getByName("10.111.176.211");
+        InetAddress IPAddress = InetAddress.getByName("10.111.180.4");
         byte[] data = new byte[1024];
+
 
         DatagramPacket receivePacket = new DatagramPacket(data, 33);
         receivingSocket.receive(receivePacket);
