@@ -4,8 +4,6 @@ import java.net.*;
 class TCPClient_test {
     public static void main(String[] args) throws Exception {
 
-        boolean isQuit = true;
-
         System.out.println("starting TCPClient main");
         String sentence;
 
@@ -15,7 +13,7 @@ class TCPClient_test {
         Socket clientSocket = new Socket("10.111.176.43", 5656);
         System.out.println("we are connected");
 
-        while (isQuit) {
+        while (true) {
 
             DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
             BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));

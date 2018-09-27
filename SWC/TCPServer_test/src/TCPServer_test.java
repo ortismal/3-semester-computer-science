@@ -9,7 +9,6 @@ public class TCPServer_test {
 
         System.out.println("Starting TCP Server main program");
         String sentence;
-        String userText;
 
         ServerSocket welcomeSocket = new ServerSocket(5656);
         System.out.println("we have a socket");

@@ -8,24 +8,28 @@ public class UDPClient {
         String sentence;
         int length;
 
-        Scanner inFromKbd = new Scanner(System.in);
-        DatagramSocket receivingSocket = new DatagramSocket(6710);
-        DatagramSocket sendingSocket = new DatagramSocket();
-        InetAddress IPAdress = InetAddress.getByName("10.111.176.45");
-        byte[] data;
+            Scanner inFromKbd = new Scanner(System.in);
+            DatagramSocket receivingSocket = new DatagramSocket(6710);
+            DatagramSocket sendingSocket = new DatagramSocket();
+            InetAddress IPAdress = InetAddress.getByName("10.111.176.45");
+            byte[] data;
 
-        System.out.println("Please type your message: ");
-        sentence = inFromKbd.nextLine();
-        length = sentence.length();
-        data = sentence.getBytes();
-        DatagramPacket sendPacket = new DatagramPacket(data,  length, IPAdress, 6710);
-        sendingSocket.send(sendPacket);
-        sentence = "            ";
-        data = sentence.getBytes();
+            System.out.println("Please type your message: ");
+            sentence = inFromKbd.nextLine();
+            length = sentence.length();
+            data = sentence.getBytes();
+            DatagramPacket sendPacket = new DatagramPacket(data, length, IPAdress, 6701);
 
-        DatagramPacket receivePackage = new DatagramPacket(data, data.length);
-        receivingSocket.receive(receivePackage);
-        sentence = new String(receivePackage.getData());
-        System.out.println("FROM SERVER: " + sentence);
+            sendingSocket.send(sendPacket);
+            sentence = "            ";
+            data = sentence.getBytes();
+
+
+
+            DatagramPacket receivePackage = new DatagramPacket(data, data.length);
+            receivingSocket.receive(receivePackage);
+            sentence = new String(receivePackage.getData());
+            System.out.println("FROM SERVER: " + sentence);
+
     }
 }
