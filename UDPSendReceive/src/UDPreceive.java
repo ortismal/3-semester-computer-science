@@ -1,7 +1,7 @@
 import java.io.IOException;
 import java.net.*;
 
-public class UPDreceive {
+public class UDPreceive {
 
     public static void main(String[] args) {
 
