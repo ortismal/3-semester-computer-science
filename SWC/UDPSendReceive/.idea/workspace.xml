@@ -2,21 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b11f39d-6dbb-482b-b2e0-dfdf6b1db750" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../TCPServer_test/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPSend/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UDPSend.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/UDPSend/UDPsend.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/UDPSend/UPDreceive.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UDPreceive.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UDPsend.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SWC/TCPServer_test/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SWC/TCPServer_test/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SWC/TCPServer_test/out/production/TCPConnection/TCPClient_test.class" beforeDir="false" afterPath="$PROJECT_DIR$/../SWC/TCPServer_test/out/production/TCPConnection/TCPClient_test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SWC/TCPServer_test/src/TCPClient_test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SWC/TCPServer_test/src/TCPClient_test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SWC/TCPServer_test/src/TCPServer_test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SWC/TCPServer_test/src/TCPServer_test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SWC/UDPConnection/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SWC/UDPConnection/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SWC/UDPConnection/out/production/UDPConnection/UDPClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/../SWC/UDPConnection/out/production/UDPConnection/UDPClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SWC/UDPConnection/out/production/UDPConnection/UDPServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../SWC/UDPConnection/out/production/UDPConnection/UDPServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SWC/UDPConnection/src/UDPClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SWC/UDPConnection/src/UDPClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SWC/UDPConnection/src/UDPServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SWC/UDPConnection/src/UDPServer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,27 +53,49 @@
     <session id="-184287142">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="14" />
           <entry key="java" value="49" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="49" />
-          <entry key="PLAIN_TEXT" value="14" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/UDPsend.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="594">
+              <caret line="27" column="69" selection-start-line="27" selection-start-column="69" selection-end-line="27" selection-end-column="69" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/UPDreceive.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="22" column="42" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -97,7 +113,6 @@
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/UDPsend.java" />
         <option value="$PROJECT_DIR$/src/UPDreceive.java" />
-        <option value="$PROJECT_DIR$/src/UDPreceive.java" />
       </list>
     </option>
   </component>
@@ -141,8 +156,8 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538039713031" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Casper/UDPSendReceive" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538039663717" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -196,29 +211,30 @@
       <option name="presentableId" value="Default" />
       <updated>1538031430016</updated>
       <workItem from="1538031440060" duration="6887000" />
-      <workItem from="1538039346690" duration="597000" />
+      <workItem from="1538039346690" duration="228000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7484000" />
+    <option name="totallyTimeSpent" value="7115000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="85" y="-8" width="1843" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="1" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.18620303" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.18620303" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" />
-      <window_info anchor="bottom" id="Run" order="5" side_tool="true" weight="0.32952183" />
+      <window_info active="true" anchor="bottom" id="Run" order="5" side_tool="true" visible="true" weight="0.32952183" />
       <window_info anchor="bottom" id="Database Changes" order="6" show_stripe_button="false" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
@@ -267,10 +283,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UDPreceive.java">
+    <entry file="file://$PROJECT_DIR$/src/UPDreceive.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="23" lean-forward="true" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+        <state relative-caret-position="396">
+          <caret line="22" column="42" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
