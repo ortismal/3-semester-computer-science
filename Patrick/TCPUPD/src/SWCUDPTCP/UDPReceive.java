@@ -1,4 +1,4 @@
-package SWCUDP;
+package SWCUDPTCP;
 
 import java.io.IOException;
 import java.net.*;
@@ -13,22 +13,24 @@ public class UDPReceive {
 
         try {
             DatagramSocket socket = new DatagramSocket(PORT_IN);
-            byte[] data = new byte[1024];
-
             InetAddress address = InetAddress.getByName(IP_NAME);
-            DatagramPacket packet = new DatagramPacket(data, data.length);
 
-            socket.receive(packet);
-            String msg = new String(data);
-            System.out.println(msg);
+            String msg = "";
+            do {
+                byte[] data = new byte[1024];
 
-        } catch (SocketException e) {
-            e.printStackTrace();
+                DatagramPacket packet = new DatagramPacket(data, data.length);
+                socket.receive(packet);
+                msg = new String(data).trim();
+                System.out.println(msg);
+
+            } while (!msg.equalsIgnoreCase("#die"));
         } catch (UnknownHostException e) {
+            e.printStackTrace();
+        } catch (SocketException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }
