@@ -15,8 +15,8 @@
       <file leaf-file-name="TCPserver.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/TECHUDPTCP/TCPserver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            <state relative-caret-position="378">
+              <caret line="22" column="50" lean-forward="false" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -28,7 +28,7 @@
         <entry file="file://$PROJECT_DIR$/src/SWCUDPTCP/UDPReceive.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="269">
-              <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+              <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -110,6 +110,7 @@
         <option value="$PROJECT_DIR$/src/SWCUDP/UDPReceive.java" />
         <option value="$PROJECT_DIR$/src/TECHUDPTCP/UDPServer.java" />
         <option value="$PROJECT_DIR$/src/TECHUDPTCP/UDPClient.java" />
+        <option value="$PROJECT_DIR$/src/TECHUDPTCP/TCPserver.java" />
       </list>
     </option>
   </component>
@@ -400,12 +401,12 @@
       <option name="presentableId" value="Default" />
       <updated>1537786824505</updated>
       <workItem from="1537786827067" duration="10214000" />
-      <workItem from="1538029790374" duration="9476000" />
+      <workItem from="1538029790374" duration="9708000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19690000" />
+    <option name="totallyTimeSpent" value="19922000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -534,7 +535,7 @@
     <entry file="file://$PROJECT_DIR$/src/SWCUDPTCP/UDPReceive.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="269">
-          <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+          <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -543,8 +544,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TECHUDPTCP/TCPserver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="378">
+          <caret line="22" column="50" lean-forward="false" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

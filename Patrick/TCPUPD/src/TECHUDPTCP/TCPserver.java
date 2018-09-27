@@ -20,7 +20,7 @@ public class TCPserver {
             BufferedReader inFromClient = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
             DataOutputStream outToClient = new DataOutputStream(connectionSocket.getOutputStream());
             sentence = inFromClient.readLine();
-            if(sentence.equalsIgnoreCase("quit"))
+            if (sentence.equalsIgnoreCase("quit"))
                 break;
             System.out.println("FROM CLIENT: " + sentence);
 
@@ -28,7 +28,7 @@ public class TCPserver {
             //userText = "Back";
             userText = inFromUser.readLine();
             outToClient.writeBytes(userText + '\n');
-            if(userText.equalsIgnoreCase("quit"))
+            if (userText.equalsIgnoreCase("quit"))
                 break;
 
         }
