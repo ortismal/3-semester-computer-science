@@ -1,17 +1,17 @@
 import java.io.*;
 import java.net.*;
 
-class TCPClient_test {
-
-    public static void main(String argv[]) throws Exception {
-
+class TCPClient_test
+{
+    public static void main(String argv[]) throws Exception
+    {
         System.out.println("starting TCPClient main");
         String sentence;
 
         BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
 
         System.out.println("trying to connect");
-        Socket clientSocket = new Socket("10.111.176.164", 5656);
+        Socket clientSocket = new Socket("10.111.180.4", 8735);
         System.out.println("we are connected");
 
         DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
