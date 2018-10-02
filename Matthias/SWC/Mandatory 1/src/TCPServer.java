@@ -39,7 +39,7 @@ public class TCPServer {
         welcomeSocket.close();
 
     }
-
+    // Thread opretning af flere brugere på chatten
     /*public static Socket newClient(int user, Thread[] clients, ServerSocket welcomeSocket) {
         clients[clients.length+1] = new Thread(()->{
             try {
@@ -52,12 +52,14 @@ public class TCPServer {
 
     }*/
 
+    // Printer en oversigt over forskellige chat-commands.
     public static void commands(){
         System.out.println("List of commands: ");
         System.out.println("1. Quit - leave the server.");;
         System.out.println("2. List - prints a list of active clients");
     }
 
+    // Printer en oversigt over aktive brugere i chatten
     public static void list(Thread[] threads){
         for(int i = 0; i < threads.length; i++){
             System.out.println(threads[i]);
