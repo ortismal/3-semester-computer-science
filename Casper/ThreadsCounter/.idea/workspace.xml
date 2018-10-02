@@ -2,15 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4597c0d9-0697-4d85-90be-4f8da3e154e9" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../TCPServer_test/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TCPServer_test/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TCPServer_test/out/production/TCPConnection/TCPClient_test.class" beforeDir="false" afterPath="$PROJECT_DIR$/../TCPServer_test/out/production/TCPConnection/TCPClient_test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TCPServer_test/src/TCPClient_test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../TCPServer_test/src/TCPClient_test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TCPServer_test/src/TCPServer_test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../TCPServer_test/src/TCPServer_test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UDPConnection/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/out/production/UDPConnection/UDPClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/../UDPConnection/out/production/UDPConnection/UDPClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/out/production/UDPConnection/UDPServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../UDPConnection/out/production/UDPConnection/UDPServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/src/UDPClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UDPConnection/src/UDPClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/src/UDPServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UDPConnection/src/UDPServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SWC mandatory 1/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SWC mandatory 1/src/TCPclient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SWC mandatory 1/src/TCPserver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TCPchat/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TCPchat/src/TCPclient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TCPchat/src/TCPserver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UDPSendReceive/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UDPSendReceive/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,13 +46,21 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="-572458886">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/LongCounter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
+            <state relative-caret-position="60">
               <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
               <folding>
                 <element signature="e#94#95#0" expanded="true" />
@@ -69,8 +75,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/RunMe.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" column="44" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
+            <state relative-caret-position="700">
+              <caret line="35" column="21" lean-forward="true" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -112,7 +118,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="873" />
@@ -145,7 +151,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -162,6 +167,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -176,156 +182,6 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../.DS_Store</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Matthias/.DS_Store</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Matthias/SWC/.DS_Store</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Matthias/SWC/ThreadsCounter/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Matthias/TECH/.DS_Store</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Matthias/TECH/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Matthias/TECH/out/production/TECH/TCPClient_test.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Matthias/TECH/src/TCPClient_test.java</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Patrick/SWC/MyList Exercise/.idea/misc.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Patrick/SWC/MyList Exercise/.idea/modules.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Patrick/SWC/MyList Exercise/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Patrick/SWC/MyList Exercise/MyArrayList.iml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Patrick/SWC/MyList Exercise/out/production/MyArrayList/MyArrayList.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Patrick/SWC/MyList Exercise/out/production/MyArrayList/MyList.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Patrick/SWC/MyList Exercise/out/production/MyArrayList/main.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Patrick/SWC/MyList Exercise/src/MyArrayList.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Patrick/SWC/MyList Exercise/src/MyList.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Patrick/SWC/MyList Exercise/src/main.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Patrick/TCPUPD/.idea/misc.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Patrick/TCPUPD/.idea/modules.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Patrick/TCPUPD/.idea/uiDesigner.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Patrick/TCPUPD/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Patrick/TCPUPD/TCPUPD.iml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Patrick/TCPUPD/out/production/TCPUPD/TCPclient.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Patrick/TCPUPD/out/production/TCPUPD/TCPserver.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Patrick/TCPUPD/out/production/TCPUPD/UDPClient.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Patrick/TCPUPD/out/production/TCPUPD/UDPServer.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Patrick/TCPUPD/src/TCPclient.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Patrick/TCPUPD/src/TCPserver.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Patrick/TCPUPD/src/UDPClient.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Patrick/TCPUPD/src/UDPServer.java</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../SWC MyArrayList/Patrick/SWC/MyList Exercise/.idea/misc.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../SWC MyArrayList/Patrick/SWC/MyList Exercise/.idea/modules.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../SWC MyArrayList/Patrick/SWC/MyList Exercise/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../SWC MyArrayList/Patrick/SWC/MyList Exercise/MyArrayList.iml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../SWC MyArrayList/Patrick/SWC/MyList Exercise/out/production/MyArrayList/MyArrayList.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../SWC MyArrayList/Patrick/SWC/MyList Exercise/out/production/MyArrayList/MyList.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../SWC MyArrayList/Patrick/SWC/MyList Exercise/out/production/MyArrayList/main.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../SWC MyArrayList/Patrick/SWC/MyList Exercise/src/MyArrayList.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../SWC MyArrayList/Patrick/SWC/MyList Exercise/src/MyList.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../SWC MyArrayList/Patrick/SWC/MyList Exercise/src/main.java</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -405,17 +261,18 @@
       <workItem from="1537435318559" duration="8718000" />
       <workItem from="1537870746447" duration="983000" />
       <workItem from="1538030181887" duration="768000" />
+      <workItem from="1538477794948" duration="1253000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10469000" />
+    <option name="totallyTimeSpent" value="11722000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="85" y="-8" width="1843" height="1096" extended-state="7" />
+    <frame x="85" y="-8" width="1843" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11890073" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09310152" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -431,7 +288,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="9" visible="true" weight="0.32952183" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="9" visible="true" weight="0.25259876" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32904884" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -454,7 +311,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/LongCounter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
+        <state relative-caret-position="60">
           <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
           <folding>
             <element signature="e#94#95#0" expanded="true" />
@@ -467,8 +324,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/RunMe.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="44" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
+        <state relative-caret-position="700">
+          <caret line="35" column="21" lean-forward="true" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
         </state>
       </provider>
     </entry>
