@@ -59,6 +59,7 @@ public class TCPClient {
                 String msgToSend = "DATA " + USERNAME + ": " + sc.nextLine();
 
 
+
                 byte[] dataToSend = msgToSend.getBytes();
                 outToServer.write(dataToSend);
                 if (msgToSend.equalsIgnoreCase("\nDATA " + USERNAME + ": " + "!#byebyeiquit")) {
@@ -70,7 +71,6 @@ public class TCPClient {
                 inFromServer.read(dataIn);
                 String msgIn = new String(dataIn);
                 msgIn = msgIn.trim();
-
                 System.out.println(msgIn);
 
             }
@@ -83,14 +83,11 @@ public class TCPClient {
     }
 
 
-    static void imavThread(){
+    static void imavThread() {
         IMAV = new Thread(() -> {
-            while(true)
-
-            {
+            while (true) {
                 try {
                     Thread.sleep(60000);
-//                    outToServer = socket.getOutputStream();
                     outToServer.write("IMAV".getBytes());
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -99,6 +96,7 @@ public class TCPClient {
                 }
             }
         });
+        IMAV.start();
     }
 
 

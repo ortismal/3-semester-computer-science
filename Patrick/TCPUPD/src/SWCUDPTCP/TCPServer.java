@@ -45,14 +45,11 @@ public class TCPServer {
 
                 byte[] dataIn = new byte[1024];
                 input.read(dataIn);
+                output.write(dataIn);
                 String msgIn = new String(dataIn);
                 msgIn = msgIn.trim();
-
                 System.out.println(msgIn);
 
-                String msgToSend = msgIn;
-                byte[] dataToSend = msgToSend.getBytes();
-                output.write(dataToSend);
             }
         } catch (IOException e) {
             e.printStackTrace();
