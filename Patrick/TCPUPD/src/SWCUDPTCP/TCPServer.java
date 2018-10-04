@@ -39,7 +39,7 @@ public class TCPServer {
 //            }
 
             while (true) {
-                System.out.println("USER: " + clientIp);
+//                System.out.println("USER: " + clientIp);
                 InputStream input = socket.getInputStream();
                 OutputStream output = socket.getOutputStream();
 
@@ -47,14 +47,10 @@ public class TCPServer {
                 input.read(dataIn);
                 String msgIn = new String(dataIn);
                 msgIn = msgIn.trim();
-                if (msgIn.equalsIgnoreCase("!#byebyeiquit")) {
-                    System.out.println("Shutting down");
-                    break;
-                }
 
-                System.out.println("IN -->" + msgIn + "<--");
+                System.out.println(msgIn);
 
-                String msgToSend = "SERVER: [sender:" + clientIp + " ]: " + msgIn + '\n';
+                String msgToSend = msgIn;
                 byte[] dataToSend = msgToSend.getBytes();
                 output.write(dataToSend);
             }

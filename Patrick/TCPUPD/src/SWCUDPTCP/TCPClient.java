@@ -5,6 +5,11 @@ import java.util.*;
 import java.io.*;
 
 public class TCPClient {
+
+    static Thread IMAV;
+    static OutputStream outToServer;
+    static InputStream inFromServer;
+
     public static void main(String[] args) {
         System.out.println("=============CLIENT==============");
 
@@ -32,49 +37,71 @@ public class TCPClient {
             System.out.println("SERVER IP: " + IP_SERVER_STR);
             System.out.println("SERVER PORT: " + PORT_SERVER + "\n");
             Socket socket = new Socket(ip, PORT_SERVER);
-            OutputStream outToServer = socket.getOutputStream();
+            outToServer = socket.getOutputStream();
             outToServer.write(("JOIN " + USERNAME + ", " + IP_SERVER_STR + ":" + portToConnect).getBytes());
 
-            InputStream accepted = socket.getInputStream();
+            inFromServer = socket.getInputStream();
             byte[] acceptedClient = new byte[1024];
-            accepted.read(acceptedClient);
+            inFromServer.read(acceptedClient);
             String msgAccepted = new String(acceptedClient);
             System.out.println(msgAccepted);
 
 
             while (true) {
 
+                imavThread();
 
-                InputStream input = socket.getInputStream();
-                OutputStream output = socket.getOutputStream();
+                inFromServer = socket.getInputStream();
+                outToServer = socket.getOutputStream();
 
                 sc = new Scanner(System.in);
-                System.out.println("What do you want to send? ");
+                System.out.println("\nWhat do you want to send? ");
                 String msgToSend = "DATA " + USERNAME + ": " + sc.nextLine();
 
 
                 byte[] dataToSend = msgToSend.getBytes();
-                output.write(dataToSend);
-                if (msgToSend.equalsIgnoreCase("DATA " + USERNAME + ": " + "!#byebyeiquit")) {
+                outToServer.write(dataToSend);
+                if (msgToSend.equalsIgnoreCase("\nDATA " + USERNAME + ": " + "!#byebyeiquit")) {
                     System.out.println("Shutting down");
                     break;
                 }
 
                 byte[] dataIn = new byte[1024];
-                input.read(dataIn);
+                inFromServer.read(dataIn);
                 String msgIn = new String(dataIn);
                 msgIn = msgIn.trim();
 
-
-                System.out.println("IN -->" + msgIn + "<--");
-
+                System.out.println(msgIn);
 
             }
+
         } catch (UnknownHostException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+
+    static void imavThread(){
+        IMAV = new Thread(() -> {
+            while(true)
+
+            {
+                try {
+                    Thread.sleep(60000);
+//                    outToServer = socket.getOutputStream();
+                    outToServer.write("IMAV".getBytes());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+
 }
+
 
