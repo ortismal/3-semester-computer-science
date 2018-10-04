@@ -8,8 +8,8 @@ public class TCPServer {
         System.out.println("=============SERVER==============");
 
         final int PORT_LISTEN = 5656;
-//        Threads
-//        JOIN <<username>>, <<server ip>> <<server port>>
+        int user = 0;
+        Thread[] clients = new Thread[user];
 
         try {
             ServerSocket server = new ServerSocket(PORT_LISTEN);

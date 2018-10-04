@@ -62,7 +62,7 @@ public class TCPClient {
 
                 byte[] dataToSend = msgToSend.getBytes();
                 outToServer.write(dataToSend);
-                if (msgToSend.equalsIgnoreCase("\nDATA " + USERNAME + ": " + "!#byebyeiquit")) {
+                if (msgToSend.equalsIgnoreCase("\nDATA " + USERNAME + ": " + "quit")) {
                     System.out.println("Shutting down");
                     break;
                 }
