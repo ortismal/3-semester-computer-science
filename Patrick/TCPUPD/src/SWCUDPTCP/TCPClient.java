@@ -6,6 +6,7 @@ import java.io.*;
 
 public class TCPClient {
 
+    static Thread msgFromServer;
     static Thread IMAV;
     static OutputStream outToServer;
     static InputStream inFromServer;
@@ -24,7 +25,8 @@ public class TCPClient {
         System.out.print("What is the PORT for the server: ");
         int portToConnect = args.length >= 3 ? Integer.parseInt(args[2]) : sc.nextInt();
 
-        final String USERNAME = userName;
+        String USERNAME;
+        USERNAME = userName;
         final int PORT_SERVER = portToConnect;
         final String IP_SERVER_STR = ipToConnect.equals("0") ? "127.0.0.1" : ipToConnect;
 
@@ -46,32 +48,38 @@ public class TCPClient {
             String msgAccepted = new String(acceptedClient);
             System.out.println(msgAccepted);
 
+            if (msgAccepted.equalsIgnoreCase("J_ER Duplicate Username: Pick a new username!")){
+                sc = new Scanner(System.in);
+                System.out.println("What is your new username: ");
+                USERNAME = sc.nextLine();
+                System.out.println("new username = " + USERNAME);
+                byte[] newUserName = USERNAME.getBytes();
+                outToServer.write(newUserName);
+            }
+
+
+            imavThread();
+            receiveMsg();
 
             while (true) {
 
-                imavThread();
 
-                inFromServer = socket.getInputStream();
+
+//                inFromServer = socket.getInputStream();
                 outToServer = socket.getOutputStream();
 
                 sc = new Scanner(System.in);
                 System.out.println("\nWhat do you want to send? ");
                 String msgToSend = "DATA " + USERNAME + ": " + sc.nextLine();
-
-
-
                 byte[] dataToSend = msgToSend.getBytes();
                 outToServer.write(dataToSend);
-                if (msgToSend.equalsIgnoreCase("\nDATA " + USERNAME + ": " + "quit")) {
+
+                if (msgToSend.equalsIgnoreCase("DATA " + USERNAME + ": " + "!quit")) {
+                    msgFromServer.stop();
+                    IMAV.stop();
                     System.out.println("Shutting down");
                     break;
                 }
-
-                byte[] dataIn = new byte[1024];
-                inFromServer.read(dataIn);
-                String msgIn = new String(dataIn);
-                msgIn = msgIn.trim();
-                System.out.println(msgIn);
 
             }
 
@@ -83,11 +91,31 @@ public class TCPClient {
     }
 
 
+    static void receiveMsg() {
+        msgFromServer = new Thread(() -> {
+            try{
+                while (true) {
+
+                    byte[] dataIn = new byte[1024];
+                    inFromServer.read(dataIn);
+                    String msgIn = new String(dataIn);
+                    msgIn = msgIn.trim();
+                    System.out.println(msgIn);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        msgFromServer.start();
+    }
+
+
+
     static void imavThread() {
         IMAV = new Thread(() -> {
             while (true) {
                 try {
-                    Thread.sleep(60000);
+                    Thread.sleep(2000);
                     outToServer.write("IMAV".getBytes());
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -101,5 +129,3 @@ public class TCPClient {
 
 
 }
-
-

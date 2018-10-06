@@ -30,7 +30,7 @@ public class TCPServer {
             System.out.println("PORT: " + socket.getPort());
 
             OutputStream acceptSocket = socket.getOutputStream();
-            String clientAccept = "YOU ARE CONNECTED\n";
+            String clientAccept = "J_OK";
             byte[] acceptSend = clientAccept.getBytes();
             acceptSocket.write(acceptSend);
 
@@ -45,9 +45,11 @@ public class TCPServer {
 
                 byte[] dataIn = new byte[1024];
                 input.read(dataIn);
-                output.write(dataIn);
                 String msgIn = new String(dataIn);
                 msgIn = msgIn.trim();
+                if (!msgIn.equals("IMAV")){
+                    output.write(dataIn);
+                }
                 System.out.println(msgIn);
 
             }
