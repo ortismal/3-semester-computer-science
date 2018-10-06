@@ -38,8 +38,16 @@ public class TCPAlexClient {
             OutputStream output = socket.getOutputStream();
 
             sc = new Scanner(System.in);
-            System.out.println("What is your username?");
-            String userName = sc.nextLine();
+            String userName;
+            do {
+                System.out.println("What is your username?");
+                userName = sc.nextLine();
+                if((userName.matches("^[a-zA-Z\\d-_]{0,12}$"))){
+                    break;
+                }
+                System.out.println("Username is max 12 chars long, only letters, digits, ‘-‘ and ‘_’ allowed.");
+            } while (true);
+
             String msgToSend = "JOIN " + userName + ", " + IP_SERVER_STR + ":" + PORT_SERVER;
 
             byte[] dataToSend = msgToSend.getBytes();

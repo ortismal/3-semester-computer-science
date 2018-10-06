@@ -19,7 +19,6 @@ public class TCPServer {
 
             Thread threads = new Thread(() -> {
                 try {
-                    Client client = new Client();
                     InputStream input = s.getInputStream();
                     OutputStream output = s.getOutputStream();
 
@@ -33,10 +32,7 @@ public class TCPServer {
                     msgIn = msgIn.trim();
                     userName = msgIn.substring(5, msgIn.lastIndexOf(","));
 
-                    client.setName(userName);
-                    client.setS(s);
-                    client.setInput(input);
-                    client.setOutput(output);
+                    Client client = new Client(userName, s, input, output);
                     clients.add(client);
 
                     System.out.println(msgIn);
@@ -91,6 +87,7 @@ public class TCPServer {
         }
     }
 
+    // Check if name already exists
     public static boolean isDuplicate(String msg, ArrayList<Client> clients) {
         return true;
     }
