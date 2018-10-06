@@ -1,5 +1,3 @@
-
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -41,8 +39,8 @@ public class TCPAlexClient {
             OutputStream output = socket.getOutputStream();
 
             sc = new Scanner(System.in);
-            System.out.println("What do you want to send? ");
-            String msgToSend = sc.nextLine();
+            System.out.println("What is your username?");
+            String msgToSend = sc.nextLine() + ", " + IP_SERVER_STR + ":" + PORT_SERVER;
 
             byte[] dataToSend = msgToSend.getBytes();
             output.write(dataToSend);
@@ -52,8 +50,16 @@ public class TCPAlexClient {
             String msgIn = new String(dataIn);
             msgIn = msgIn.trim();
 
-
             System.out.println("IN -->" + msgIn + "<--");
+
+            do {
+
+                System.out.print("Please type your text: ");
+                msgToSend = sc.nextLine();
+                dataToSend = msgToSend.getBytes();
+                output.write(dataToSend);
+
+            } while (!msgToSend.equalsIgnoreCase("quit"));
 
         } catch (UnknownHostException e) {
             e.printStackTrace();

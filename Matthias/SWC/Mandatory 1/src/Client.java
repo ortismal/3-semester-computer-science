@@ -24,4 +24,27 @@ class Client{
         this.name = name;
     }
 
+    public Socket getS() {
+        return s;
+    }
+
+    public void setS(Socket s) {
+        this.s = s;
+    }
+
+    public InputStream getInput() {
+        return input;
+    }
+
+    public void setInput(InputStream input) {
+        this.input = input;
+    }
+
+    public OutputStream getOutput() {
+        return output;
+    }
+
+    public void setOutput(OutputStream output) {
+        this.output = output;
+    }
 }

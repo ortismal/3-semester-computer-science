@@ -3,11 +3,10 @@ import java.net.*;
 
 public class TCPServer {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception{
 
         System.out.println("Starting TCP Server main program");
-        String sentence;
-        final int user = 0;
+        int user = 0;
         Client[] clients = new Client[20];
 
         ServerSocket socket = new ServerSocket(5656);
@@ -18,36 +17,62 @@ public class TCPServer {
 
             final Socket s = socket.accept();
             System.out.println("Client request recieved: " + s);
-            System.out.println("Creating handler for client.");
 
-            new Thread(()->{
-                do {
-                    InputStream input = null;
-                    OutputStream output = null;
+            int finalUser = user;
+            Thread threads = new Thread(()-> {
+                byte[] dataIn = new byte[1024];
+                byte[] dataOut = new byte[1024];
+                InputStream input = null;
+                OutputStream output = null;
+                String msgIn = null;
+                String msgOut = null;
+
                     try {
-                        input = s.getInputStream();
                         output = s.getOutputStream();
+                        input = s.getInputStream();
+                        input.read(dataIn);
 
-                    clients[user] = new Client("Ost", s, input, output);
-
-                    byte[] dataIn = new byte[1024];
-                    System.out.println(clients[user].getName() + ": " + input.read(dataIn));
-
-                    /*
-                    if (sentence.equalsIgnoreCase("!commands")) {
-                        commands();
-                    }
-                    if (sentence.equalsIgnoreCase("list")) {
-                        list(clients);
-                    }
                     } catch (IOException e) {
                         e.printStackTrace();
-                    }*/
+                    }
 
-                } while (!sentence.equalsIgnoreCase("quit"));
+                msgIn = new String(dataIn);
+                msgIn = msgIn.trim();
+                msgOut = "J_OK";
+
+                try {
+                    dataOut = msgOut.getBytes();
+                    output.write(dataOut);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                clients[finalUser] = new Client(msgIn.substring(0, msgIn.indexOf(",")), s, input, output);
+                System.out.println("JOIN " + msgIn);
+
+                do {
+                    dataIn = new byte[1024];
+                    try {
+                        clients[finalUser].getInput().read(dataIn);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    msgIn = new String(dataIn);
+                    msgIn = msgIn.trim();
+                    if (msgIn.equalsIgnoreCase("!commands")) {
+                        commands();
+                    }
+                    if (msgIn.equalsIgnoreCase("!list")) {
+                        list(clients);
+                    } else {
+                        System.out.println("DATA " + clients[finalUser].getName() + ": " + msgIn);
+                    }
+
+                } while (!msgIn.equalsIgnoreCase("quit"));
+
                 // outToClient.writeBytes(userName + " has left the chat.");
 
-                System.out.println(userName + " has left the chat!");
+                System.out.println(clients[finalUser].getName() + " has left the chat!");
                 try {
                     s.close();
                     socket.close();
@@ -56,31 +81,14 @@ public class TCPServer {
                 }
             });
 
-            String clientIp = socket.getInetAddress().getHostAddress();
+            /*String clientIp = socket.getInetAddress().getHostAddress();
             System.out.println("IP: " + clientIp);
-            System.out.println("PORT: " + s.getPort());
-            // user++;
+            System.out.println("PORT: " + s.getPort());*/
+            user++;
+            threads.start();
         }
 
-        Socket connectionSocket = socket.accept();
-        System.out.println("Connection made!");
-        String clientIp = socket.getInetAddress().getHostAddress();
-        System.out.println("IP: " + clientIp);
-        System.out.println("PORT: " + connectionSocket.getPort());
-
     }
-    // Thread opretning af flere brugere på chatten
-    /*public static Socket newClient(int user, Thread[] clients, ServerSocket welcomeSocket) {
-        clients[clients.length+1] = new Thread(()->{
-            try {
-                Socket connectionSocket = welcomeSocket.accept();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-        });
-
-    }*/
 
     // Printer en oversigt over forskellige chat-commands.
     public static void commands(){
@@ -90,10 +98,14 @@ public class TCPServer {
     }
 
     // Printer en oversigt over aktive brugere i chatten
-    public static void list(Thread[] threads){
-        for(int i = 0; i < threads.length; i++){
-            System.out.println(threads[i]);
+    public static void list(Client[] clients){
+        for(int i = 0; i < clients.length; i++){
+            System.out.println(clients[i]);
         }
+    }
+
+    public static boolean isDuplicate(Client[] clients){
+        return true;
     }
 
 }
