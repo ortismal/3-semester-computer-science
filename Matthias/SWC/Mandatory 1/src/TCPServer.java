@@ -7,36 +7,66 @@ public class TCPServer {
 
         System.out.println("Starting TCP Server main program");
         String sentence;
-        String userName;
-        int user = 0;
-        Thread[] clients = new Thread[user];
+        final int user = 0;
+        Client[] clients = new Client[20];
 
-
-        ServerSocket welcomeSocket = new ServerSocket(5656);
+        ServerSocket socket = new ServerSocket(5656);
         System.out.println("Socket created!");
         System.out.println("Waiting for a connection..");
-        Socket connectionSocket = welcomeSocket.accept();
+
+        while(true){
+
+            final Socket s = socket.accept();
+            System.out.println("Client request recieved: " + s);
+            System.out.println("Creating handler for client.");
+
+            new Thread(()->{
+                do {
+                    InputStream input = null;
+                    OutputStream output = null;
+                    try {
+                        input = s.getInputStream();
+                        output = s.getOutputStream();
+
+                    clients[user] = new Client("Ost", s, input, output);
+
+                    byte[] dataIn = new byte[1024];
+                    System.out.println(clients[user].getName() + ": " + input.read(dataIn));
+
+                    /*
+                    if (sentence.equalsIgnoreCase("!commands")) {
+                        commands();
+                    }
+                    if (sentence.equalsIgnoreCase("list")) {
+                        list(clients);
+                    }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }*/
+
+                } while (!sentence.equalsIgnoreCase("quit"));
+                // outToClient.writeBytes(userName + " has left the chat.");
+
+                System.out.println(userName + " has left the chat!");
+                try {
+                    s.close();
+                    socket.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+
+            String clientIp = socket.getInetAddress().getHostAddress();
+            System.out.println("IP: " + clientIp);
+            System.out.println("PORT: " + s.getPort());
+            // user++;
+        }
+
+        Socket connectionSocket = socket.accept();
         System.out.println("Connection made!");
-
-        BufferedReader inFromClient = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
-        DataOutputStream outToClient = new DataOutputStream(connectionSocket.getOutputStream());
-        userName = inFromClient.readLine();
-
-        do{
-            sentence = inFromClient.readLine();
-            System.out.println(userName + ": " + sentence);
-            if(sentence.equalsIgnoreCase("!commands")){
-                commands();
-            } if(sentence.equalsIgnoreCase("list")){
-                list(clients);
-            }
-
-        } while (!sentence.equalsIgnoreCase("quit"));
-        // outToClient.writeBytes(userName + " has left the chat.");
-
-        System.out.println(userName + " has left the chat!");
-        connectionSocket.close();
-        welcomeSocket.close();
+        String clientIp = socket.getInetAddress().getHostAddress();
+        System.out.println("IP: " + clientIp);
+        System.out.println("PORT: " + connectionSocket.getPort());
 
     }
     // Thread opretning af flere brugere på chatten
