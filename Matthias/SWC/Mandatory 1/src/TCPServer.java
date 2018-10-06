@@ -66,7 +66,17 @@ public class TCPServer {
                     if (msgIn.equalsIgnoreCase("!list")) {
                         list(clients);
                     } else {
-                        System.out.println("DATA " + clients.get(ID).getName() + ": " + msgIn);
+                        msgOut = "\nDATA " + clients.get(ID).getName() + ": " + msgIn;
+                        System.out.print(msgOut);
+                        for(Client c : clients){
+                            output = c.getOutput();
+                            dataOut = msgOut.getBytes();
+                            try {
+                                output.write(dataOut);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
                     }
 
                 } while (!msgIn.equalsIgnoreCase("quit"));

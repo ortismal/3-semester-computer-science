@@ -52,6 +52,17 @@ public class TCPAlexClient {
             System.out.println("IN -->" + msgIn + "<--");
 
             do {
+                Thread recieve = new Thread(()->{
+                    try {
+                        input.read(dataIn);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    final String msg = new String(dataIn).trim();
+                    System.out.println(msg);
+                });
+
+                recieve.start();
 
                 System.out.print("Please type your text: ");
                 msgToSend = sc.nextLine();
