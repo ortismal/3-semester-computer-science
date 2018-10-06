@@ -1,25 +1,26 @@
 import java.io.*;
 import java.net.*;
+import java.util.ArrayList;
 
 public class TCPServer {
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
 
         System.out.println("Starting TCP Server main program");
-        int user = 0;
-        Client[] clients = new Client[20];
-
+        ArrayList<Client> clients = new ArrayList<>();
         ServerSocket socket = new ServerSocket(5656);
+        Client client = new Client();
+
         System.out.println("Socket created!");
         System.out.println("Waiting for a connection..");
 
-        while(true){
+        while (true) {
 
             final Socket s = socket.accept();
             System.out.println("Client request recieved: " + s);
 
-            int finalUser = user;
-            Thread threads = new Thread(()-> {
+            Thread threads = new Thread(() -> {
+                final int ID = client.getID();
                 byte[] dataIn = new byte[1024];
                 byte[] dataOut = new byte[1024];
                 InputStream input = null;
@@ -27,17 +28,20 @@ public class TCPServer {
                 String msgIn = null;
                 String msgOut = null;
 
-                    try {
-                        output = s.getOutputStream();
-                        input = s.getInputStream();
-                        input.read(dataIn);
+                try {
+                    output = s.getOutputStream();
+                    input = s.getInputStream();
+                    input.read(dataIn);
 
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 msgIn = new String(dataIn);
                 msgIn = msgIn.trim();
+                clients.add(new Client(ID, msgIn.substring(5, msgIn.indexOf(",")), s, input, output));
+                client.increment();
+                System.out.println(msgIn);
+
                 msgOut = "J_OK";
 
                 try {
@@ -47,13 +51,10 @@ public class TCPServer {
                     e.printStackTrace();
                 }
 
-                clients[finalUser] = new Client(msgIn.substring(0, msgIn.indexOf(",")), s, input, output);
-                System.out.println("JOIN " + msgIn);
-
                 do {
                     dataIn = new byte[1024];
                     try {
-                        clients[finalUser].getInput().read(dataIn);
+                        clients.get(ID).getInput().read(dataIn);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -65,14 +66,14 @@ public class TCPServer {
                     if (msgIn.equalsIgnoreCase("!list")) {
                         list(clients);
                     } else {
-                        System.out.println("DATA " + clients[finalUser].getName() + ": " + msgIn);
+                        System.out.println("DATA " + clients.get(ID).getName() + ": " + msgIn);
                     }
 
                 } while (!msgIn.equalsIgnoreCase("quit"));
 
                 // outToClient.writeBytes(userName + " has left the chat.");
 
-                System.out.println(clients[finalUser].getName() + " has left the chat!");
+                System.out.println(clients.get(ID).getName() + " has left the chat!");
                 try {
                     s.close();
                     socket.close();
@@ -84,27 +85,27 @@ public class TCPServer {
             /*String clientIp = socket.getInetAddress().getHostAddress();
             System.out.println("IP: " + clientIp);
             System.out.println("PORT: " + s.getPort());*/
-            user++;
             threads.start();
         }
 
     }
 
     // Printer en oversigt over forskellige chat-commands.
-    public static void commands(){
+    public static void commands() {
         System.out.println("List of commands: ");
-        System.out.println("1. Quit - leave the server.");;
+        System.out.println("1. Quit - leave the server.");
+        ;
         System.out.println("2. List - prints a list of active clients");
     }
 
     // Printer en oversigt over aktive brugere i chatten
-    public static void list(Client[] clients){
-        for(int i = 0; i < clients.length; i++){
-            System.out.println(clients[i]);
+    public static void list(ArrayList<Client> clients) {
+        for (int i = 0; i < clients.size(); i++) {
+            System.out.println(clients.get(i).toString());
         }
     }
 
-    public static boolean isDuplicate(Client[] clients){
+    public static boolean isDuplicate(ArrayList<Client> clients) {
         return true;
     }
 

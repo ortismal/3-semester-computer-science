@@ -1,7 +1,6 @@
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -40,7 +39,7 @@ public class TCPAlexClient {
 
             sc = new Scanner(System.in);
             System.out.println("What is your username?");
-            String msgToSend = sc.nextLine() + ", " + IP_SERVER_STR + ":" + PORT_SERVER;
+            String msgToSend = "JOIN " + sc.nextLine() + ", " + IP_SERVER_STR + ":" + PORT_SERVER;
 
             byte[] dataToSend = msgToSend.getBytes();
             output.write(dataToSend);

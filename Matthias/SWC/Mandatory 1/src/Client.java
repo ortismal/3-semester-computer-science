@@ -2,18 +2,23 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
-class Client{
+class Client {
 
     private String name;
     private Socket s;
     private InputStream input;
     private OutputStream output;
+    private static int ID;
 
-    public Client(String name, Socket s, InputStream input, OutputStream output) {
+    public Client(int ID, String name, Socket s, InputStream input, OutputStream output) {
+        this.ID = ID;
         this.name = name;
         this.s = s;
         this.input = input;
         this.output = output;
+    }
+
+    public Client(){
     }
 
     public String getName() {
@@ -46,5 +51,23 @@ class Client{
 
     public void setOutput(OutputStream output) {
         this.output = output;
+    }
+
+    public synchronized void increment(){
+        ID++;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "name='" + name + '\'' +
+                ", s=" + s +
+                ", input=" + input +
+                ", output=" + output +
+                '}';
     }
 }
