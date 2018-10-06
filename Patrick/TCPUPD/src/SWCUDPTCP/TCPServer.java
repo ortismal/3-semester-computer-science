@@ -16,6 +16,7 @@ public class TCPServer {
         final int PORT_LISTEN = 5656;
 
         ArrayList<Client> users = new ArrayList<>();
+        Client client = new Client();
 
 
         try {
@@ -77,13 +78,15 @@ public class TCPServer {
                             String msgIn = new String(dataIn);
                             msgIn = msgIn.trim();
                             if (!msgIn.equals("IMAV")) {
-                                output.write(dataIn);
+                                for (Client c : users) {
+                                    output = c.getOutput();
+                                    output.write(dataIn);
+                                }
                             }
                             System.out.println(msgIn);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-
 
                     }
                 });

@@ -112,7 +112,7 @@ public class TCPClient {
         IMAV = new Thread(() -> {
             while (true) {
                 try {
-                    Thread.sleep(2000);
+                    Thread.sleep(40000);
                     outToServer.write("IMAV".getBytes());
                 } catch (InterruptedException e) {
                     e.printStackTrace();
