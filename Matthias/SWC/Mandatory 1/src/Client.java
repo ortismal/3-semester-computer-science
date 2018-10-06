@@ -8,10 +8,8 @@ class Client {
     private Socket s;
     private InputStream input;
     private OutputStream output;
-    private static int ID;
 
-    public Client(int ID, String name, Socket s, InputStream input, OutputStream output) {
-        this.ID = ID;
+    public Client(String name, Socket s, InputStream input, OutputStream output) {
         this.name = name;
         this.s = s;
         this.input = input;
@@ -51,14 +49,6 @@ class Client {
 
     public void setOutput(OutputStream output) {
         this.output = output;
-    }
-
-    public synchronized void increment(){
-        ID++;
-    }
-
-    public int getID() {
-        return ID;
     }
 
     @Override

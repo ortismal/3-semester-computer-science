@@ -39,7 +39,8 @@ public class TCPAlexClient {
 
             sc = new Scanner(System.in);
             System.out.println("What is your username?");
-            String msgToSend = "JOIN " + sc.nextLine() + ", " + IP_SERVER_STR + ":" + PORT_SERVER;
+            String userName = sc.nextLine();
+            String msgToSend = "JOIN " + userName + ", " + IP_SERVER_STR + ":" + PORT_SERVER;
 
             byte[] dataToSend = msgToSend.getBytes();
             output.write(dataToSend);
@@ -51,21 +52,26 @@ public class TCPAlexClient {
 
             System.out.println("IN -->" + msgIn + "<--");
 
-            do {
-                Thread recieve = new Thread(()->{
+            Thread receive = new Thread(() -> {
+                while (true) {
+                    byte[] dataReceive = new byte[1024];
                     try {
-                        input.read(dataIn);
+                        input.read(dataReceive);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    final String msg = new String(dataIn).trim();
-                    System.out.println(msg);
-                });
+                    String msg = new String(dataReceive);
+                    msg = msg.trim();
+                    System.out.println("\n" + msg);
+                }
+            });
 
-                recieve.start();
+            receive.start();
+
+            do {
 
                 System.out.print("Please type your text: ");
-                msgToSend = sc.nextLine();
+                msgToSend = "DATA " + userName + ": " + sc.nextLine();
                 dataToSend = msgToSend.getBytes();
                 output.write(dataToSend);
 
