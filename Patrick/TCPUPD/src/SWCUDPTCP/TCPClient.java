@@ -48,7 +48,7 @@ public class TCPClient {
             String msgAccepted = new String(acceptedClient);
             System.out.println(msgAccepted);
 
-            if (msgAccepted.equalsIgnoreCase("J_ER Duplicate Username: Pick a new username!")){
+            if (msgAccepted.equalsIgnoreCase("J_ER Duplicate Username: Pick a new username!")) {
                 sc = new Scanner(System.in);
                 System.out.println("What is your new username: ");
                 USERNAME = sc.nextLine();
@@ -64,8 +64,6 @@ public class TCPClient {
             while (true) {
 
 
-
-//                inFromServer = socket.getInputStream();
                 outToServer = socket.getOutputStream();
 
                 sc = new Scanner(System.in);
@@ -93,7 +91,7 @@ public class TCPClient {
 
     static void receiveMsg() {
         msgFromServer = new Thread(() -> {
-            try{
+            try {
                 while (true) {
 
                     byte[] dataIn = new byte[1024];
@@ -108,7 +106,6 @@ public class TCPClient {
         });
         msgFromServer.start();
     }
-
 
 
     static void imavThread() {
@@ -126,6 +123,5 @@ public class TCPClient {
         });
         IMAV.start();
     }
-
 
 }
