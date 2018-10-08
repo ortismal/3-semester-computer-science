@@ -10,6 +10,7 @@ public class TCPClient {
     static Thread IMAV;
     static OutputStream outToServer;
     static InputStream inFromServer;
+    static String USERNAME;
 
     public static void main(String[] args) {
         System.out.println("=============CLIENT==============");
@@ -17,7 +18,16 @@ public class TCPClient {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("What is your username: ");
-        String userName = args.length >= 1 ? args[0] : sc.nextLine();
+
+        do {
+
+            String userName = args.length >= 1 ? args[0] : sc.nextLine();
+            if((userName.matches("^[a-zA-Z\\d-_]{0,12}$"))){
+                USERNAME = userName;
+                break;
+            }
+            System.out.println("Username is too long. Max 12 digits or letters and only '_', '-' is allowed. \n Please pick a new username");
+        } while (true);
 
         System.out.print("What is the IP for the server (type 0 for localhost): ");
         String ipToConnect = args.length >= 2 ? args[1] : sc.nextLine();
@@ -25,8 +35,7 @@ public class TCPClient {
         System.out.print("What is the PORT for the server: ");
         int portToConnect = args.length >= 3 ? Integer.parseInt(args[2]) : sc.nextInt();
 
-        String USERNAME;
-        USERNAME = userName;
+
         final int PORT_SERVER = portToConnect;
         final String IP_SERVER_STR = ipToConnect.equals("0") ? "127.0.0.1" : ipToConnect;
 
@@ -67,19 +76,26 @@ public class TCPClient {
                 outToServer = socket.getOutputStream();
 
                 sc = new Scanner(System.in);
-                System.out.println("\nWhat do you want to send? ");
-                String msgToSend = "DATA " + USERNAME + ": " + sc.nextLine();
-                byte[] dataToSend = msgToSend.getBytes();
-                outToServer.write(dataToSend);
 
-                if (msgToSend.equalsIgnoreCase("DATA " + USERNAME + ": " + "!quit")) {
-                    msgFromServer.stop();
-                    IMAV.stop();
-                    socket.close();
-                    System.exit(1);
-                    System.out.println("Shutting down");
-                    break;
-                }
+                do {
+                    System.out.println("\nWhat do you want to send? ");
+                    String msgToSend = "DATA " + USERNAME + ": " + sc.nextLine();
+                    byte[] dataToSend = msgToSend.getBytes();
+                    outToServer.write(dataToSend);
+                    if (msgToSend.equalsIgnoreCase("DATA " + USERNAME + ": " + "!quit")) {
+                        msgFromServer.stop();
+                        IMAV.stop();
+                        socket.close();
+                        System.exit(1);
+                        System.out.println("Shutting down");
+                        break;
+                    }
+                    if(msgToSend.trim().length() < 250){
+                        break;
+                    }
+                    System.out.println("Your message length is: " + msgToSend.trim().length() + " which is " + (msgToSend.trim().length() - 250) + " too long, your message can be no logner than 250 characters long.");
+                } while (true);
+
 
             }
 

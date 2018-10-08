@@ -87,25 +87,29 @@ public class TCPServer {
 
 
 
-                    while (true) {
-                        try {
-                            input = socket.getInputStream();
-                            output = socket.getOutputStream();
-                            byte[] dataIn = new byte[1024];
-                            input.read(dataIn);
-                            String msgIn = new String(dataIn);
-                            msgIn = msgIn.trim();
-                            System.out.println(msgIn);
-                            for (Client c : users) {
-                                if (!msgIn.equals("IMAV")) {
-                                    output = c.getOutput();
-                                    output.write(dataIn);
-                                }
-                            }
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
+                     do {
+                         try {
+                             input = socket.getInputStream();
+                             output = socket.getOutputStream();
+
+                             byte[] dataIn = new byte[1024];
+                             input.read(dataIn);
+                             String msgIn = new String(dataIn);
+                             msgIn = msgIn.trim();
+
+                             for (Client c : users) {
+                                 if (!msgIn.equals("IMAV")) {
+                                     output = c.getOutput();
+                                     output.write(dataIn);
+                                 }
+                             }
+                             if (msgIn.length() < 250) {
+                                 System.out.println(msgIn);
+                             }
+                         } catch (IOException e) {
+                             e.printStackTrace();
+                         }
+                     }while (true);
                 });
                 t.start();
             }
@@ -113,4 +117,5 @@ public class TCPServer {
             e.printStackTrace();
         }
     }
+
 }
