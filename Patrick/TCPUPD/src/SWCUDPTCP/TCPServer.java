@@ -75,8 +75,9 @@ public class TCPServer {
                     }
                     for (Client c: users) {
                         output = c.getOutput();
+                        String cList = "List of all clients: " + ClientList;
                         byte[] listofclients;
-                        listofclients = ClientList.getBytes();
+                        listofclients = cList.getBytes();
                         try {
                             output.write(listofclients);
                         } catch (IOException e) {
