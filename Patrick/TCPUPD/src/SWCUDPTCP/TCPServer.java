@@ -10,7 +10,7 @@ public class TCPServer {
     static InputStream input;
     static OutputStream output;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NullPointerException {
         System.out.println("=============SERVER==============");
 
         final int PORT_LISTEN = 5656;
@@ -45,6 +45,8 @@ public class TCPServer {
                         e.printStackTrace();
                     }
                     String USERNAME = new String(uName);
+                    USERNAME = USERNAME.substring(5, USERNAME.lastIndexOf(","));
+
 
                     String clientIp = socket.getInetAddress().getHostAddress();
                     System.out.println(USERNAME);
@@ -54,40 +56,40 @@ public class TCPServer {
                     OutputStream acceptSocket = null;
                     try {
                         acceptSocket = socket.getOutputStream();
+                        output = socket.getOutputStream();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                     users.add(new Client(USERNAME, socket, input, output));
                     String clientAccept = "J_OK";
-
+                    System.out.println(users);
+                    System.out.println("JOIN " + USERNAME + ", " + clientIp + ":" + PORT_LISTEN);
                     byte[] acceptSend = clientAccept.getBytes();
                     try {
                         acceptSocket.write(acceptSend);
+//                        sendList();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    System.out.println(users);
 
                     while (true) {
                         try {
                             input = socket.getInputStream();
                             output = socket.getOutputStream();
-
                             byte[] dataIn = new byte[1024];
                             input.read(dataIn);
                             String msgIn = new String(dataIn);
                             msgIn = msgIn.trim();
-                            if (!msgIn.equals("IMAV")) {
-                                for (Client c : users) {
+                            System.out.println(msgIn);
+                            for (Client c : users) {
+                                if (!msgIn.equals("IMAV")) {
                                     output = c.getOutput();
                                     output.write(dataIn);
                                 }
                             }
-                            System.out.println(msgIn);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-
                     }
                 });
                 t.start();
