@@ -10,13 +10,12 @@ public class TCPServer {
     static InputStream input;
     static OutputStream output;
 
-    public static void main(String[] args) throws NullPointerException {
+    public static void main(String[] args) {
         System.out.println("=============SERVER==============");
 
         final int PORT_LISTEN = 5656;
 
         ArrayList<Client> users = new ArrayList<>();
-        Client client = new Client();
 
 
         try {
@@ -67,10 +66,25 @@ public class TCPServer {
                     byte[] acceptSend = clientAccept.getBytes();
                     try {
                         acceptSocket.write(acceptSend);
-//                        sendList();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                    String ClientList = "";
+                    for (Client c: users) {
+                        ClientList += c.getName() + ", ";
+                    }
+                    for (Client c: users) {
+                        output = c.getOutput();
+                        byte[] listofclients;
+                        listofclients = ClientList.getBytes();
+                        try {
+                            output.write(listofclients);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+
 
                     while (true) {
                         try {

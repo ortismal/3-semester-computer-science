@@ -75,6 +75,8 @@ public class TCPClient {
                 if (msgToSend.equalsIgnoreCase("DATA " + USERNAME + ": " + "!quit")) {
                     msgFromServer.stop();
                     IMAV.stop();
+                    socket.close();
+                    System.exit(1);
                     System.out.println("Shutting down");
                     break;
                 }
