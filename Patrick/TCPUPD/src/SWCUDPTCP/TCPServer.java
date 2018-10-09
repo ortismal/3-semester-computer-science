@@ -98,14 +98,14 @@ public class TCPServer {
                              msgIn = msgIn.trim();
 
                              for (Client c : users) {
-                                 if (!msgIn.equals("IMAV")) {
+                                 if (!msgIn.equals("IMAV") || msgIn.length() > 250) {
                                      output = c.getOutput();
+                                     System.out.println(msgIn);
                                      output.write(dataIn);
                                  }
                              }
-                             if (msgIn.length() < 250) {
-                                 System.out.println(msgIn);
-                             }
+//                             if (msgIn.length() < 250) {
+//                             }
                          } catch (IOException e) {
                              e.printStackTrace();
                          }

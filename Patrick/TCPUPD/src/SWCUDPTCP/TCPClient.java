@@ -81,7 +81,7 @@ public class TCPClient {
                     System.out.println("\nWhat do you want to send? ");
                     String msgToSend = "DATA " + USERNAME + ": " + sc.nextLine();
                     byte[] dataToSend = msgToSend.getBytes();
-                    outToServer.write(dataToSend);
+
                     if (msgToSend.equalsIgnoreCase("DATA " + USERNAME + ": " + "!quit")) {
                         msgFromServer.stop();
                         IMAV.stop();
@@ -91,9 +91,10 @@ public class TCPClient {
                         break;
                     }
                     if(msgToSend.trim().length() < 250){
+                        outToServer.write(dataToSend);
                         break;
                     }
-                    System.out.println("Your message length is: " + msgToSend.trim().length() + " which is " + (msgToSend.trim().length() - 250) + " too long, your message can be no logner than 250 characters long.");
+                    System.out.println("Your message length is: " + msgToSend.trim().length() + " which is " + (msgToSend.trim().length() - 250) + " too long, your message can be no longer than 250 characters long.");
                 } while (true);
 
 
