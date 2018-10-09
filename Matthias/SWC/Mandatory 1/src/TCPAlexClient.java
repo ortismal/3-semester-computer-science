@@ -42,7 +42,6 @@ public class TCPAlexClient {
             String msgToSend;
             byte[] dataToSend;
 
-
             do {
                 do {
                     System.out.println("What is your username?");
@@ -84,8 +83,8 @@ public class TCPAlexClient {
                     System.out.println("\n" + msg);
                 }
             });
-
             receive.start();
+
             // Do-while som kører indtil bruger siger quit.
             do {
                 //Do-while der kører indtil beskeden er mindre end 250 characters.

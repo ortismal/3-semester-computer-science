@@ -43,13 +43,12 @@ public class TCPServer {
                             client.setName(userName);
                             clients.add(client);
                             System.out.println(msgIn);
-                            sendMsg("J_OK", output);
+                            sendMsg("J_OK\nWelcome to the chat " + userName + "!\nFor a list of available commands, type !commands", output);
                             break;
                         }
                         sendMsg("J_ER 01: Name already exists", output);
 
                     } while (true);
-
 
                     do {
                         dataIn = new byte[1024];
@@ -58,10 +57,10 @@ public class TCPServer {
                         msgIn = new String(dataIn);
                         msgIn = msgIn.trim();
                         if (msgIn.equalsIgnoreCase("!commands")) {
-                            commands();
+                            sendMsg("List of commands:\n1. !Quit - leave the server. \n2. !List - prints a list of active clients", output);
                         }
                         if (msgIn.equalsIgnoreCase("!list")) {
-                            list(clients);
+                            list(clients, output);
                         } else {
                             System.out.print("\n" + msgIn);
                             for (Client c : clients) {
@@ -84,18 +83,13 @@ public class TCPServer {
 
     }
 
-    // Printer en oversigt over forskellige chat-commands.
-    public static void commands() {
-        System.out.println("List of commands: ");
-        System.out.println("1. Quit - leave the server.");
-        System.out.println("2. List - prints a list of active clients");
-    }
-
     // Printer en oversigt over aktive brugere i chatten
-    public static void list(ArrayList<Client> clients) {
-        for (int i = 0; i < clients.size(); i++) {
-            System.out.println(clients.get(i).toString());
+    public static void list(ArrayList<Client> clients, OutputStream output) {
+        String list = "";
+        for (Client c : clients) {
+            list = list + " " + c.toString() + "\n ";
         }
+        sendMsg(list, output);
     }
 
     // Check if name already exists
@@ -107,7 +101,7 @@ public class TCPServer {
         }
         return false;
     }
-
+    // Writes data to client
     public static void sendMsg(String msg, OutputStream output) {
         byte[] dataOut = msg.getBytes();
         try {
