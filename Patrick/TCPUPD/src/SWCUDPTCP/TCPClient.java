@@ -22,7 +22,7 @@ public class TCPClient {
         do {
 
             String userName = args.length >= 1 ? args[0] : sc.nextLine();
-            if((userName.matches("^[a-zA-Z\\d-_]{0,12}$"))){
+            if ((userName.matches("^[a-zA-Z\\d-_]{0,12}$"))) {
                 USERNAME = userName;
                 break;
             }
@@ -41,13 +41,17 @@ public class TCPClient {
 
 
         try {
+
+
             InetAddress ip = InetAddress.getByName(IP_SERVER_STR);
+            Socket socket = new Socket(ip, PORT_SERVER);
+
 
             System.out.println("\nConnecting...");
             System.out.println("Username: " + USERNAME);
             System.out.println("SERVER IP: " + IP_SERVER_STR);
             System.out.println("SERVER PORT: " + PORT_SERVER + "\n");
-            Socket socket = new Socket(ip, PORT_SERVER);
+
             outToServer = socket.getOutputStream();
             outToServer.write(("JOIN " + USERNAME + ", " + IP_SERVER_STR + ":" + portToConnect).getBytes());
 
@@ -55,16 +59,16 @@ public class TCPClient {
             byte[] acceptedClient = new byte[1024];
             inFromServer.read(acceptedClient);
             String msgAccepted = new String(acceptedClient);
-            System.out.println(msgAccepted);
 
-            if (msgAccepted.equalsIgnoreCase("J_ER Duplicate Username: Pick a new username!")) {
-                sc = new Scanner(System.in);
-                System.out.println("What is your new username: ");
-                USERNAME = sc.nextLine();
-                System.out.println("new username = " + USERNAME);
-                byte[] newUserName = USERNAME.getBytes();
-                outToServer.write(newUserName);
-            }
+
+                if (msgAccepted.equalsIgnoreCase("J_ER")) {
+                    sc = new Scanner(System.in);
+                    System.out.println("What is your new username: ");
+                    USERNAME = sc.nextLine();
+                    System.out.println("new username = " + USERNAME);
+                    byte[] newUserName = USERNAME.getBytes();
+                    outToServer.write(newUserName);
+                }
 
 
             imavThread();
@@ -90,7 +94,7 @@ public class TCPClient {
                         System.out.println("Shutting down");
                         break;
                     }
-                    if(msgToSend.trim().length() < 250){
+                    if (msgToSend.trim().length() < 250) {
                         outToServer.write(dataToSend);
                         break;
                     }

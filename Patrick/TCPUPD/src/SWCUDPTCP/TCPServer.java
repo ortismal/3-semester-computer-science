@@ -98,18 +98,20 @@ public class TCPServer {
                              msgIn = msgIn.trim();
 
                              for (Client c : users) {
+
                                      if (msgIn.trim().length() > 250) {
                                          byte[] J_ER_TooLong;
-                                         String J_ER_toolong = "J_ER MESSAGE TOO LONG: " + msgIn.length();
-                                         J_ER_TooLong = J_ER_toolong.getBytes();
+                                         String J_ER_long = "J_ER MESSAGE TOO LONG: Message contains: " + msgIn.length() + " characters, max length is 250";
+                                         J_ER_TooLong = J_ER_long.getBytes();
                                          output.write(J_ER_TooLong);
                                      }else if(!msgIn.equals("IMAV")){
                                          output = c.getOutput();
-                                         System.out.println(msgIn);
                                          output.write(dataIn);
+                                     }else{System.out.println(msgIn);
                                      }
 
                              }
+                             System.out.println(msgIn);
 
                          } catch (IOException e) {
                              e.printStackTrace();
