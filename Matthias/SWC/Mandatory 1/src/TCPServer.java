@@ -19,25 +19,36 @@ public class TCPServer {
 
             Thread threads = new Thread(() -> {
                 try {
+                    Client client = new Client();
                     InputStream input = s.getInputStream();
                     OutputStream output = s.getOutputStream();
 
                     String msgIn;
                     String userName;
+                    byte[] dataIn;
 
-                    byte[] dataIn = new byte[1024];
+                    do{
+                    dataIn = new byte[1024];
                     input.read(dataIn);
 
                     msgIn = new String(dataIn);
                     msgIn = msgIn.trim();
                     userName = msgIn.substring(5, msgIn.lastIndexOf(","));
 
-                    Client client = new Client(userName, s, input, output);
-                    clients.add(client);
+                    client.setS(s);
+                    client.setInput(input);
+                    client.setOutput(output);
 
-                    System.out.println(msgIn);
+                        if(!isDuplicate(userName, clients)) {
+                            client.setName(userName);
+                            clients.add(client);
+                            System.out.println(msgIn);
+                            sendMsg("J_OK", output);
+                            break;
+                        }
+                        sendMsg("J_ER 01: Name already exists", output);
 
-                    sendMsg("J_OK", output);
+                    } while (true);
 
 
                     do {
@@ -88,8 +99,13 @@ public class TCPServer {
     }
 
     // Check if name already exists
-    public static boolean isDuplicate(String msg, ArrayList<Client> clients) {
-        return true;
+    public static boolean isDuplicate(String userName, ArrayList<Client> clients) {
+        for (Client c : clients){
+            if(c.getName().equalsIgnoreCase(userName)){
+                return true;
+            }
+        }
+        return false;
     }
 
     public static void sendMsg(String msg, OutputStream output) {

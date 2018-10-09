@@ -39,26 +39,37 @@ public class TCPAlexClient {
 
             sc = new Scanner(System.in);
             String userName;
+            String msgToSend;
+            byte[] dataToSend;
+
+
             do {
-                System.out.println("What is your username?");
-                userName = sc.nextLine();
-                if((userName.matches("^[a-zA-Z\\d-_]{0,12}$"))){
+                do {
+                    System.out.println("What is your username?");
+                    userName = sc.nextLine();
+                    if ((userName.matches("^[a-zA-Z\\d-_]{0,12}$"))) {
+                        break;
+                    }
+                    System.out.println("Username is max 12 chars long, only letters, digits, ‘-‘ and ‘_’ allowed.");
+                } while (true);
+
+                msgToSend = "JOIN " + userName + ", " + IP_SERVER_STR + ":" + PORT_SERVER;
+
+                dataToSend = msgToSend.getBytes();
+                output.write(dataToSend);
+
+
+                byte[] dataIn = new byte[1024];
+                input.read(dataIn);
+                String msgIn = new String(dataIn);
+                msgIn = msgIn.trim();
+
+                if(msgIn.contains("J_OK")){
+                    System.out.println("J_OK");
                     break;
                 }
-                System.out.println("Username is max 12 chars long, only letters, digits, ‘-‘ and ‘_’ allowed.");
+                System.out.println("IN -->" + msgIn + "<--");
             } while (true);
-
-            String msgToSend = "JOIN " + userName + ", " + IP_SERVER_STR + ":" + PORT_SERVER;
-
-            byte[] dataToSend = msgToSend.getBytes();
-            output.write(dataToSend);
-
-            byte[] dataIn = new byte[1024];
-            input.read(dataIn);
-            String msgIn = new String(dataIn);
-            msgIn = msgIn.trim();
-
-            System.out.println("IN -->" + msgIn + "<--");
 
             Thread receive = new Thread(() -> {
                 while (true) {
@@ -75,11 +86,18 @@ public class TCPAlexClient {
             });
 
             receive.start();
-
+            // Do-while som kører indtil bruger siger quit.
             do {
-
-                System.out.print("Please type your text: ");
-                msgToSend = "DATA " + userName + ": " + sc.nextLine();
+                //Do-while der kører indtil beskeden er mindre end 250 characters.
+                do {
+                    System.out.print("Please type your text: ");
+                    msgToSend = sc.nextLine();
+                    if((msgToSend.length() < 249)){
+                        break;
+                    }
+                    System.out.println("Maximum length of message is 250 characters, try again.");
+                } while (true);
+                msgToSend = "DATA " + userName + ": " + msgToSend;
                 dataToSend = msgToSend.getBytes();
                 output.write(dataToSend);
 
