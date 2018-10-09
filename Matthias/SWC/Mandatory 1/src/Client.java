@@ -51,13 +51,4 @@ class Client {
         this.output = output;
     }
 
-    @Override
-    public String toString() {
-        return "Client{" +
-                "name='" + name + '\'' +
-                ", s=" + s +
-                ", input=" + input +
-                ", output=" + output +
-                '}';
-    }
 }

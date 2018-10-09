@@ -40,7 +40,6 @@ public class TCPAlexClient {
             sc = new Scanner(System.in);
             String userName;
             String msgToSend;
-            byte[] dataToSend;
 
             do {
                 do {
@@ -52,10 +51,7 @@ public class TCPAlexClient {
                     System.out.println("Username is max 12 chars long, only letters, digits, ‘-‘ and ‘_’ allowed.");
                 } while (true);
 
-                msgToSend = "JOIN " + userName + ", " + IP_SERVER_STR + ":" + PORT_SERVER;
-
-                dataToSend = msgToSend.getBytes();
-                output.write(dataToSend);
+                sendMsg("JOIN " + userName + ", " + IP_SERVER_STR + ":" + PORT_SERVER, output);
 
 
                 byte[] dataIn = new byte[1024];
@@ -63,8 +59,8 @@ public class TCPAlexClient {
                 String msgIn = new String(dataIn);
                 msgIn = msgIn.trim();
 
-                if(msgIn.contains("J_OK")){
-                    System.out.println("J_OK");
+                if (msgIn.contains("J_OK")) {
+                    System.out.println(msgIn);
                     break;
                 }
                 System.out.println("IN -->" + msgIn + "<--");
@@ -83,6 +79,18 @@ public class TCPAlexClient {
                     System.out.println("\n" + msg);
                 }
             });
+
+            Thread heartBeat = new Thread(() -> {
+                while (true) {
+                    try {
+                        Thread.sleep(60000);
+                        sendMsg("\nIMAV", output);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            heartBeat.start();
             receive.start();
 
             // Do-while som kører indtil bruger siger quit.
@@ -91,19 +99,32 @@ public class TCPAlexClient {
                 do {
                     System.out.print("Please type your text: ");
                     msgToSend = sc.nextLine();
-                    if((msgToSend.length() < 249)){
+                    if (msgToSend.length() < 249) {
                         break;
                     }
                     System.out.println("Maximum length of message is 250 characters, try again.");
                 } while (true);
-                msgToSend = "DATA " + userName + ": " + msgToSend;
-                dataToSend = msgToSend.getBytes();
-                output.write(dataToSend);
-
-            } while (!msgToSend.equalsIgnoreCase("quit"));
-
+                if (msgToSend.equalsIgnoreCase("!quit")) {
+                    System.out.println("You have left the chat!");
+                    sendMsg("!quit", output);
+                    socket.close();
+                    System.exit(0);
+                    break;
+                }
+                sendMsg("DATA " + userName + ": " + msgToSend, output);
+            } while (true);
         } catch (UnknownHostException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void sendMsg(String msg, OutputStream output) {
+        byte[] dataOut = msg.getBytes();
+        try {
+            output.write(dataOut);
+            output.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }
