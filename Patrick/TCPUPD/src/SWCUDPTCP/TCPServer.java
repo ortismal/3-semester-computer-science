@@ -9,6 +9,7 @@ public class TCPServer {
     static Thread t;
     static InputStream input;
     static OutputStream output;
+    static Socket socket;
 
     public static void main(String[] args) {
         System.out.println("=============SERVER==============");
@@ -25,8 +26,7 @@ public class TCPServer {
 
             while (true) {
 
-
-                Socket socket = server.accept();
+                socket = server.accept();
                 System.out.println("Client connected");
 
                 t = new Thread(() -> {
@@ -98,18 +98,23 @@ public class TCPServer {
                              msgIn = msgIn.trim();
 
                              for (Client c : users) {
-                                 if (!msgIn.equals("IMAV") || msgIn.length() > 250) {
-                                     output = c.getOutput();
-                                     System.out.println(msgIn);
-                                     output.write(dataIn);
-                                 }
+                                     if (msgIn.trim().length() > 250) {
+                                         byte[] J_ER_TooLong;
+                                         String J_ER_toolong = "J_ER MESSAGE TOO LONG: " + msgIn.length();
+                                         J_ER_TooLong = J_ER_toolong.getBytes();
+                                         output.write(J_ER_TooLong);
+                                     }else if(!msgIn.equals("IMAV")){
+                                         output = c.getOutput();
+                                         System.out.println(msgIn);
+                                         output.write(dataIn);
+                                     }
+
                              }
-//                             if (msgIn.length() < 250) {
-//                             }
+
                          } catch (IOException e) {
                              e.printStackTrace();
                          }
-                     }while (true);
+                     }while (!socket.isClosed());
                 });
                 t.start();
             }
