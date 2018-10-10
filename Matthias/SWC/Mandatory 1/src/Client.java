@@ -2,6 +2,10 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
+/**
+ * Created by Matthias Skou on 03-10-2018.
+ */
+
 class Client {
 
     private String name;
