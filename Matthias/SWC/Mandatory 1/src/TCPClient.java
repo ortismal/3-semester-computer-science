@@ -7,9 +7,9 @@ import java.net.UnknownHostException;
 import java.util.Scanner;
 
 /**
- * Created by coag on 27-09-2018.
+ * Created by Matthias Skou on 02-10-2018.
  */
-public class TCPAlexClient {
+public class TCPClient {
 
     public static void main(String[] args) {
         System.out.println("=============CLIENT==============");
@@ -20,7 +20,6 @@ public class TCPAlexClient {
 
         System.out.print("What is the PORT for the server: ");
         int portToConnect = args.length >= 2 ? Integer.parseInt(args[1]) : sc.nextInt();
-
 
         final int PORT_SERVER = portToConnect;
         final String IP_SERVER_STR = ipToConnect.equals("0") ? "127.0.0.1" : ipToConnect;
@@ -40,46 +39,41 @@ public class TCPAlexClient {
             sc = new Scanner(System.in);
             String userName;
             String msgToSend;
+            String msgIn;
 
+            // Do-while until J_OK msg received
             do {
+                // Do-while until username matches regex
                 do {
                     System.out.println("What is your username?");
                     userName = sc.nextLine();
+                    // Username is max 12 chars long, only letters, digits, ‘-‘ and ‘_’ allowed.
                     if ((userName.matches("^[a-zA-Z\\d-_]{0,12}$"))) {
                         break;
                     }
                     System.out.println("Username is max 12 chars long, only letters, digits, ‘-‘ and ‘_’ allowed.");
                 } while (true);
 
+                // JOIN <<user_name>>, <<server_ip>>:<<server_port>> Protocol
                 sendMsg("JOIN " + userName + ", " + IP_SERVER_STR + ":" + PORT_SERVER, output);
-
-
-                byte[] dataIn = new byte[1024];
-                input.read(dataIn);
-                String msgIn = new String(dataIn);
-                msgIn = msgIn.trim();
+                msgIn = receiveMsg(input);
 
                 if (msgIn.contains("J_OK")) {
                     System.out.println(msgIn);
                     break;
                 }
-                System.out.println("IN -->" + msgIn + "<--");
+                // Print error message from server
+                System.out.println(msgIn);
             } while (true);
 
+            // Thread ready to receive messages from server
             Thread receive = new Thread(() -> {
                 while (true) {
-                    byte[] dataReceive = new byte[1024];
-                    try {
-                        input.read(dataReceive);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    String msg = new String(dataReceive);
-                    msg = msg.trim();
-                    System.out.println("\n" + msg);
+                    System.out.println("\n" + receiveMsg(input));
                 }
             });
 
+            // Client sends this heartbeat alive every 1 minute(60.000 milliseconds).
             Thread heartBeat = new Thread(() -> {
                 while (true) {
                     try {
@@ -90,12 +84,13 @@ public class TCPAlexClient {
                     }
                 }
             });
+            // Starting threads
             heartBeat.start();
             receive.start();
 
-            // Do-while som kører indtil bruger siger quit.
+            // Do-while until user types 'QUIT'
             do {
-                //Do-while der kører indtil beskeden er mindre end 250 characters.
+                //Do-while until user message is smaller than 250 characters.
                 do {
                     System.out.print("Please type your text: ");
                     msgToSend = sc.nextLine();
@@ -104,13 +99,15 @@ public class TCPAlexClient {
                     }
                     System.out.println("Maximum length of message is 250 characters, try again.");
                 } while (true);
-                if (msgToSend.equalsIgnoreCase("!quit")) {
+                // If client msg is 'QUIT' - Client is closing down and leaving the group.
+                if (msgToSend.equals("QUIT")) {
                     System.out.println("You have left the chat!");
-                    sendMsg("!quit", output);
+                    sendMsg("QUIT", output);
                     socket.close();
                     System.exit(0);
                     break;
                 }
+                // Send client msg to server - DATA <<user_name>>: <<free text…>>
                 sendMsg("DATA " + userName + ": " + msgToSend, output);
             } while (true);
         } catch (UnknownHostException e) {
@@ -120,6 +117,7 @@ public class TCPAlexClient {
         }
     }
 
+    // Method that sends message to server
     public static void sendMsg(String msg, OutputStream output) {
         byte[] dataOut = msg.getBytes();
         try {
@@ -128,5 +126,18 @@ public class TCPAlexClient {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    // Method that receives message from server
+    public static String receiveMsg(InputStream input) {
+        byte[] dataIn = new byte[1024];
+        try {
+            input.read(dataIn);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String msgIn = new String(dataIn);
+        msgIn = msgIn.trim();
+        return msgIn;
     }
 }

@@ -2,6 +2,10 @@ import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
 
+/**
+ * Created by Matthias Skou on 02-10-2018.
+ */
+
 public class TCPServer {
 
     public static void main(String[] args) throws Exception {
@@ -11,12 +15,13 @@ public class TCPServer {
         ServerSocket socket = new ServerSocket(5656);
 
         System.out.println("Socket created!");
-        System.out.println("Waiting for a connection..");
+        System.out.println("Server listening");
 
         while (true) {
             final Socket s = socket.accept();
-            System.out.println("Client request recieved: " + s);
+            System.out.println("\nClient request received: " + s);
 
+            // Client thread
             Thread threads = new Thread(() -> {
                 try {
                     Client client = new Client();
@@ -25,60 +30,58 @@ public class TCPServer {
 
                     String msgIn;
                     String userName;
-                    byte[] dataIn;
 
                     do {
-                        dataIn = new byte[1024];
-                        input.read(dataIn);
-
-                        msgIn = new String(dataIn);
-                        msgIn = msgIn.trim();
+                        msgIn = receiveMsg(input);
                         userName = msgIn.substring(5, msgIn.lastIndexOf(","));
 
                         client.setS(s);
                         client.setInput(input);
                         client.setOutput(output);
 
+                        // If no current users matches given username(NOTE: Not case sensitive)
                         if (!isDuplicate(userName, clients)) {
                             client.setName(userName);
                             clients.add(client);
                             System.out.println(msgIn);
-                            sendMsg("J_OK\nWelcome to the chat " + userName + "!\nFor a list of available commands, type !commands", output);
+                            sendMsg("J_OK\nWelcome to the chat " + userName + "!\nFor a list of available commands, type !commands or !help", output);
                             list(clients, output, true);
                             break;
                         }
                         sendMsg("J_ER 01: Name already exists", output);
-
                     } while (true);
 
                     do {
-                        dataIn = new byte[1024];
-                        client.getInput().read(dataIn);
-
-                        msgIn = new String(dataIn);
-                        msgIn = msgIn.trim();
-                        if (msgIn.contains("!commands") || msgIn.contains("!help")) {
-                            sendMsg("List of commands:\n1. !Quit - leave the server. \n2. !List - prints a list of active clients", output);
-                        }
-                        if (msgIn.contains("!list")) {
-                            list(clients, output, false);
-                        }
-                        if (msgIn.equalsIgnoreCase("IMAV")) {
-                            System.out.println("\n" + userName + " IMAV");
-                        }
-                        if (msgIn.contains("!quit")) {
-                            sendMsg("You have quit the chat!", output);
+                        msgIn = receiveMsg(input);
+                        // If received msg doesn't follow DATA <<user_name>>: <<free text…>> protocol - return J_ER 02 or print IMAV
+                        if (msgIn.contains("DATA " + userName + ": ")) {
+                            // If received msg is !commands or !help - return list of commands
+                            if (msgIn.equalsIgnoreCase("DATA " + userName + ": " + "!commands") || msgIn.equalsIgnoreCase("DATA " + userName + ": " + "!help")) {
+                                sendMsg("List of available commands:\n1. QUIT - leave the server. \n2. LIST - prints a list of active clients", output);
+                            }
+                            // (Extra functionality)If received msg is LIST - return list of active users to specific client
+                            if (msgIn.equalsIgnoreCase("DATA " + userName + ": " + "LIST")) {
+                                list(clients, output, false);
+                            } else {
+                                System.out.print("\n" + msgIn);
+                                for (Client c : clients) {
+                                    sendMsg("\n" + msgIn, c.getOutput());
+                                }
+                            }
+                        // If received msg is QUIT - Remove client, return updated list to all clients, close socket and break loop
+                        } else if (msgIn.equals("QUIT")) {
+                            // sendMsg("You have quit the chat!", output);
                             clients.remove(client);
                             list(clients, output, true);
                             s.close();
                             break;
+                        // If msg received is IMAV - print username + IMAV
+                        } else if (msgIn.equalsIgnoreCase("IMAV")) {
+                            System.out.println("\n" + userName + " IMAV");
+                        // Msg received doesn't follow DATA Protocol - return J_ER
                         } else {
-                            System.out.print("\n" + msgIn);
-                            for (Client c : clients) {
-                                sendMsg("\n" + msgIn, c.getOutput());
-                            }
+                            sendMsg("J_ER 02 : Unknown command - Syntax needed: \"DATA <<user_name>>: <<free text…>>\"", output);
                         }
-
                     } while (true);
                     System.out.println("\n" + client.getName() + " has left the chat!");
                 } catch (IOException e) {
@@ -87,16 +90,19 @@ public class TCPServer {
             });
             threads.start();
         }
+
     }
 
-    // Printer en oversigt over aktive brugere i chatten
+    // Sends list of active users to all clients
     public static void list(ArrayList<Client> clients, OutputStream output, boolean isAll) {
+        // (Extra functionality) Updated list format to [name, name] but doesn't follow LIST <<name1 name2 name3 …>> protocol
         String list = "Active clients: [";
         if (!clients.isEmpty()) {
             for (Client c : clients) {
                 list = list + c.getName() + ", ";
             }
             list = list.substring(0, list.lastIndexOf(",")) + "]";
+            // If list needs to be sent to all active clients
             if (isAll) {
                 for (Client c : clients) {
                     sendMsg(list, c.getOutput());
@@ -107,7 +113,7 @@ public class TCPServer {
         }
     }
 
-    // Check if name already exists
+    // Check if name already exists(NOTE: Not case sensitive)
     public static boolean isDuplicate(String userName, ArrayList<Client> clients) {
         for (Client c : clients) {
             if (c.getName().equalsIgnoreCase(userName)) {
@@ -125,5 +131,19 @@ public class TCPServer {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    // Receives messages from client
+    public static String receiveMsg(InputStream input){
+        String msgIn;
+        byte[] dataIn = new byte[1024];
+        try {
+            input.read(dataIn);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        msgIn = new String(dataIn);
+        msgIn = msgIn.trim();
+        return msgIn;
     }
 }
