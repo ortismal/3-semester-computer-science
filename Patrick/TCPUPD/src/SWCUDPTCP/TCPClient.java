@@ -19,8 +19,9 @@ public class TCPClient {
 
         System.out.println("What is your username: ");
 
-        do {
 
+        do {
+            // tjek om username overholder protokollen. Loop hvis ikke.
             String userName = args.length >= 1 ? args[0] : sc.nextLine();
             if ((userName.matches("^[a-zA-Z\\d-_]{0,12}$"))) {
                 USERNAME = userName;
@@ -60,20 +61,22 @@ public class TCPClient {
             inFromServer.read(acceptedClient);
             String msgAccepted = new String(acceptedClient);
 
+            //Tjek for duplicate username (ikke testet)
+            if (msgAccepted.equalsIgnoreCase("J_ER")) {
+                sc = new Scanner(System.in);
+                System.out.println("What is your new username: ");
+                USERNAME = sc.nextLine();
+                System.out.println("new username = " + USERNAME);
+                byte[] newUserName = USERNAME.getBytes();
+                outToServer.write(newUserName);
+            }
 
-                if (msgAccepted.equalsIgnoreCase("J_ER")) {
-                    sc = new Scanner(System.in);
-                    System.out.println("What is your new username: ");
-                    USERNAME = sc.nextLine();
-                    System.out.println("new username = " + USERNAME);
-                    byte[] newUserName = USERNAME.getBytes();
-                    outToServer.write(newUserName);
-                }
-
-
+            //start IMAV og receieMsg.
             imavThread();
             receiveMsg();
 
+
+            //tillad at man kan sende beskeder uafhængigt af at modtage beskeder.
             while (true) {
 
 
@@ -89,11 +92,9 @@ public class TCPClient {
                     if (msgToSend.equalsIgnoreCase("DATA " + USERNAME + ": " + "!quit")) {
                         msgFromServer.stop();
                         IMAV.stop();
-                        socket.close();
-                        System.exit(1);
                         System.out.println("Shutting down");
-                        break;
                     }
+
                     if (msgToSend.trim().length() < 250) {
                         outToServer.write(dataToSend);
                         break;
@@ -111,7 +112,7 @@ public class TCPClient {
         }
     }
 
-
+    // modtag beskeder fra serveren uafhængig af at sende beskeder.
     static void receiveMsg() {
         msgFromServer = new Thread(() -> {
             try {
@@ -130,7 +131,7 @@ public class TCPClient {
         msgFromServer.start();
     }
 
-
+    //start IMAV
     static void imavThread() {
         IMAV = new Thread(() -> {
             while (true) {
