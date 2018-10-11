@@ -38,9 +38,14 @@ public class TCPServer {
                         client.setS(s);
                         client.setInput(input);
                         client.setOutput(output);
-
+                        // If username doesn't match regex
+                        if (!userName.matches("^[a-zA-Z\\d-_]{0,12}$")) {
+                            sendMsg("J_ER 03: Username is max 12 chars long, only letters, digits, ‘-‘ and ‘_’ allowed.", output);
+                        // If username is duplicate
+                        } else if (isDuplicate(userName, clients)) {
+                            sendMsg("J_ER 01: Name already exists", output);
                         // If no current users matches given username(NOTE: Not case sensitive)
-                        if (!isDuplicate(userName, clients)) {
+                        } else if (!isDuplicate(userName, clients)) {
                             client.setName(userName);
                             clients.add(client);
                             System.out.println(msgIn);
@@ -48,7 +53,6 @@ public class TCPServer {
                             list(clients, output, true);
                             break;
                         }
-                        sendMsg("J_ER 01: Name already exists", output);
                     } while (true);
 
                     do {
@@ -62,23 +66,27 @@ public class TCPServer {
                             // (Extra functionality)If received msg is LIST - return list of active users to specific client
                             if (msgIn.equalsIgnoreCase("DATA " + userName + ": " + "LIST")) {
                                 list(clients, output, false);
+                            }
+                            // Maximum message length is 250 characters
+                            if (msgIn.length() > 250) {
+                                sendMsg("\nMaximum length of message is 250 characters, try again.", output);
                             } else {
                                 System.out.print("\n" + msgIn);
                                 for (Client c : clients) {
                                     sendMsg("\n" + msgIn, c.getOutput());
                                 }
                             }
-                        // If received msg is QUIT - Remove client, return updated list to all clients, close socket and break loop
+                            // If received msg is QUIT - Remove client, return updated list to all clients, close socket and break loop
                         } else if (msgIn.equals("QUIT")) {
                             // sendMsg("You have quit the chat!", output);
                             clients.remove(client);
                             list(clients, output, true);
                             s.close();
                             break;
-                        // If msg received is IMAV - print username + IMAV
+                            // If msg received is IMAV - print username + IMAV
                         } else if (msgIn.equalsIgnoreCase("IMAV")) {
                             System.out.println("\n" + userName + " IMAV");
-                        // Msg received doesn't follow DATA Protocol - return J_ER
+                            // Msg received doesn't follow DATA Protocol - return J_ER
                         } else {
                             sendMsg("J_ER 02 : Unknown command - Syntax needed: \"DATA <<user_name>>: <<free text…>>\"", output);
                         }
@@ -134,7 +142,7 @@ public class TCPServer {
     }
 
     // Receives messages from client
-    public static String receiveMsg(InputStream input){
+    public static String receiveMsg(InputStream input) {
         String msgIn;
         byte[] dataIn = new byte[1024];
         try {
