@@ -40,10 +40,12 @@ public class TCPServer {
                         client.setOutput(output);
                         // If username doesn't match regex
                         if (!userName.matches("^[a-zA-Z\\d-_]{0,12}$")) {
-                            sendMsg("J_ER 03: Username is max 12 chars long, only letters, digits, ‘-‘ and ‘_’ allowed.", output);
-                        // If username is duplicate
+                            sendMsg("J_ER 01: Username is max 12 chars long, only letters, digits, ‘-‘ and ‘_’ allowed.", output);
+                            // If username is duplicate
+                        }else if (userName.equalsIgnoreCase("QUIT") || userName.equalsIgnoreCase("LIST") ) {
+                            sendMsg("J_ER 02: QUIT and LIST are reserved keywords - try again", output);
                         } else if (isDuplicate(userName, clients)) {
-                            sendMsg("J_ER 01: Name already exists", output);
+                            sendMsg("J_ER 03: Name already exists", output);
                         // If no current users matches given username(NOTE: Not case sensitive)
                         } else if (!isDuplicate(userName, clients)) {
                             client.setName(userName);
@@ -57,7 +59,7 @@ public class TCPServer {
 
                     do {
                         msgIn = receiveMsg(input);
-                        // If received msg doesn't follow DATA <<user_name>>: <<free text…>> protocol - return J_ER 02 or print IMAV
+                        // If received msg doesn't follow DATA <<user_name>>: <<free text…>> protocol - return J_ER  or print IMAV
                         if (msgIn.contains("DATA " + userName + ": ")) {
                             // If received msg is !commands or !help - return list of commands
                             if (msgIn.equalsIgnoreCase("DATA " + userName + ": " + "!commands") || msgIn.equalsIgnoreCase("DATA " + userName + ": " + "!help")) {
@@ -88,7 +90,7 @@ public class TCPServer {
                             System.out.println("\n" + userName + " IMAV");
                             // Msg received doesn't follow DATA Protocol - return J_ER
                         } else {
-                            sendMsg("J_ER 02 : Unknown command - Syntax needed: \"DATA <<user_name>>: <<free text…>>\"", output);
+                            sendMsg("J_ER 04 : Unknown command - Syntax needed: \"DATA <<user_name>>: <<free text…>>\"", output);
                         }
                     } while (true);
                     System.out.println("\n" + client.getName() + " has left the chat!");

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form>
+    <input type="text" id="name-text" value="alice">
+    <button type="button" id="my-calc-btn">Say hello</button>
+</form>
+
+<div id="welcome-div">Welcome!</div>
+
+<form>
+    <input type="text" id="post-to-find">
+    <button type="button" id="post-to-find-btn">Find</button>
+    <br>
+    <br>
+
+    <input type="text" id="poke">
+    <button type="button" id="poke-btn">Find</button>
+
+</form>
+<h1 id="show-info"></h1>
+<h1 id="show-info1"></h1>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+    $(document).on('click', '#post-find-btn'), function() {
+        var pokename = $('#post-find').val();
+        $.ajax({
+            url: "https://v1.motorapi.dk/vehicles/",
+            method: "get",
+            data: {
+                pokename;
+            },
+            success: function (resp) {
+                console.log(resp);
+                var color = name;
+                $('#show-info1').text(color);
+            }
+        });
+    }
+</script>
+
+
+</body>
+</html>
