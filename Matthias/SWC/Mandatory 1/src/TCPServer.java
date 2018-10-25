@@ -51,7 +51,7 @@ public class TCPServer {
                             client.setName(userName);
                             clients.add(client);
                             System.out.println(msgIn);
-                            sendMsg("J_OK\nWelcome to the chat " + userName + "!\nFor a list of available commands, type !commands or !help", output);
+                            sendMsg("J_OK \nWelcome to the chat " + userName + "!\nFor a list of available commands, type !commands or !help", output);
                             list(clients, output, true);
                             break;
                         }
