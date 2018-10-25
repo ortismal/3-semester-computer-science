@@ -56,11 +56,11 @@ public class TCPClient extends Thread {
                 input.read(acceptedClient);
                 String msgFromServer = new String(acceptedClient);
                 msgFromServer.trim();
-                if (msgFromServer.contains("J_OK")){
+                //if (msgFromServer.contains("J_OK")){
                     System.out.println(msgFromServer);
-                    break;
-                }
                 System.out.println(msgFromServer);
+                break;
+                //}
 
             } while (true);
 
@@ -77,18 +77,22 @@ public class TCPClient extends Thread {
                 msgToSend = "DATA " + userName + ": " + sc.nextLine();
 
                 byte[] dataToSend = msgToSend.getBytes();
-                outputToServer.write(dataToSend);
 
                 if (msgToSend.equals("DATA " + userName + ": " + "QUIT")) {
                     System.out.println("Shutting down");
-                    outputToServer.close();
-                    input.close();
+                    msgToSend = "QUIT";
+                    dataToSend = msgToSend.getBytes();
+                    outputToServer.write(dataToSend);
+                    //outputToServer.close();
+                    //input.close();
                     socket.close();
-                    T.stop();
-                    T2.stop();
+                    //T.interrupt();
+                    //T2.interrupt();
                     break;
                 }
+                outputToServer.write(dataToSend);
             }
+            System.exit(0);
         } catch (UnknownHostException e1) {
             e1.printStackTrace();
         } catch (IOException e1) {
