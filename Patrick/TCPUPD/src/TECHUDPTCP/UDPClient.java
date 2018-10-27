@@ -22,8 +22,9 @@ public class UDPClient {
 //            sentence = inFromUser.readLine;
             sentence = inFromKbd.nextLine();
             data = sentence.getBytes();
-            if(sentence.equalsIgnoreCase("quit"))
+            if(sentence.equalsIgnoreCase("quit")) {
                 break;
+            }
 
 
             DatagramPacket sendPacket = new DatagramPacket(data, data.length, IPAddress, 6710);
