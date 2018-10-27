@@ -29,7 +29,7 @@ import java.util.Scanner;
                 DatagramPacket receivePacket = new DatagramPacket(data, data.length);
                 receivingSocket.receive(receivePacket);
                 String msgIn = new String(receivePacket.getData());
-                if(msgIn.equals("quit")){
+                if(msgIn.contains("quit")){
                     System.out.println("FROM CLIENT: " + msgIn + " - Shutting down!");
                     break;
                 }
@@ -43,7 +43,12 @@ import java.util.Scanner;
                 data = msgToSend.getBytes();
                 DatagramPacket sendPacket = new DatagramPacket(data, data.length, IPAddress, PORT_OUT);
                 sendingSocket.send(sendPacket);
+                if(msgToSend.equals("quit")){
+                    System.out.println("Shutting down!");
+                    break;
+                }
             } while(true);
+            System.exit(0);
         }
     }
 

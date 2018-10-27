@@ -33,19 +33,21 @@ import java.util.Scanner;
                 DatagramPacket sendPacket = new DatagramPacket(data, data.length, IPAddress, PORT_OUT);
                 receivingSocket.send(sendPacket);
                 if(msgToSend.equals("quit")){
+                    System.out.println("Shutting down!");
                     break;
                 }
 
                 receivingSocket.receive(receivePacket);
                 String msgIn = new String(receivePacket.getData());
 
-                if(msgIn.equals("quit")) {
+                if(msgIn.contains("quit")) {
                     System.out.println("FROM SERVER: " + msgIn + " - Shutting down!");
                     break;
                 }
                 System.out.println("FROM SERVER:" + msgIn);
 
             } while (true);
+            System.exit(0);
         }
     }
 
