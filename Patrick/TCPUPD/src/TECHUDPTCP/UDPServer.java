@@ -19,9 +19,9 @@ public class UDPServer {
             DatagramPacket receivePacket = new DatagramPacket(data, data.length);
             receivingSocket.receive(receivePacket);
             sentence = new String(receivePacket.getData());
-            if(sentence.equalsIgnoreCase("quit"))
+            if(sentence.equalsIgnoreCase("quit")) {
                 break;
-
+            }
             int size = receivePacket.getLength();
             System.out.println("FROM SERVER size: " + size);
             System.out.println("FROM SERVER: " + sentence);
