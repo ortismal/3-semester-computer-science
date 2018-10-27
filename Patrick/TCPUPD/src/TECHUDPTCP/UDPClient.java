@@ -8,6 +8,8 @@ public class UDPClient {
     public static void main(String[] args) throws Exception {
 
         String sentence;
+        String msgIn;
+        int length;
         DatagramSocket receivingSocket = new DatagramSocket(6709);
         DatagramSocket sendingSocket = new DatagramSocket();
         InetAddress IPAddress = InetAddress.getByName("127.0.0.1");
@@ -22,24 +24,24 @@ public class UDPClient {
 //            sentence = inFromUser.readLine;
             sentence = inFromKbd.nextLine();
             data = sentence.getBytes();
+            DatagramPacket sendPacket = new DatagramPacket(data, data.length, IPAddress, 6710);
+            sendingSocket.send(sendPacket);
             if(sentence.equalsIgnoreCase("quit")) {
                 break;
             }
 
-
-            DatagramPacket sendPacket = new DatagramPacket(data, data.length, IPAddress, 6710);
-            sendingSocket.send(sendPacket);
-
-            sentence = "                                    ";
+            sentence = "                           ";
             data = sentence.getBytes();
 
 
             DatagramPacket receivePacket = new DatagramPacket(data, data.length);
             receivingSocket.receive(receivePacket);
-            sentence = new String(receivePacket.getData());
-            if(sentence.equalsIgnoreCase("quit"))
+            msgIn = new String(receivePacket.getData());
+            length = receivePacket.getLength();
+            System.out.println("FROM SERVER size: " + length);
+            System.out.println("FROM SERVER: " + msgIn);
+            if(msgIn.trim().equalsIgnoreCase("quit"))
                 break;
-            System.out.println("FROM SERVER: " + sentence);
         }
     }
 }
