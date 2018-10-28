@@ -87,14 +87,16 @@ public class WebServer_serial
                         // Read max. 16kB a time and write those bytes to client
                         int bytesRead = inFile.read(fileInBytes, off, 16000);
                         outToClient.write(fileInBytes, off, 16000);
-                        System.out.println(off);
-                        // Increment
+                        System.out.println(off);  // Test print
+                        // Increment off
                         off += bytesRead;
                     }
-                    System.out.println("OFF: " + off);
+                    // Read remaining bytes (numOfBytes-off) and write to client
+                    // Outside of while-loop to prevent outOfBounds len > b.length
+                    System.out.println("OFF: " + off); // Test print
                     inFile.read(fileInBytes, off, numOfBytes-off);
-                    inFile.close();  //***** remember to close the file after usage *****
                     outToClient.write(fileInBytes, off, numOfBytes-off);
+                    inFile.close();  //***** remember to close the file after usage *****
                     outToClient.writeBytes("\n");
 
 
