@@ -74,29 +74,27 @@ public class WebServer_serial
                     int numOfBytes = (int) file.length();
                     FileInputStream inFile = new FileInputStream(fileName);
                     byte[] fileInBytes = new byte[numOfBytes];
-                    int off = 0;
 
-                        //outToClient.writeBytes("\r\n");
-                        while (numOfBytes > off + 16000) {
-                            off += inFile.read(fileInBytes, off, 16000);
-                            //outToClient.write(fileInBytes, off, 16000);
-                            System.out.println(off);
-                        }
-                        //outToClient.write(fileInBytes, off, numOfBytes-off);
-                        //outToClient.writeBytes("\n");
-                    // else {
-                        // Read rest of bytes or read entire if > 16000
-                    inFile.read(fileInBytes, off, numOfBytes-off);
-                    //}
-
-                    inFile.close();  //***** remember to close the file after usage *****
                     outToClient.writeBytes("HTTP/1.0 200 GET Request\r\n");
                     outToClient.writeBytes("Date: " + LocalDate.now() + "\r\n");
                     outToClient.writeBytes("Server: Matthias Skou" + "\r\n");
                     outToClient.writeBytes("Content-Type: " + fileName.substring(fileName.lastIndexOf('.')));
                     outToClient.writeBytes("Content-Length: " + numOfBytes + "\r\n");
                     outToClient.writeBytes("\r\n");
-                    outToClient.write(fileInBytes, 0, numOfBytes);
+                    int off = 0;
+                    // Read and write bytes in loop if bytes is bigger than off + 16kB
+                    while (numOfBytes > off + 16000) {
+                        // Read max. 16kB a time and write those bytes to client
+                        int bytesRead = inFile.read(fileInBytes, off, 16000);
+                        outToClient.write(fileInBytes, off, 16000);
+                        System.out.println(off);
+                        // Increment
+                        off += bytesRead;
+                    }
+                    System.out.println("OFF: " + off);
+                    inFile.read(fileInBytes, off, numOfBytes-off);
+                    inFile.close();  //***** remember to close the file after usage *****
+                    outToClient.write(fileInBytes, off, numOfBytes-off);
                     outToClient.writeBytes("\n");
 
 
