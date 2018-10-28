@@ -2,7 +2,9 @@ package Webserver;
 
 import java.io.*;
 import java.net.*;
+import java.time.LocalDateTime;
 import java.util.*;
+import java.lang.*;
 
 public class WebServer_serial
 {
@@ -81,18 +83,10 @@ public class WebServer_serial
                 byte[] fileInBytes = new byte[numOfBytes];
                 inFile.read(fileInBytes);
                 inFile.close();  //***** remember to close the file after usage *****
-                outToClient.writeBytes("HTTP/1.0 200 Her kommer skidtet\r\n");
-
-                if(fileName.endsWith(".jpg"))
-                {
-                    outToClient.writeBytes("Content-Type:image/jpeg\r\n");
-                }
-
-                if(fileName.endsWith(".gif"))
-                {
-                    outToClient.writeBytes("Content-Type:image/gif\r\n");
-                }
-
+                outToClient.writeBytes("HTTP/1.0 200: Good request\r\n");
+                outToClient.writeBytes("Date: " + LocalDateTime.now() + "\r\n");
+                outToClient.writeBytes("Server: Patrick\r\n");
+                outToClient.writeBytes(("Content-Type: " + fileName.substring(fileName.lastIndexOf(").")));
                 outToClient.writeBytes("Content-Length: " + numOfBytes + "\r\n");
                 outToClient.writeBytes("\r\n");
                 outToClient.write(fileInBytes, 0, numOfBytes);
