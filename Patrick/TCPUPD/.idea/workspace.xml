@@ -87,11 +87,21 @@
       <file leaf-file-name="WebServer_serial.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Webserver/WebServer_serial.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="95" column="31" lean-forward="true" selection-start-line="95" selection-start-column="31" selection-end-line="95" selection-end-column="31" />
+            <state relative-caret-position="278">
+              <caret line="109" column="23" lean-forward="true" selection-start-line="109" selection-start-column="23" selection-end-line="109" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WebServer_serial.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Matthias/TECH/Webserver_mandatory/src/WebServer_serial.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="328">
+              <caret line="124" column="16" lean-forward="true" selection-start-line="124" selection-start-column="16" selection-end-line="124" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -509,12 +519,12 @@
       <workItem from="1539080404105" duration="5916000" />
       <workItem from="1539185098660" duration="4545000" />
       <workItem from="1539204461753" duration="6191000" />
-      <workItem from="1540645809438" duration="11030000" />
+      <workItem from="1540645809438" duration="11245000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112868000" />
+    <option name="totallyTimeSpent" value="113083000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -527,6 +537,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -860,16 +871,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Matthias/TECH/Webserver_mandatory/src/WebServer_serial.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="105" column="13" lean-forward="true" selection-start-line="105" selection-start-column="13" selection-end-line="105" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/io/DataOutputStream.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
@@ -896,10 +897,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../Matthias/TECH/Webserver_mandatory/src/WebServer_serial.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="124" column="16" lean-forward="true" selection-start-line="124" selection-start-column="16" selection-end-line="124" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Webserver/WebServer_serial.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="95" column="31" lean-forward="true" selection-start-line="95" selection-start-column="31" selection-end-line="95" selection-end-column="31" />
+        <state relative-caret-position="278">
+          <caret line="109" column="23" lean-forward="true" selection-start-line="109" selection-start-column="23" selection-end-line="109" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
