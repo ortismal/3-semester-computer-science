@@ -1,5 +1,6 @@
 import java.io.*;
 import java.net.*;
+import java.time.LocalDate;
 import java.util.*;
 
 public class WebServer_serial
@@ -58,7 +59,7 @@ public class WebServer_serial
                     }
 
                     if (fileName.endsWith("/") == true) {
-                        fileName = fileName + "test/index.html";
+                        fileName = fileName + "index.html";
                     }
 
                     File file = new File(fileName);
@@ -73,22 +74,31 @@ public class WebServer_serial
                     int numOfBytes = (int) file.length();
                     FileInputStream inFile = new FileInputStream(fileName);
                     byte[] fileInBytes = new byte[numOfBytes];
-                    inFile.read(fileInBytes);
+                    int off = 0;
+
+                        //outToClient.writeBytes("\r\n");
+                        while (numOfBytes > off + 16000) {
+                            off += inFile.read(fileInBytes, off, 16000);
+                            //outToClient.write(fileInBytes, off, 16000);
+                            System.out.println(off);
+                        }
+                        //outToClient.write(fileInBytes, off, numOfBytes-off);
+                        //outToClient.writeBytes("\n");
+                    // else {
+                        // Read rest of bytes or read entire if > 16000
+                    inFile.read(fileInBytes, off, numOfBytes-off);
+                    //}
+
                     inFile.close();  //***** remember to close the file after usage *****
-                    outToClient.writeBytes("HTTP/1.0 200 Her kommer skidtet\r\n");
-
-                    if (fileName.endsWith(".jpg")) {
-                        outToClient.writeBytes("Content-Type:image/jpeg\r\n");
-                    }
-
-                    if (fileName.endsWith(".gif")) {
-                        outToClient.writeBytes("Content-Type:image/gif\r\n");
-                    }
-
+                    outToClient.writeBytes("HTTP/1.0 200 GET Request\r\n");
+                    outToClient.writeBytes("Date: " + LocalDate.now() + "\r\n");
+                    outToClient.writeBytes("Server: Matthias Skou" + "\r\n");
+                    outToClient.writeBytes("Content-Type: " + fileName.substring(fileName.lastIndexOf('.')));
                     outToClient.writeBytes("Content-Length: " + numOfBytes + "\r\n");
                     outToClient.writeBytes("\r\n");
                     outToClient.write(fileInBytes, 0, numOfBytes);
                     outToClient.writeBytes("\n");
+
 
                     System.out.println("OK, the file is sent to Client.");
                     System.out.println("****************************************************************************");
@@ -97,7 +107,13 @@ public class WebServer_serial
                 } else // no "GET"
                 {
                     System.out.println("Bad request Message");
-                    outToClient.writeBytes("HTTP/1.0 400  I do not understand. I am from Barcelona.\r\n");
+                    outToClient.writeBytes("HTTP/1.0 500 Bad request \r\n");
+                    File file = new File("error500.html");
+                    FileInputStream inFile = new FileInputStream(path + "error500.html");
+                    int numOfBytes = (int) file.length();
+                    byte[] fileInBytes = new byte[numOfBytes];
+                    inFile.read(fileInBytes);
+                    outToClient.write(fileInBytes, 0, numOfBytes);
                     outToClient.writeBytes("\n");
                     socket.close();
                 }
