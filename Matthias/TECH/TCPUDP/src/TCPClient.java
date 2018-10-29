@@ -20,7 +20,6 @@ class TCPClient
         DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
         BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
-
             System.out.print("Please type your text: ");
             sentence = inFromUser.readLine();
             outToServer.writeBytes(sentence + '\n');
