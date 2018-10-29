@@ -2,13 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0c0a3b2f-83dd-4610-a1a3-d0035b66e4fe" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/../DAT17C-SWC3-SPRING/src/main/java/dk/kea/swc3/dat17c/demo/controller/UserController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../DAT17C-SWC3-SPRING/src/main/java/dk/kea/swc3/dat17c/demo/model/Car.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../DAT17C-SWC3-SPRING/src/main/java/dk/kea/swc3/dat17c/demo/model/User.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../DAT17C-SWC3-SPRING/src/main/resources/templates/index.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../DAT17C-SWC3-SPRING/src/main/java/dk/kea/swc3/dat17c/demo/controller/CarController.java" />
+      <change beforePath="$PROJECT_DIR$/../DAT17C-SWC3-SPRING/src/main/java/dk/kea/swc3/dat17c/demo/controller/UserController.java" afterPath="$PROJECT_DIR$/../DAT17C-SWC3-SPRING/src/main/java/dk/kea/swc3/dat17c/demo/controller/UserController.java" />
+      <change beforePath="$PROJECT_DIR$/../DAT17C-SWC3-SPRING/src/main/resources/templates/cars.html" afterPath="$PROJECT_DIR$/../DAT17C-SWC3-SPRING/src/main/resources/templates/cars.html" />
+      <change beforePath="$PROJECT_DIR$/../DAT17C-SWC3-SPRING/src/main/resources/templates/navbar.html" afterPath="$PROJECT_DIR$/../DAT17C-SWC3-SPRING/src/main/resources/templates/navbar.html" />
       <change beforePath="$PROJECT_DIR$/../MVC-DAT17C/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../MVC-DAT17C/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/TCPServer.java" afterPath="$PROJECT_DIR$/src/TCPServer.java" />
+      <change beforePath="$PROJECT_DIR$/../UDP TCP/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../UDP TCP/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/../../TECH/TCPUDP/.idea/misc.xml" afterPath="$PROJECT_DIR$/../../TECH/TCPUDP/.idea/misc.xml" />
+      <change beforePath="$PROJECT_DIR$/../../TECH/TCPUDP/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../TECH/TCPUDP/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/../../TECH/Webserver_mandatory/.idea/misc.xml" afterPath="$PROJECT_DIR$/../../TECH/Webserver_mandatory/.idea/misc.xml" />
+      <change beforePath="$PROJECT_DIR$/../../TECH/Webserver_mandatory/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../TECH/Webserver_mandatory/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/../../TECH/Webserver_mandatory/out/production/Webserver_mandatory/WebServer_serial.class" afterPath="$PROJECT_DIR$/../../TECH/Webserver_mandatory/out/production/Webserver_mandatory/WebServer_serial.class" />
+      <change beforePath="$PROJECT_DIR$/../../TECH/Webserver_mandatory/src/WebServer_serial.java" afterPath="$PROJECT_DIR$/../../TECH/Webserver_mandatory/src/WebServer_serial.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,11 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TCPServer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TCPServer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TCPServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="54" column="56" lean-forward="true" selection-start-line="54" selection-start-column="56" selection-end-line="54" selection-end-column="56" />
+            <state relative-caret-position="105">
+              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -32,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TCPClient.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TCPClient.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/TCPClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="19" column="72" lean-forward="false" selection-start-line="19" selection-start-column="72" selection-end-line="19" selection-end-column="72" />
+            <state relative-caret-position="90">
+              <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -363,7 +370,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72753000" />
+    <option name="totallyTimeSpent" value="73305000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -377,7 +384,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33978236" sideWeight="0.5200286" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33978236" sideWeight="0.47997138" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33978236" sideWeight="0.47997138" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -880,20 +887,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TCPClient.java">
+    <entry file="file://$PROJECT_DIR$/src/TCPServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="19" column="72" lean-forward="false" selection-start-line="19" selection-start-column="72" selection-end-line="19" selection-end-column="72" />
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TCPServer.java">
+    <entry file="file://$PROJECT_DIR$/src/TCPClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="54" column="56" lean-forward="true" selection-start-line="54" selection-start-column="56" selection-end-line="54" selection-end-column="56" />
+        <state relative-caret-position="90">
+          <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -40,7 +40,8 @@ public class WebServer_serial
             try {
                 System.out.println("****************************************************************************");
                 System.out.println("OK, we are starting to service the client.");
-                String path = "C:\\Users\\Matthias Skou\\Desktop\\GitHub 3. Semester\\3-semester-computer-science\\Matthias\\TECH\\Webserver_mandatory\\test\\";
+                String path = "/Users/matthiasskou/Desktop/KEA - Datamatiker - 1. Sem/3. fucking semester/3-semester-computer-science/Matthias/TECH/Webserver_mandatory/test/";
+                // String path = "C:\\Users\\Matthias Skou\\Desktop\\GitHub 3. Semester\\3-semester-computer-science\\Matthias\\TECH\\Webserver_mandatory\\test\\";
                 String requestMessageLine;
                 String fileName;
 
