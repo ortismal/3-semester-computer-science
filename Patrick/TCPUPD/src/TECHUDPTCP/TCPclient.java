@@ -11,7 +11,7 @@ public class TCPclient {
         BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
 
         System.out.println("trying to connect");
-        Socket clientSocket = new Socket("127.0.0.1", 5656);
+        Socket clientSocket = new Socket("127.0.0.1", 42424);
         System.out.println("we are connected");
         while (true) {
 
