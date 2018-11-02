@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0c0a3b2f-83dd-4610-a1a3-d0035b66e4fe" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/src/TCPClient.java" afterPath="$PROJECT_DIR$/src/TCPClient.java" />
       <change beforePath="$PROJECT_DIR$/../../TECH/TCPUDP/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../TECH/TCPUDP/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/../../TECH/TCPUDP/out/production/TECH/TCPClient.class" afterPath="$PROJECT_DIR$/../../TECH/TCPUDP/out/production/TECH/TCPClient.class" />
+      <change beforePath="$PROJECT_DIR$/../../TECH/TCPUDP/out/production/TECH/UDPClient.class" afterPath="$PROJECT_DIR$/../../TECH/TCPUDP/out/production/TECH/UDPClient.class" />
+      <change beforePath="$PROJECT_DIR$/../../TECH/TCPUDP/out/production/TECH/UDPServer.class" afterPath="$PROJECT_DIR$/../../TECH/TCPUDP/out/production/TECH/UDPServer.class" />
       <change beforePath="$PROJECT_DIR$/../../TECH/TCPUDP/src/TCPClient.java" afterPath="$PROJECT_DIR$/../../TECH/TCPUDP/src/TCPClient.java" />
+      <change beforePath="$PROJECT_DIR$/../../TECH/TCPUDP/src/TCPServer.java" afterPath="$PROJECT_DIR$/../../TECH/TCPUDP/src/TCPServer.java" />
+      <change beforePath="$PROJECT_DIR$/../../TECH/TCPUDP/src/UDPClient.java" afterPath="$PROJECT_DIR$/../../TECH/TCPUDP/src/UDPClient.java" />
+      <change beforePath="$PROJECT_DIR$/../../TECH/TCPUDP/src/UDPServer.java" afterPath="$PROJECT_DIR$/../../TECH/TCPUDP/src/UDPServer.java" />
       <change beforePath="$PROJECT_DIR$/../../TECH/Webserver_mandatory/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../TECH/Webserver_mandatory/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/../../TECH/Webserver_mandatory/src/WebServer_serial.java" afterPath="$PROJECT_DIR$/../../TECH/Webserver_mandatory/src/WebServer_serial.java" />
     </list>
@@ -20,8 +27,8 @@
       <file leaf-file-name="TCPServer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TCPServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state relative-caret-position="1500">
+              <caret line="100" column="28" lean-forward="true" selection-start-line="100" selection-start-column="28" selection-end-line="100" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -32,8 +39,8 @@
       <file leaf-file-name="TCPClient.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/TCPClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+            <state relative-caret-position="378">
+              <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -44,8 +51,8 @@
       <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state relative-caret-position="323">
+              <caret line="19" column="29" lean-forward="true" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -87,8 +94,8 @@
         <option value="$PROJECT_DIR$/src/TCPAlexServer.java" />
         <option value="$PROJECT_DIR$/src/TCPAlexClient.java" />
         <option value="$PROJECT_DIR$/src/Client.java" />
-        <option value="$PROJECT_DIR$/src/TCPClient.java" />
         <option value="$PROJECT_DIR$/src/TCPServer.java" />
+        <option value="$PROJECT_DIR$/src/TCPClient.java" />
       </list>
     </option>
   </component>
@@ -360,7 +367,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73305000" />
+    <option name="totallyTimeSpent" value="74778000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -374,7 +381,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33978236" sideWeight="0.5200286" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33978236" sideWeight="0.47997138" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33978236" sideWeight="0.47997138" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -869,8 +876,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state relative-caret-position="323">
+          <caret line="19" column="29" lean-forward="true" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -879,8 +886,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TCPServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state relative-caret-position="1500">
+          <caret line="100" column="28" lean-forward="true" selection-start-line="100" selection-start-column="28" selection-end-line="100" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -889,8 +896,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TCPClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+        <state relative-caret-position="378">
+          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

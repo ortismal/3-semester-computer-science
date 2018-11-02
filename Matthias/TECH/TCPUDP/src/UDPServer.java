@@ -29,6 +29,7 @@ import java.util.Scanner;
                 DatagramPacket receivePacket = new DatagramPacket(data, data.length);
                 receivingSocket.receive(receivePacket);
                 String msgIn = new String(receivePacket.getData());
+                msgIn = msgIn.trim();
                 if(msgIn.contains("quit")){
                     System.out.println("FROM CLIENT: " + msgIn + " - Shutting down!");
                     break;

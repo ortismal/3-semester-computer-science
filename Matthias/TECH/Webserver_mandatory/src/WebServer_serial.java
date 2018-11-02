@@ -100,7 +100,6 @@ public class WebServer_serial
                     inFile.close();  //***** remember to close the file after usage *****
                     outToClient.writeBytes("\n");
 
-
                     System.out.println("OK, the file is sent to Client.");
                     System.out.println("****************************************************************************");
 

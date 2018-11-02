@@ -39,6 +39,7 @@ import java.util.Scanner;
 
                 receivingSocket.receive(receivePacket);
                 String msgIn = new String(receivePacket.getData());
+                msgIn = msgIn.trim();
 
                 if(msgIn.contains("quit")) {
                     System.out.println("FROM SERVER: " + msgIn + " - Shutting down!");
