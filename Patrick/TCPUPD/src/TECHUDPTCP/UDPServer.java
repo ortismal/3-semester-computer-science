@@ -19,12 +19,12 @@ public class UDPServer {
             DatagramPacket receivePacket = new DatagramPacket(data, data.length);
             receivingSocket.receive(receivePacket);
             sentence = new String(receivePacket.getData());
-            if(sentence.equalsIgnoreCase("quit"))
+            if(sentence.trim().equalsIgnoreCase("quit")) {
                 break;
-
+            }
             int size = receivePacket.getLength();
-            System.out.println("FROM SERVER size: " + size);
-            System.out.println("FROM SERVER: " + sentence);
+            System.out.println("FROM CLIENT size: " + size);
+            System.out.println("FROM CLIENT: " + sentence);
 
             System.out.println("Please type you message: ");
             sentence = inFromUser.readLine();
@@ -33,9 +33,11 @@ public class UDPServer {
             data = sentence.getBytes();
             DatagramPacket sendPacket = new DatagramPacket(data, length, IPAddress, 6709);
             sendingSocket.send(sendPacket);
-            if(sentence.equalsIgnoreCase("quit"))
+            if(sentence.equalsIgnoreCase("quit")) {
+//                sendingSocket.send(sendPacket);
                 break;
-            sentence = " ";
+            }
+            sentence = "";
             data = sentence.getBytes();
 
         }

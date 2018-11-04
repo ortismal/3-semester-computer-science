@@ -50,7 +50,7 @@ public class TCPClient {
                     userName = sc.nextLine();
                     // Username is max 12 chars long, only letters, digits, ‘-‘ and ‘_’ allowed.
                     if ((userName.matches("^[a-zA-Z\\d-_]{0,12}$"))) {
-                        break;
+                            break;
                     }
                     System.out.println("Username is max 12 chars long, only letters, digits, ‘-‘ and ‘_’ allowed.");
                 } while (true);
