@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form>
+    <input type="text" id="name-text" value="alice">
+    <button type="button" id="my-calc-btn">Say hello</button>
+</form>
+
+<div id="welcome-div">Welcome!</div>
+
+<form>
+    <input type="text" id="post-to-find">
+    <button type="button" id="post-to-find-btn">Find</button>
+</form>
+
+<form>
+    <input type="text" id="sw-to-find">
+    <button type="button" id="sw-to-find-btn">Find SW</button>
+    <h4 id="info"></h4>
+</form>
+
+<h1 id="show-info"></h1>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+    $(document).on('click', "#sw-to-find-btn", function () {
+        var swapi = $('#sw-to-find').val();
+        $.ajax({
+            url: "https://swapi.co/api/film",
+            method: "get",
+            data: {
+                people: swapi
+            },
+            success: function (resp) {
+                console.log(resp);
+                var film =
+                $('#info').text("TEST");
+
+            }
+    });
+
+    });
+    $(document).on('click', "#my-calc-btn", function () {
+        var name = $('#name-text').val();
+        $('#welcome-div').text("Welcome, " + name + "!");
+    });
+    $(document).on('click', "#post-to-find-btn", function () {
+        var postnr = $('#post-to-find').val();
+        $.ajax({
+            url: "https://dawa.aws.dk/postnumre",
+            method: "get",
+            data: {
+                nr: postnr
+            },
+            success: function (resp) {
+                console.log(resp);
+                var city = resp[0].navn;
+                var municipality = resp[0].kommuner[0].navn;
+                $('#show-info').text(city + ", " + municipality);
+            },
+            error: function (resp) {
+                console.log("somthing went vaery bad");
+                console.log(resp);
+            }
+        });
+    });
+</script>
+
+
+</body>
+</html>
