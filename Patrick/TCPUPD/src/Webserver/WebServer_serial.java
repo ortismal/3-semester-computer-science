@@ -88,10 +88,10 @@ public class WebServer_serial {
                     //sender 16KB ad gangen istedet for det hele på 1 gang
                     int off = 0;
                     while (numOfBytes > off + 16000) {
-                        int bytesRead = inFile.read(fileInBytes, off, 16000);
+                        int readBytes = inFile.read(fileInBytes, off, 16000);
                         outToClient.write(fileInBytes, off, 16000);
                         System.out.println(off);
-                        off += bytesRead;
+                        off += readBytes;
                     }
                     //sender de resterende bytes
                     System.out.println("Off size: " + off);
