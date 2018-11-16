@@ -1,10 +1,13 @@
 package dk.kea.swc3.dat17c.demo.controller;
 
+import dk.kea.swc3.dat17c.demo.CarRepository;
+import dk.kea.swc3.dat17c.demo.UserRepository;
 import dk.kea.swc3.dat17c.demo.model.Car;
+import dk.kea.swc3.dat17c.demo.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -12,17 +15,76 @@ import java.util.ArrayList;
 @Controller
 public class CarController {
 
-    @GetMapping("/thisIsTheURLCar")
-    public String car(Model model){
+    @Autowired
+    private CarRepository carRepo;
+    @Autowired
+    private UserRepository userRepo;
 
-        ArrayList<Car> cars = new ArrayList<>();
-        cars.add(new Car("BMW", "pink", 5));
-        cars.add(new Car("Opel", "blue", 3));
-        cars.add(new Car("Fiat", "red", 5));
-        cars.add(new Car("KIA", "yellow", 7));
-        cars.add(new Car("Ford", "black", 1));
+//    @GetMapping("/thisIsTheURLCar")
+//    public String car(Model model){
 
-        model.addAttribute("carsToBeSendToView", cars);
+    //        ArrayList<Car> cars = new ArrayList<>();
+//        cars.add(new Car("BMW", "pink", 5));
+//        cars.add(new Car("Opel", "blue", 3));
+//        cars.add(new Car("Fiat", "red", 5));
+//        cars.add(new Car("KIA", "yellow", 7));
+//        cars.add(new Car("Ford", "black", 1));
+//
+//        model.addAttribute("carsToBeSendToView", cars);
+//        return "car";
+//    }
+    @GetMapping("/car/add")
+    @ResponseBody
+    public String saveCar(
+            @RequestParam(defaultValue = "NO_BRAND")
+                    String brand,
+            @RequestParam(defaultValue = "NO_COLOR")
+                    String color,
+            @RequestParam(defaultValue = "-1")
+                    Integer doors,
+            @RequestParam(defaultValue = "-1")
+                    Integer speed,
+            @RequestParam(defaultValue = "NO_USER")
+                    String userName) {
+
+        User u = userRepo.findByName(userName);
+        if (u == null) {
+            u = new User(userName, null, null);
+            userRepo.save(u);
+        }
+
+        Car newCar = new Car(brand, color, doors, speed, u);
+
+        carRepo.save(newCar);
+
+        return "OK";
+
+    }
+
+    @GetMapping("/car/save")
+    public String carSave(Model model) {
+        model.addAttribute("carSave", new Car());
+        return "carSave";
+    }
+
+    @PostMapping("/car/save")
+    public String carSave(@ModelAttribute Car car,
+                          @RequestParam(defaultValue = "NO_OWNER")
+                                  String userName) {
+        User u = userRepo.findByName(userName);
+        if (u == null) {
+            u = new User(userName, null, null);
+            userRepo.save(u);
+        }
+        car.setUser(u);
+        carRepo.save(car);
         return "car";
     }
+
+    @GetMapping("/car/create")
+    public String newCarView(Model model){
+        model.addAttribute("car", new Car());
+        return "carNew";
+    }
+
 }

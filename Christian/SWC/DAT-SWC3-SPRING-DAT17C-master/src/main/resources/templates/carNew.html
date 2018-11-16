@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Add new car</title>
+</head>
+<body>
+
+<form method="post" action="/car/new">
+    <input type="text" placeholder="Brand" th:field="${car.brand}" required="true"/> <br/>
+    <input type="text" placeholder="Color" th:field="${car.color}" required="true"/> <br/>
+    <input type="number" min="2" max="5" placeholder="Doors" th:field="${car.doors}" required="true"/> <br/>
+    <input type="number" min="0" max="300" placeholder="Speed" th:field="${car.speed}" required="true"/> <br/>
+    <button type="submit">Save</button>
+    <button type="reset">Reset</button>
+</form>
+
+<form th:object="">
+    <input type="text" placeholder="Brand" th:field="${car.brand}" required="true"/> <br/>
+    <input type="text" placeholder="Color" th:field="${car.color}" required="true"/> <br/>
+    <input type="number" min="2" max="5" placeholder="Doors" th:field="${car.doors}" required="true"/> <br/>
+    <input type="number" min="0" max="300" placeholder="Speed" th:field="${car.speed}" required="true"/> <br/>
+    <button type="submit">Save</button>
+    <button type="reset">Reset</button>
+</form>
+
+</body>
+</html>
