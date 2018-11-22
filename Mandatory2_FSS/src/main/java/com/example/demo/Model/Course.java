@@ -8,7 +8,7 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String NOC_danish;
-    private String NOC_English;
+    private String NOC_english;
     private String mandatory_elective;
     private Integer ects;
     private String courseLanguage;
@@ -17,7 +17,7 @@ public class Course {
     private Integer maxOfStudents;
     private String prerequisites;
     private String learningsOutcome;
-    private String concent;
+    private String content;
     private String learningActivities;
     private String examForm;
     private Integer semester;
@@ -28,12 +28,12 @@ public class Course {
 
     public Course(){}
 
-    public Course(String NOC_danish, String NOC_English, String mandatory_elective, Integer ects, String courseLanguage,
+    public Course(String NOC_danish, String NOC_english, String mandatory_elective, Integer ects, String courseLanguage,
                    Integer minOfStudents, Integer expOfStudents, Integer maxOfStudents, String prerequisites,
-                   String learningsOutcome, String concent, String learningActivities, String examForm, Integer semester,
+                   String learningsOutcome, String content, String learningActivities, String examForm, Integer semester,
                    String classCode, StudyProgramme studyProgramme) {
         this.NOC_danish = NOC_danish;
-        this.NOC_English = NOC_English;
+        this.NOC_english = NOC_english;
         this.mandatory_elective = mandatory_elective;
         this.ects = ects;
         this.courseLanguage = courseLanguage;
@@ -42,7 +42,7 @@ public class Course {
         this.maxOfStudents = maxOfStudents;
         this.prerequisites = prerequisites;
         this.learningsOutcome = learningsOutcome;
-        this.concent = concent;
+        this.content = content;
         this.learningActivities = learningActivities;
         this.examForm = examForm;
         this.semester = semester;
@@ -63,11 +63,11 @@ public class Course {
     }
 
     public String getNOC_English() {
-        return NOC_English;
+        return NOC_english;
     }
 
     public void setNOC_English(String NOC_English) {
-        this.NOC_English = NOC_English;
+        this.NOC_english = NOC_English;
     }
 
     public String getMandatory_elective() {
@@ -135,11 +135,11 @@ public class Course {
     }
 
     public String getConcent() {
-        return concent;
+        return content;
     }
 
     public void setConcent(String concent) {
-        this.concent = concent;
+        this.content = concent;
     }
 
     public String getLearningActivities() {
