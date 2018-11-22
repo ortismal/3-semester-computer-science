@@ -134,12 +134,12 @@ public class Course {
         this.learningsOutcome = learningsOutcome;
     }
 
-    public String getConcent() {
+    public String getContent() {
         return content;
     }
 
-    public void setConcent(String concent) {
-        this.content = concent;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public String getLearningActivities() {

@@ -2,25 +2,26 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8"/>
-    <title>Add new Car</title>
+    <title>Create new course</title>
 </head>
 <body>
-
 <form method="post" action="/courses/create" th:object="${course}">
     <input type="text" placeholder="NOC_danish" th:field="${course.NOC_danish}" required="true"/> <br/>
     <input type="text" placeholder="NOC_English" th:field="${course.NOC_English}" required="true"/> <br/>
+    <input type="text" placeholder="Course Language" th:field="${course.courseLanguage}" required="true"/> <br/>
     <input type="text" placeholder="Mandatory or elective" th:field="${course.mandatory_elective}" required="true"/> <br/>
     <input type="number" min="1" placeholder="ECTS" th:field="${course.ects}" required="true"/> <br/>
     <input type="number" min="1" placeholder="Minimum number of students" th:field="${course.minOfStudents}" required="true"/> <br/>
     <input type="number" min="0" placeholder="Expected number of students" th:field="${course.expOfStudents}" required="true"/> <br/>
     <input type="number" min="0" placeholder="maximum number of students" th:field="${course.maxOfStudents}" required="true"/> <br/>
     <input type="text" placeholder="Prerequisites" th:field="${course.prerequisites}" required="true"/> <br/>
-    <input type="text" placeholder="Learning outcome" th:field="${course.learningOutcome}" required="true"/> <br/>
+    <input type="text" placeholder="Learning outcome" th:field="${course.learningsOutcome}" required="true"/> <br/>
     <input type="text" placeholder="Content" th:field="${course.content}" required="true"/> <br/>
     <input type="text" placeholder="Learning activities" th:field="${course.learningActivities}" required="true"/> <br/>
     <input type="text" placeholder="Exam form" th:field="${course.examForm}" required="true"/> <br/>
     <input type="number" min="0" placeholder="Semester" th:field="${course.semester}" required="true"/> <br/>
     <input type="text" placeholder="Class code" th:field="${course.classCode}" required="true"/> <br/>
+
     <button type="submit">Save</button>
     <button type="reset">Cancel</button>
 </form>
