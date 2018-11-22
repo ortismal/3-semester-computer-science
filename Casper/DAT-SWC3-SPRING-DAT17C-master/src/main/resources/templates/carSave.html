@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+        <form method="post" th:action="@{/car/save}">
+
+            <label>Brand:</label>
+            <input type="text" th:field="${carSave.brand}" required="true"/>
+            <label>Color:</label>
+            <input type="text" th:field="${carSave.color}" required="true"/>
+            <label>Doors:</label>
+            <input type="text" th:field="${carSave.doors}" required="true"/>
+            <label>Speed:</label>
+            <input type="text" th:field="${carSave.speed}" required="true"/>
+            <label>Owner:</label>
+            <input type="text" name="userName"/>
+
+            <input class="sendButton" type="submit" value="Send"/>
+
+        </form>
+</body>
+</html>
