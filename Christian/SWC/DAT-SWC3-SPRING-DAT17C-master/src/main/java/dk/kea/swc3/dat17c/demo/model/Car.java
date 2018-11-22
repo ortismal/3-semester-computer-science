@@ -1,9 +1,11 @@
 package dk.kea.swc3.dat17c.demo.model;
 
+import dk.kea.swc3.dat17c.demo.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 
 @Entity
-
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,8 +18,13 @@ public class Car {
     @OneToOne
     private User user;
 
-    public Car(){
+    public Car(){}
 
+    public Car(String brand, String color, Integer doors, Integer speed) {
+        this.brand = brand;
+        this.color = color;
+        this.doors = doors;
+        this.speed = speed;
     }
 
     public Car(String brand, String color, Integer doors, Integer speed, User user) {
@@ -28,12 +35,7 @@ public class Car {
         this.user = user;
     }
 
-    public Car(String brand, String color, Integer doors, Integer speed) {
-        this.brand = brand;
-        this.color = color;
-        this.doors = doors;
-        this.speed = speed;
-    }
+
 
     public Long getId() {
         return id;
