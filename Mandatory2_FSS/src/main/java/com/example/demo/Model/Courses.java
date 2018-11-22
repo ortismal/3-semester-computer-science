@@ -17,7 +17,7 @@ public class Courses {
     private Integer maxOfStudents;
     private String prerequisites;
     private String learningsOutcome;
-    private String concent;
+    private String content;
     private String learningActivities;
     private String examForm;
     private Integer semester;
@@ -28,7 +28,7 @@ public class Courses {
 
     public Courses(){}
 
-    public Courses(String NOC_danish, String NOC_English, String mandatory_elective, Integer ects, String courseLanguage, Integer minOfStudents, Integer expOfStudents, Integer maxOfStudents, String prerequisites, String learningsOutcome, String concent, String learningActivities, String examForm, Integer semester, String classCode, StudyProgramme studyProgramme) {
+    public Courses(String NOC_danish, String NOC_English, String mandatory_elective, Integer ects, String courseLanguage, Integer minOfStudents, Integer expOfStudents, Integer maxOfStudents, String prerequisites, String learningsOutcome, String content, String learningActivities, String examForm, Integer semester, String classCode, StudyProgramme studyProgramme) {
         this.NOC_danish = NOC_danish;
         this.NOC_English = NOC_English;
         this.mandatory_elective = mandatory_elective;
@@ -39,7 +39,7 @@ public class Courses {
         this.maxOfStudents = maxOfStudents;
         this.prerequisites = prerequisites;
         this.learningsOutcome = learningsOutcome;
-        this.concent = concent;
+        this.content = content;
         this.learningActivities = learningActivities;
         this.examForm = examForm;
         this.semester = semester;
@@ -131,12 +131,12 @@ public class Courses {
         this.learningsOutcome = learningsOutcome;
     }
 
-    public String getConcent() {
-        return concent;
+    public String getContent() {
+        return content;
     }
 
-    public void setConcent(String concent) {
-        this.concent = concent;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public String getLearningActivities() {
