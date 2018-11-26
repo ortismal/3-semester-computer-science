@@ -49,17 +49,17 @@ public class CoursesController {
         model.addAttribute("courses", coursesList);
         return "courseEdit";
     }
-
+    @ResponseBody
     @PutMapping("/courses/edit/{id}")
     public ResponseEntity<Course> updateCourse(
-            @PathVariable Long id, @RequestParam String NOC_danish, @RequestParam String NOC_english, @RequestParam String mandatory_elective, @RequestParam Integer ects,
+            @PathVariable Long id, @RequestParam String NOC_danish, @RequestParam String NOC_english, @RequestParam String mandatory_elective, @RequestParam String ects,
             @RequestParam String courseLanguage, @RequestParam Integer minOfStudents, @RequestParam Integer expOfStudents,
-            @RequestParam Integer maxOfStudents, @RequestParam String prerequisities, @RequestParam String learningsOutcome,
+            @RequestParam Integer maxOfStudents, @RequestParam String prerequisites, @RequestParam String learningsOutcome,
             @RequestParam String content, @RequestParam String learningActivities, @RequestParam String examForm,
             @RequestParam Integer semester, @RequestParam String classCode, @RequestParam StudyProgramme studyProgramme, @RequestParam User studentId) {
 
-        Course course = new Course(NOC_danish, NOC_english, mandatory_elective, ects, courseLanguage, minOfStudents,
-                expOfStudents, maxOfStudents, prerequisities, learningsOutcome, content, learningActivities, examForm,
+        Course course = new Course(NOC_danish, NOC_english, mandatory_elective, Integer.parseInt(ects), courseLanguage, minOfStudents,
+                expOfStudents, maxOfStudents, prerequisites, learningsOutcome, content, learningActivities, examForm,
                 semester, classCode, studyProgramme, studentId);
 
         Course courseToBeUpdated = coursesRepo.findById(id);

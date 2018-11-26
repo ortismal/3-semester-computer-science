@@ -142,8 +142,7 @@
 
                     <div class="form-group col-md-5">
                         <label for="studentId">Student ID</label>
-                        <input type="number" class="form-control" id="studentId" min="1" max="30000"
-                               placeholder="Student ID"
+                        <input type="text" class="form-control" id="studentId" placeholder="Student ID"
                                th:field="${course.studentId}" required="true"/>
                     </div>
 
@@ -160,7 +159,7 @@
 <script th:inline="javascript">
     $(document).on('click', '#update-btn', function () {
         console.log("btn pressed");
-        console.log($('#NOC_danish').val());
+        console.log( 'HEEEEE' +$('#ects').val());
         var test = $('#NOC_danish').val();
         var courseID = [[${course.id}]];
 
@@ -171,6 +170,7 @@
             data: {
                 NOC_danish: test,
                 NOC_english: $('#NOC_english').val(),
+                ects: $('#ects').val(),
                 mandatory_elective: $('#mandatory_elective').val(),
                 courseLanguage: $('#courseLanguage').val(),
                 minOfStudents: $('#minOfStudents').val(),
@@ -184,7 +184,7 @@
                 semester: $('#semester').val(),
                 classCode: $('#classCode').val(),
                 studyProgramme: $('#studyProgramme').val(),
-                studentID: $('#studentID').val(),
+                studentId: $('#studentId').val(),
             },
             success: function (resp) {
                 alert("This course has been updated\n" + JSON.stringify(resp));
