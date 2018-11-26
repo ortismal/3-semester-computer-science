@@ -3,6 +3,7 @@ package com.example.demo.Controller;
 import com.example.demo.CoursesRepo;
 import com.example.demo.Model.Course;
 import com.example.demo.Model.StudyProgramme;
+import com.example.demo.Model.User;
 import com.example.demo.StudyProgrammesRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -55,11 +56,11 @@ public class CoursesController {
             @RequestParam String courseLanguage, @RequestParam Integer minOfStudents, @RequestParam Integer expOfStudents,
             @RequestParam Integer maxOfStudents, @RequestParam String prerequisities, @RequestParam String learningsOutcome,
             @RequestParam String content, @RequestParam String learningActivities, @RequestParam String examForm,
-            @RequestParam Integer semester, @RequestParam String classCode, @RequestParam StudyProgramme studyProgramme) {
+            @RequestParam Integer semester, @RequestParam String classCode, @RequestParam StudyProgramme studyProgramme, @RequestParam User studentId) {
 
                 Course course = new Course(NOC_danish, NOC_english, mandatory_elective, ects, courseLanguage, minOfStudents,
                         expOfStudents, maxOfStudents, prerequisities, learningsOutcome, content, learningActivities, examForm,
-                        semester, classCode, studyProgramme);
+                        semester, classCode, studyProgramme, studentId);
 
                 Course courseToBeUpdated = coursesRepo.findById(id);
 
@@ -79,6 +80,7 @@ public class CoursesController {
                 courseToBeUpdated.setSemester(course.getSemester());
                 courseToBeUpdated.setClassCode(course.getClassCode());
                 courseToBeUpdated.setStudyProgramme(course.getStudyProgramme());
+                courseToBeUpdated.setStudentId(course.getStudentId());
 
                 coursesRepo.save(courseToBeUpdated);
                 ;
