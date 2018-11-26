@@ -3,6 +3,101 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Courses</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"/>
+
+
+</head>
+<body>
+
+<!--Navbar Nedenunder-->
+
+<!--<nav class="navbar navbar-expand-lg navbar-light" id="nav_top">-->
+<!--<a class="navbar-brand" href="/"><i class="fas fa-car"></i> CarShop</a>-->
+<!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"-->
+<!--aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--<span class="navbar-toggler-icon"></span>-->
+<!--</button>-->
+<!--<div class="collapse navbar-collapse" id="navbarText">-->
+<!--<ul class="navbar-nav mr-auto">-->
+<!--<li class="nav-item">-->
+<!--<a class="nav-link" href="/">Home </a>-->
+<!--</li>-->
+<!--<li class="nav-item active">-->
+<!--<a class="nav-link" href="/car/show">Cars <span class="sr-only">(current)</span></a>-->
+<!--</li>-->
+<!--</ul>-->
+<!--<span class="navbar-text">-->
+<!--Welcome <span id="name_span"></span>-->
+<!--</span>-->
+<!--</div>-->
+<!--</nav>-->
+
+<div.float-left class="table table-hover">
+    <div.float-left class="container">
+        <h1 class="display-4">Courses <a href="/courses/create" class="btn btn-outline-primary">Add new course</a>
+        </h1>
+
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">NOC_Danish</th>
+                <th scope="col">NOC_English</th>
+                <th scope="col">Mandatory/Elective</th>
+                <th scope="col">Course language</th>
+                <th scope="col">Minimum amount of students</th>
+                <th scope="col">Expected amount of students</th>
+                <th scope="col">Maximum amount of students</th>
+                <th scope="col">Prerequisites</th>
+                <th scope="col">Content</th>
+                <th scope="col">Learning activities</th>
+                <th scope="col">Exam form</th>
+                <th scope="col">Semester</th>
+                <th scope="col">Class code</th>
+                <th scope="col">Student ID</th>
+                <th scope="col">Studyprogramme</th>
+            </tr>
+            </thead>
+            <tbody.table-hover>
+
+                <tr th:each="course:${coursesToBeSendToView}">
+                    <td th:text="${course.id}">{{ID}}</td>
+                    <td th:text="${course.NOC_danish}">{{NOC_Danish}}</td>
+                    <td th:text="${course.NOC_English}">{{NOC_English}}</td>
+                    <td th:text="${course.mandatory_elective}">{{Mandatory/Elective}}</td>
+                    <td th:text="${course.ects}">{{ECTS}}</td>
+                    <td th:text="${course.courseLanguage}">{{Course Language}}</td>
+                    <td th:text="${course.minOfStudents}">{{Minimum amount of students}}</td>
+                    <td th:text="${course.expOfStudents}">{{Expected amount of students}}</td>
+                    <td th:text="${course.maxOfStudents}">{{Maximum amount of students}}</td>
+                    <td th:text="${course.prerequisites}">{{Prerequisites}}</td>
+                    <td th:text="${course.content}">{{Content}}</td>
+                    <td th:text="${course.learningActivities}">{{Learning activities}}</td>
+                    <td th:text="${course.examForm}">{{Exam form}}</td>
+                    <td th:text="${course.semester}">{{Semester}}</td>
+                    <td th:text="${course.classCode}">{{Class code}}</td>
+                    <td th:text="${course.studentId}">{{Student ID}}</td>
+                    <td th:text="${course.studyProgramme}">{{Studyprogramme}}</td>
+                    <td>
+                        <a th:href="'/car/edit/'+${course.id}" class="btn btn-outline-warning"> Edit </a>
+                        <button type="button" class="car-delete btn btn-outline-danger"
+                                th:attr="data-id=${course.id}">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+
+            </tbody.table-hover>
+        </table>
+    </div.float-left>
+</div.float-left>
+</body>
+</html>
+<!--
 </head>
 <body>
 <h1>Courses</h1>
@@ -52,4 +147,4 @@
     </tbody>
 </table>
 </body>
-</html>
+</html>-->

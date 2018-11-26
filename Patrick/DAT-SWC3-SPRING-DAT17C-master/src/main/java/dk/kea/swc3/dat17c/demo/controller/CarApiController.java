@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 @RestController
@@ -42,5 +43,31 @@ public class CarApiController {
     public ResponseEntity<Car> saveCar(Car car){
         Car newCar = carRepo.save(car);
         return new ResponseEntity(newCar, HttpStatus.OK);
+    }
+
+    @PutMapping("/car/update/{id}")
+    public ResponseEntity<Car> updateCar(@PathVariable Long id,
+                                         @RequestParam String brand,
+                                         @RequestParam String color,
+                                         @RequestParam Integer doors,
+                                         @RequestParam Integer speed){
+
+        Car car = new Car(brand, color, doors, speed);
+        System.out.println(id);
+        System.out.println(car.getBrand());
+        Car carToBeUpdated = carRepo.findById(id);
+        carToBeUpdated.setBrand(car.getBrand());
+        carToBeUpdated.setColor(car.getColor());
+        carToBeUpdated.setDoors(car.getDoors());
+        carToBeUpdated.setSpeed(car.getSpeed());
+        carRepo.save(carToBeUpdated);
+        return new ResponseEntity(carToBeUpdated, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/car/deleteNew/{id}")
+    public ResponseEntity<Car> deleteCar(@PathVariable Long id){
+        Car car = carRepo.findById(id);
+        carRepo.delete(id);
+        return new ResponseEntity(car, HttpStatus.OK);
     }
 }

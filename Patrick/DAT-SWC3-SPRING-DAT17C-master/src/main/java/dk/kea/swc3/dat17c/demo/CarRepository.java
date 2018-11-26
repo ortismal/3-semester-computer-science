@@ -8,4 +8,5 @@ import java.util.List;
 public interface CarRepository extends CrudRepository<Car, Long> {
     Car findById(Long id);
     List<Car> findAll();
+    Car deleteById(Long id);
 }

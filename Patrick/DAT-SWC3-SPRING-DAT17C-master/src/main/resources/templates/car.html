@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.thymeleaf.org/">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>CAR</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"/>
+
 
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light" id="nav_top">
-    <a class="navbar-brand" href="#">Navbar w/ text</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="/"><i class="fas fa-car"></i> CarShop</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
@@ -19,7 +24,7 @@
                 <a class="nav-link" href="/">Home </a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="/thisIsTheURLCar">Cars <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/car/show">Cars <span class="sr-only">(current)</span></a>
             </li>
         </ul>
         <span class="navbar-text">
@@ -28,34 +33,46 @@
     </div>
 </nav>
 
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th scope="col">Brand</th>
-        <th scope="col">Color</th>
-        <th scope="col">Doors</th>
-    </tr>
-    </thead>
-    <tbody>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Cars <a href="/car/create" class="btn btn-outline-primary">Add new car</a></h1>
 
-    <tr th:each="car:${carsToBeSendToView}">
-        <td th:text="${car.brand}">{{brand}}</td>
-        <td th:text="${car.color}">{{color}}</td>
-        <td th:text="${car.doors}">{{doors}}</td>
-    </tr>
 
-    <tr th:each="car:${carsToBeSendToView}">
-        <td th:text="${car.brand}">{{brand}}</td>
-        <td th:text="${car.color}">{{color}}</td>
-        <td th:text="${car.doors}">{{doors}}</td>
-        <td th:text="${car.user.name}">{{owner}}</td>
-        <td><button type="submit" class="carButton" th:data-car="${car.id}">DELETE</button></td>
-    </tr>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Brand</th>
+                <th scope="col">Color</th>
+                <th scope="col">Doors</th>
+                <th scope="col">Speed</th>
+                <th scope="col">User</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
 
-    </tbody>
-</table>
+            <tr th:each="car:${carsToBeSendToView}">
+                <td th:text="${car.brand}">{{brand}}</td>
+                <td th:text="${car.color}" th:style="|background-color: ${car.color}|">{{color}}</td>
+                <td th:text="${car.doors}">{{doors}}</td>
+                <td th:text="${car.speed}">{{speed}}</td>
+                <td th:text="${car.user.name}">{{owner}}</td>
+                <td>
+                    <a th:href="'/car/edit/'+${car.id}" class="btn btn-outline-warning"> Edit </a>
+                    <button type="button" class="car-delete btn btn-outline-danger" th:attr="data-id=${car.id}">Delete
+                    </button>
+                </td>
+            </tr>
 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script>
@@ -66,19 +83,30 @@
 
     $('#name_span').text(user.name);
 
-    if(user.gender == 'M'){
+    if (user.gender == 'M') {
         $('#nav_top').addClass('bg-primary');
     } else {
         $('#nav_top').addClass('bg-danger');
     }
 
 
-
-    $(document).on("click",".carButton",function () {
+    $(document).on("click", ".car-delete", function () {
         console.log("Button press");
-        var carId = $(this).data("data-car");
+        var carId = $(this).data("id");
         console.log(carId);
 
+        $.ajax({
+            url: 'http://localhost:8080/car/deleteNew/' + carId,
+            method: 'delete',
+            success: function (resp) {
+                alert("This car has been deleted\n" + JSON.stringify(resp));
+                location.reload();
+            },
+            error: function (err) {
+                alert("ERROR\n" + JSON.stringify(err));
+                location.reload();
+            }
+        });
     })
 
 </script>

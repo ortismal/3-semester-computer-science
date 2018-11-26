@@ -1,5 +1,8 @@
 package dk.kea.swc3.dat17c.demo.model;
 
+import dk.kea.swc3.dat17c.demo.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 
 @Entity
@@ -15,8 +18,13 @@ public class Car {
     @OneToOne
     private User user;
 
-    public Car(){
+    public Car(){}
 
+    public Car(String brand, String color, Integer doors, Integer speed) {
+        this.brand = brand;
+        this.color = color;
+        this.doors = doors;
+        this.speed = speed;
     }
 
     public Car(String brand, String color, Integer doors, Integer speed, User user) {
@@ -26,6 +34,8 @@ public class Car {
         this.speed = speed;
         this.user = user;
     }
+
+
 
     public Long getId() {
         return id;
@@ -65,5 +75,13 @@ public class Car {
 
     public void setSpeed(Integer speed) {
         this.speed = speed;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

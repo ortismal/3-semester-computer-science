@@ -5,8 +5,7 @@
     <title>CAR</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
-          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"/>
 
 </head>
 <body>
@@ -34,8 +33,8 @@
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-4">Add New Car</h1>
-        <form method="post" action="/car/new" th:object="${car}">
+        <h1 class="display-4">Edit Car</h1>
+        <form th:object="${car}">
             <div class="form-group">
                 <label for="brand">Brand</label>
                 <input type="text" class="form-control" id="brand" placeholder="Enter brand" th:field="${car.brand}"
@@ -45,8 +44,7 @@
             <div class="form-row">
                 <div class="form-group col-md-2">
                     <label for="color">Color</label>
-                    <input type="color" class="form-control" id="color" placeholder="Enter color"
-                           th:field="${car.color}"
+                    <input type="color" class="form-control" id="color" placeholder="Enter color" th:field="${car.color}"
                            required="true"/>
                 </div>
                 <div class="form-group col-md-5">
@@ -69,7 +67,7 @@
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-outline-success">Save</button>
+            <button type="button" class="btn btn-outline-success" id="update-btn">Update</button>
             <button type="reset" class="btn btn-outline-danger">Reset</button>
         </form>
     </div>
@@ -77,24 +75,28 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-    $(document).on("click", "#updatebtn", function () {
+<script th:inline="javascript">
+    $(document).on('click', '#update-btn', function () {
         console.log("btn pressed");
         console.log($('#brand').val());
+        var carid = [[${car.id}]];
         $.ajax({
-            url: "http://localhost:8080/car/update/5",
+            url: "http://localhost:8080/car/update/"+carid,
             method: "put",
             data: {
                 brand: $('#brand').val(),
                 color: $('#color').val(),
                 doors: $('#doors').val(),
-                speed: $('#speed').val()
+                speed: $('#speed').val(),
+                user: $('#inputUser option:selected').val()
             },
             success: function (resp) {
-                console.log(resp);
+                alert("This car has been updated\n" + JSON.stringify(resp));
+                location.href="/car/show";
             },
             error: function (err) {
-                console.log(err);
+                alert("ERROR\n" + JSON.stringify(err));
+                location.reload();
             }
         });
     });
