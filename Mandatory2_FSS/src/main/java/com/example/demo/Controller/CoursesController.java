@@ -20,8 +20,8 @@ public class CoursesController {
     @Autowired
     private CoursesRepo coursesRepo;
 
-            @GetMapping("/courses/create")
-            public String addCourse(Model model) {
+    @GetMapping("/courses/create")
+    public String addCourse(Model model) {
         model.addAttribute("course", new Course());
         return "courseCreate";
     }
@@ -50,42 +50,56 @@ public class CoursesController {
         return "courseEdit";
     }
 
-    @PutMapping("/courses/update/{id}")
-    public ResponseEntity<Course> updateCourse(@PathVariable Long id, @RequestParam
-            String NOC_danish, @RequestParam String NOC_english, @RequestParam String mandatory_elective, @RequestParam Integer ects,
+    @PutMapping("/courses/edit/{id}")
+    public ResponseEntity<Course> updateCourse(
+            @PathVariable Long id, @RequestParam String NOC_danish, @RequestParam String NOC_english, @RequestParam String mandatory_elective, @RequestParam Integer ects,
             @RequestParam String courseLanguage, @RequestParam Integer minOfStudents, @RequestParam Integer expOfStudents,
             @RequestParam Integer maxOfStudents, @RequestParam String prerequisities, @RequestParam String learningsOutcome,
             @RequestParam String content, @RequestParam String learningActivities, @RequestParam String examForm,
             @RequestParam Integer semester, @RequestParam String classCode, @RequestParam StudyProgramme studyProgramme, @RequestParam User studentId) {
 
-                Course course = new Course(NOC_danish, NOC_english, mandatory_elective, ects, courseLanguage, minOfStudents,
-                        expOfStudents, maxOfStudents, prerequisities, learningsOutcome, content, learningActivities, examForm,
-                        semester, classCode, studyProgramme, studentId);
+        Course course = new Course(NOC_danish, NOC_english, mandatory_elective, ects, courseLanguage, minOfStudents,
+                expOfStudents, maxOfStudents, prerequisities, learningsOutcome, content, learningActivities, examForm,
+                semester, classCode, studyProgramme, studentId);
 
-                Course courseToBeUpdated = coursesRepo.findById(id);
+        Course courseToBeUpdated = coursesRepo.findById(id);
 
-                courseToBeUpdated.setNOC_danish(course.getNOC_danish());
-                courseToBeUpdated.setNOC_English(course.getNOC_English());
-                courseToBeUpdated.setMandatory_elective(course.getMandatory_elective());
-                courseToBeUpdated.setEcts(course.getEcts());
-                courseToBeUpdated.setCourseLanguage(course.getCourseLanguage());
-                courseToBeUpdated.setMinOfStudents(course.getMinOfStudents());
-                courseToBeUpdated.setExpOfStudents(course.getExpOfStudents());
-                courseToBeUpdated.setMaxOfStudents(course.getMaxOfStudents());
-                courseToBeUpdated.setPrerequisites(course.getPrerequisites());
-                courseToBeUpdated.setLearningsOutcome(course.getLearningsOutcome());
-                courseToBeUpdated.setContent(course.getContent());
-                courseToBeUpdated.setLearningActivities(course.getLearningActivities());
-                courseToBeUpdated.setExamForm(course.getExamForm());
-                courseToBeUpdated.setSemester(course.getSemester());
-                courseToBeUpdated.setClassCode(course.getClassCode());
-                courseToBeUpdated.setStudyProgramme(course.getStudyProgramme());
-                courseToBeUpdated.setStudentId(course.getStudentId());
+        courseToBeUpdated.setNOC_danish(course.getNOC_danish());
+        courseToBeUpdated.setNOC_English(course.getNOC_English());
+        courseToBeUpdated.setMandatory_elective(course.getMandatory_elective());
+        courseToBeUpdated.setEcts(course.getEcts());
+        courseToBeUpdated.setCourseLanguage(course.getCourseLanguage());
+        courseToBeUpdated.setMinOfStudents(course.getMinOfStudents());
+        courseToBeUpdated.setExpOfStudents(course.getExpOfStudents());
+        courseToBeUpdated.setMaxOfStudents(course.getMaxOfStudents());
+        courseToBeUpdated.setPrerequisites(course.getPrerequisites());
+        courseToBeUpdated.setLearningsOutcome(course.getLearningsOutcome());
+        courseToBeUpdated.setContent(course.getContent());
+        courseToBeUpdated.setLearningActivities(course.getLearningActivities());
+        courseToBeUpdated.setExamForm(course.getExamForm());
+        courseToBeUpdated.setSemester(course.getSemester());
+        courseToBeUpdated.setClassCode(course.getClassCode());
+        courseToBeUpdated.setStudyProgramme(course.getStudyProgramme());
+        courseToBeUpdated.setStudentId(course.getStudentId());
 
-                coursesRepo.save(courseToBeUpdated);
-                return new ResponseEntity(courseToBeUpdated, HttpStatus.OK);
+        coursesRepo.save(courseToBeUpdated);
+        return new ResponseEntity(courseToBeUpdated, HttpStatus.OK);
     }
 
+    @GetMapping("courses/delete/{id}")
+    public String deleteShow(@PathVariable Long id) {
+        Course course = coursesRepo.findById(id);
+        return "courseDelete";
+    }
+
+    @PostMapping("courses/delete/{id}")
+    public ResponseEntity<Course> deleteCourse(@PathVariable Long id) {
+
+        Course course = coursesRepo.findById(id);
+        coursesRepo.delete(id);
+
+        return new ResponseEntity(course, HttpStatus.OK);
+    }
 
 }
 
