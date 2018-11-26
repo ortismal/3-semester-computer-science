@@ -24,14 +24,18 @@ public class Course {
     private String classCode;
 
     @ManyToOne
+    private User studentId;
+
+    @ManyToOne
     private StudyProgramme studyProgramme;
 
-    public Course(){}
+    public Course() {
+    }
 
     public Course(String NOC_danish, String NOC_english, String mandatory_elective, Integer ects, String courseLanguage,
-                   Integer minOfStudents, Integer expOfStudents, Integer maxOfStudents, String prerequisites,
-                   String learningsOutcome, String content, String learningActivities, String examForm, Integer semester,
-                   String classCode, StudyProgramme studyProgramme) {
+                  Integer minOfStudents, Integer expOfStudents, Integer maxOfStudents, String prerequisites,
+                  String learningsOutcome, String content, String learningActivities, String examForm, Integer semester,
+                  String classCode, StudyProgramme studyProgramme, User studentId) {
         this.NOC_danish = NOC_danish;
         this.NOC_english = NOC_english;
         this.mandatory_elective = mandatory_elective;
@@ -48,6 +52,7 @@ public class Course {
         this.semester = semester;
         this.classCode = classCode;
         this.studyProgramme = studyProgramme;
+        this.studentId = studentId;
     }
 
     public Long getId() {
@@ -180,5 +185,13 @@ public class Course {
 
     public void setStudyProgramme(StudyProgramme studyProgramme) {
         this.studyProgramme = studyProgramme;
+    }
+
+    public User getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(User studentId) {
+        this.studentId = studentId;
     }
 }
