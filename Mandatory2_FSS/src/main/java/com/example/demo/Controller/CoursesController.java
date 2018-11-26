@@ -83,7 +83,6 @@ public class CoursesController {
                 courseToBeUpdated.setStudentId(course.getStudentId());
 
                 coursesRepo.save(courseToBeUpdated);
-                ;
                 return new ResponseEntity(courseToBeUpdated, HttpStatus.OK);
     }
 
