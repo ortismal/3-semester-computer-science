@@ -82,7 +82,7 @@
         var carid = [[${car.id}]];
         $.ajax({
             url: "http://localhost:8080/car/update/"+carid,
-            method: "put",
+            type: "put",
             data: {
                 brand: $('#brand').val(),
                 color: $('#color').val(),

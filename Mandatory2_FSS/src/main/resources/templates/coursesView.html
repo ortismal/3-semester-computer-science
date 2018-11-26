@@ -68,7 +68,7 @@
                 <tr th:each="course:${coursesToBeSendToView}">
                     <td th:text="${course.id}">{{ID}}</td>
                     <td th:text="${course.NOC_danish}">{{NOC_Danish}}</td>
-                    <td th:text="${course.NOC_English}">{{NOC_English}}</td>
+                    <td th:text="${course.NOC_english}">{{NOC_English}}</td>
                     <td th:text="${course.mandatory_elective}">{{Mandatory/Elective}}</td>
                     <td th:text="${course.ects}">{{ECTS}}</td>
                     <td th:text="${course.courseLanguage}">{{Course Language}}</td>
@@ -97,54 +97,3 @@
 </div.float-left>
 </body>
 </html>
-<!--
-</head>
-<body>
-<h1>Courses</h1>
-
-<table>
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Name of course (danish)</th>
-        <th>Name of course (english)</th>
-        <th>Mandatory/elective</th>
-        <th>ECTS points</th>
-        <th>Course language</th>
-        <th>Min. students</th>
-        <th>Expected students</th>
-        <th>Max. students</th>
-        <th>Prerequisites</th>
-        <th>Learning outcome</th>
-        <th>Content</th>
-        <th>Learning activites</th>
-        <th>Exam form</th>
-        <th>Semester</th>
-        <th>Class code</th>
-        <th>Study programme</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="course:${coursesToBeSendToView}">
-        <td th:text="${course.id}"/>
-        <td th:text="${course.NOC_danish}"/>
-        <td th:text="${course.NOC_English}"/>
-        <td th:text="${course.mandatory_elective}"/>
-        <td th:text="${course.ects}"/>
-        <td th:text="${course.courseLanguage}"/>
-        <td th:text="${course.minOfStudents}"/>
-        <td th:text="${course.expOfStudents}"/>
-        <td th:text="${course.maxOfStudents}"/>
-        <td th:text="${course.prerequisites}"/>
-        <td th:text="${course.learningsOutcome}"/>
-        <td th:text="${course.content}"/>
-        <td th:text="${course.learningActivities}"/>
-        <td th:text="${course.examForm}"/>
-        <td th:text="${course.semester}"/>
-        <td th:text="${course.classCode}"/>
-        <td th:text="${course.studyProgramme}"/>
-    </tr>
-    </tbody>
-</table>
-</body>
-</html>-->

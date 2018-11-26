@@ -67,12 +67,12 @@ public class Course {
         this.NOC_danish = NOC_danish;
     }
 
-    public String getNOC_English() {
+    public String getNOC_english() {
         return NOC_english;
     }
 
-    public void setNOC_English(String NOC_English) {
-        this.NOC_english = NOC_English;
+    public void setNOC_english(String NOC_english) {
+        this.NOC_english = NOC_english;
     }
 
     public String getMandatory_elective() {
