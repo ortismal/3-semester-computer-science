@@ -84,10 +84,11 @@
                     <td th:text="${course.studentId}">{{Student ID}}</td>
                     <td th:text="${course.studyProgramme}">{{Studyprogramme}}</td>
                     <td>
-                        <a th:href="'/courses/edit/'+${course.id}" class="btn btn-outline-warning"> Edit </a>
-                        <button type="button" class="car-delete btn btn-outline-danger" th:attr="data-id=${course.id}">
+                        <a th:href="'/courses/edit/'+${course.id}"><button class="btn btn-outline-warning" th:attr="data-id=${course.id}"> Edit </button></a>
+                        <a th:href="'/courses/delete/'+${course.id}"><button type="button" class="btn btn-outline-danger" th:attr="data-id=${course.id}">
                             Delete
                         </button>
+                        </a>
                     </td>
                 </tr>
 

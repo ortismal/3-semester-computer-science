@@ -98,13 +98,7 @@ public class CoursesController {
         return new ResponseEntity(courseToBeUpdated, HttpStatus.OK);
     }
 
-    @GetMapping("courses/delete/{id}")
-    public String deleteShow(@PathVariable Long id) {
-        Course course = coursesRepo.findById(id);
-        return "courseDelete";
-    }
-
-    @PostMapping("courses/delete/{id}")
+    @DeleteMapping("courses/delete/{id}")
     public ResponseEntity<Course> deleteCourse(@PathVariable Long id) {
 
         Course course = coursesRepo.findById(id);
