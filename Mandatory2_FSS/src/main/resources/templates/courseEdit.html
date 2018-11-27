@@ -37,19 +37,25 @@
         <h1 class="display-4">Edit Course</h1>
         <form th:object="${course}">
             <div class="form-row">
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
                 <label for="NOC_danish">NOC_Danish</label>
                 <input type="text" class="form-control" id="NOC_danish" placeholder="Name of course in Danish"
                        th:field="${course.NOC_danish}"
                        required="true"/>
             </div>
 
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
                 <label for="NOC_english">NOC_English</label>
                 <input type="text" class="form-control" id="NOC_english" placeholder="Name of course in English"
                        th:field="${course.NOC_english}"
                        required="true"/>
             </div>
+                <div class="form-group col-md-2">
+                    <label for="examForm">Exam Form</label>
+                    <input type="text" class="form-control" id="examForm"
+                           placeholder="Exam form"
+                           th:field="${course.examForm}" required="true"/>
+                </div>
             </div>
 
             <div class="form-row">
@@ -104,39 +110,36 @@
                 </div>
             </div>
 
-            <div class="form-group row col-md-8">
+            <div class="form-row">
+            <div class="form-group col-md-4">
                 <label for="prerequisites">Prerequisites</label>
                 <input type="text" class="form-control" id="prerequisites"
                        placeholder="Prerequisites"
                        th:field="${course.prerequisites}" required="true"/>
             </div>
 
-            <div class="form-group row col-md-8">
+            <div class="form-group col-md-4">
                 <label for="content">Content</label>
                 <input type="text" class="form-control" id="content"
                        placeholder="Content"
                        th:field="${course.content}" required="true"/>
             </div>
+            </div>
 
-            <div class="form-group row col-md-8">
+            <div class="form-row">
+            <div class="form-group col-md-4">
                 <label for="learningsOutcome">Learnings outcome</label>
                 <input type="text" class="form-control" id="learningsOutcome"
                        placeholder="Learnings outcome"
                        th:field="${course.learningsOutcome}" required="true"/>
             </div>
 
-            <div class="form-group row col-md-8">
+            <div class="form-group col-md-4">
                 <label for="learningActivities">Learning activities</label>
                 <input type="text" class="form-control" id="learningActivities"
                        placeholder="Learning activities"
                        th:field="${course.learningActivities}" required="true"/>
             </div>
-
-            <div class="form-group row col-md-8">
-                <label for="examForm">Exam Form</label>
-                <input type="text" class="form-control" id="examForm"
-                       placeholder="Exam form"
-                       th:field="${course.examForm}" required="true"/>
             </div>
 
             <div class="form-row">
@@ -165,7 +168,7 @@
 
             <button type="button" class="btn btn-outline-success" id="update-btn">Update
             </button>
-            <button type="reset" class="btn btn-outline-danger">Reset</button>
+            <button type="reset" class="btn btn-outline-warning">Reset</button>
             <a href="/courses">
                 <button type="button" class="btn btn-outline-danger">Tilbage</button>
             </a>
