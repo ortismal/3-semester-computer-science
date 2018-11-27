@@ -24,6 +24,9 @@ public class CoursesController {
     @Autowired
     private usersRepo usersRepo;
 
+    @Autowired
+    private StudyProgrammesRepo studyProgrammesRepo;
+
     @GetMapping("/courses/create")
     public String addCourse(Model model) {
         model.addAttribute("course", new Course());
@@ -41,6 +44,8 @@ public class CoursesController {
     public String viewCourse(Model model) {
         List<Course> courses = coursesRepo.findAll();
         model.addAttribute("coursesToBeSendToView", courses);
+        List<StudyProgramme> studyProgrammes = studyProgrammesRepo.findAll();
+        model.addAttribute("studyProgrammeToBeSentToView", studyProgrammes);
         return "coursesView";
     }
 
@@ -67,6 +72,7 @@ public class CoursesController {
 
         User u = usersRepo.findById(studentId);
         ArrayList<User> au = usersRepo.findAllByUserType("Student");
+
 
         Course course = new Course(NOC_danish, NOC_english, mandatory_elective, Integer.parseInt(ects), courseLanguage, minOfStudents,
                 expOfStudents, maxOfStudents, prerequisites, learningsOutcome, content, learningActivities, examForm,
