@@ -66,6 +66,7 @@ public class CoursesController {
             @RequestParam Integer semester, @RequestParam String classCode, @RequestParam StudyProgramme studyProgramme, @RequestParam Long studentId) {
 
         User u = usersRepo.findById(studentId);
+        ArrayList<User> au = usersRepo.findAllByUserType("Student");
 
         Course course = new Course(NOC_danish, NOC_english, mandatory_elective, Integer.parseInt(ects), courseLanguage, minOfStudents,
                 expOfStudents, maxOfStudents, prerequisites, learningsOutcome, content, learningActivities, examForm,
