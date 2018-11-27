@@ -36,121 +36,133 @@
     <div class="container">
         <h1 class="display-4">Edit Course</h1>
         <form th:object="${course}">
-            <div class="form-group">
+            <div class="form-group col-md-3">
                 <label for="NOC_danish">NOC_Danish</label>
                 <input type="text" class="form-control" id="NOC_danish" placeholder="Name of course in Danish"
                        th:field="${course.NOC_danish}"
                        required="true"/>
             </div>
 
-            <div class="form-row">
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-3">
                     <label for="NOC_english">NOC_English</label>
                     <input type="text" class="form-control" id="NOC_english" placeholder="Name of course in English"
                            th:field="${course.NOC_english}"
                            required="true"/>
                 </div>
 
-                <div class="form-group col-md-5">
-                    <label for="mandatory_elective">Mandatory/Elective</label>
-                    <input type="text" class="form-control" id="mandatory_elective" placeholder="Mandatory/elective"
-                           th:field="${course.mandatory_elective}" required="true"/>
-
-                    <div class="form-group col-md-5">
-                        <label for="ects">ECTS</label>
-                        <input type="number" class="form-control" id="ects" placeholder="ECTS"
-                               th:field="${course.ects}" min="0" max="50" required="true"/>
+                    <div class="form-group col-md-4">
+                        <label for="mandatory_elective">Mandatory/Elective</label>
+                        <input type="text" class="form-control" id="mandatory_elective" placeholder="Mandatory/elective"
+                               th:field="${course.mandatory_elective}" required="true"/>
                     </div>
 
-                    <div class="form-group col-md-5">
-                        <label for="courseLanguage">Course language</label>
-                        <input type="text" class="form-control" id="courseLanguage" placeholder="Course Language"
-                               th:field="${course.courseLanguage}" required="true"/>
-                    </div>
+                        <div class="form-group col-md-6">
+                            <label for="ects">ECTS</label>
+                            <input type="number" class="form-control" id="ects" placeholder="ECTS"
+                                   th:field="${course.ects}" min="0" max="50" required="true"/>
+                        </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="courseLanguage">Course language</label>
+                                <input type="text" class="form-control" id="courseLanguage"
+                                       placeholder="Course Language"
+                                       th:field="${course.courseLanguage}" required="true"/>
+                            </div>
+
+                                <div class="form-group col-md-5">
+                                    <label for="minOfStudents">Minimum amount of students</label>
+                                    <input type="number" class="form-control" id="minOfStudents" min="0" max="300"
+                                           placeholder="Minimum amount of Students"
+                                           th:field="${course.minOfStudents}" required="true"/>
+                                </div>
+
+                                    <div class="form-group col-md-5">
+                                        <label for="expOfStudents">Expected amount of students</label>
+                                        <input type="number" class="form-control" id="expOfStudents" min="0" max="300"
+                                               placeholder="Expected amount of Students"
+                                               th:field="${course.expOfStudents}" required="true"/>
+                                    </div>
+
+                                        <div class="form-group col-md-5">
+                                            <label for="maxOfStudents">Maximum amount of students</label>
+                                            <input type="number" class="form-control" id="maxOfStudents" min="0"
+                                                   max="300"
+                                                   placeholder="Maximum amount of Students"
+                                                   th:field="${course.maxOfStudents}" required="true"/>
+                                        </div>
 
 
-                    <div class="form-group col-md-5">
-                        <label for="minOfStudents">Minimum amount of students</label>
-                        <input type="number" class="form-control" id="minOfStudents" min="0" max="300"
-                               placeholder="Minimum amount of Students"
-                               th:field="${course.minOfStudents}" required="true"/>
-                    </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="prerequisites">Prerequisites</label>
+                                                <input type="text" class="form-control" id="prerequisites"
+                                                       placeholder="Prerequisites"
+                                                       th:field="${course.prerequisites}" required="true"/>
+                                            </div>
 
-                    <div class="form-group col-md-5">
-                        <label for="expOfStudents">Expected amount of students</label>
-                        <input type="number" class="form-control" id="expOfStudents" min="0" max="300"
-                               placeholder="Expected amount of Students"
-                               th:field="${course.expOfStudents}" required="true"/>
-                    </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="content">Content</label>
+                                                <input type="text" class="form-control" id="content"
+                                                       placeholder="Content"
+                                                       th:field="${course.content}" required="true"/>
+                                            </div>
 
-                    <div class="form-group col-md-5">
-                        <label for="maxOfStudents">Maximum amount of students</label>
-                        <input type="number" class="form-control" id="maxOfStudents" min="0" max="300"
-                               placeholder="Maximum amount of Students"
-                               th:field="${course.maxOfStudents}" required="true"/>
-                    </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="learningsOutcome">Learnings outcome</label>
+                                                <input type="text" class="form-control" id="learningsOutcome"
+                                                       placeholder="Learnings outcome"
+                                                       th:field="${course.learningsOutcome}" required="true"/>
+                                            </div>
 
-                    <div class="form-group col-md-5">
-                        <label for="prerequisites">Prerequisites</label>
-                        <input type="text" class="form-control" id="prerequisites" placeholder="Prerequisites"
-                               th:field="${course.prerequisites}" required="true"/>
-                    </div>
+                                            <div class="form-group col-md-5">
+                                                <label for="learningActivities">Learning activities</label>
+                                                <input type="text" class="form-control" id="learningActivities"
+                                                       placeholder="Learning activities"
+                                                       th:field="${course.learningActivities}" required="true"/>
+                                            </div>
 
-                    <div class="form-group col-md-5">
-                        <label for="content">Content</label>
-                        <input type="text" class="form-control" id="content" placeholder="Content"
-                               th:field="${course.content}" required="true"/>
-                    </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="examForm">Exam Form</label>
+                                                <input type="text" class="form-control" id="examForm"
+                                                       placeholder="Exam form"
+                                                       th:field="${course.examForm}" required="true"/>
+                                            </div>
 
-                    <div class="form-group col-md-5">
-                        <label for="learningsOutcome">Learnings outcome</label>
-                        <input type="text" class="form-control" id="learningsOutcome" placeholder="Learnings outcome"
-                               th:field="${course.learningsOutcome}" required="true"/>
-                    </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="semester">Semester</label>
+                                                <input type="number" class="form-control" id="semester" min="0"
+                                                       max="300"
+                                                       placeholder="Semester"
+                                                       th:field="${course.semester}" required="true"/>
+                                            </div>
 
-                    <div class="form-group col-md-5">
-                        <label for="learningActivities">Learning activities</label>
-                        <input type="text" class="form-control" id="learningActivities"
-                               placeholder="Learning activities"
-                               th:field="${course.learningActivities}" required="true"/>
-                    </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="classCode">Class code</label>
+                                                <input type="text" class="form-control" id="classCode"
+                                                       placeholder="Class code"
+                                                       th:field="${course.classCode}" required="true"/>
+                                            </div>
 
-                    <div class="form-group col-md-5">
-                        <label for="examForm">Exam Form</label>
-                        <input type="text" class="form-control" id="examForm" placeholder="Exam form"
-                               th:field="${course.examForm}" required="true"/>
-                    </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="studyProgramme">Studyprogramme ID</label>
+                                                <input type="number" class="form-control" id="studyProgramme" min="1"
+                                                       max="30000"
+                                                       placeholder="Studyprogramme ID"
+                                                       th:field="${course.studyProgramme}" required="true"/>
+                                            </div>
 
-                    <div class="form-group col-md-5">
-                        <label for="semester">Semester</label>
-                        <input type="number" class="form-control" id="semester" min="0" max="300" placeholder="Semester"
-                               th:field="${course.semester}" required="true"/>
-                    </div>
+                                            <div class="form-group col-md-5">
+                                                <label for="studentId">Student ID</label>
+                                                <input type="text" class="form-control" id="studentId"
+                                                       placeholder="Student ID"
+                                                       th:field="${course.studentId}" required="true"/>
+                                            </div>
 
-                    <div class="form-group col-md-5">
-                        <label for="classCode">Class code</label>
-                        <input type="text" class="form-control" id="classCode" placeholder="Class code"
-                               th:field="${course.classCode}" required="true"/>
-                    </div>
 
-                    <div class="form-group col-md-5">
-                        <label for="studyProgramme">Studyprogramme ID</label>
-                        <input type="number" class="form-control" id="studyProgramme" min="1" max="30000"
-                               placeholder="Studyprogramme ID"
-                               th:field="${course.studyProgramme}" required="true"/>
-                    </div>
 
-                    <div class="form-group col-md-5">
-                        <label for="studentId">Student ID</label>
-                        <input type="text" class="form-control" id="studentId" placeholder="Student ID"
-                               th:field="${course.studentId}" required="true"/>
-                    </div>
+                                        <button type="button" class="btn btn-outline-success" id="update-btn">Update
+                                        </button>
+                                        <button type="reset" class="btn btn-outline-danger">Reset</button>
 
-                </div>
-
-                <button type="button" class="btn btn-outline-success" id="update-btn">Update</button>
-                <button type="reset" class="btn btn-outline-danger">Reset</button>
-            </div>
         </form>
     </div>
 </div>
@@ -159,7 +171,7 @@
 <script th:inline="javascript">
     $(document).on('click', '#update-btn', function () {
         console.log("btn pressed");
-        console.log( 'HEEEEE' +$('#ects').val());
+        console.log('HEEEEE' + $('#ects').val());
         var test = $('#NOC_danish').val();
         var courseID = [[${course.id}]];
 

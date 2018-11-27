@@ -5,6 +5,7 @@ import com.example.demo.Model.Course;
 import com.example.demo.Model.StudyProgramme;
 import com.example.demo.Model.User;
 import com.example.demo.StudyProgrammesRepo;
+import com.example.demo.usersRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,9 @@ import java.util.List;
 public class CoursesController {
     @Autowired
     private CoursesRepo coursesRepo;
+
+    @Autowired
+    private usersRepo usersRepo;
 
     @GetMapping("/courses/create")
     public String addCourse(Model model) {
@@ -49,6 +53,9 @@ public class CoursesController {
         model.addAttribute("courses", coursesList);
         return "courseEdit";
     }
+
+
+
     @ResponseBody
     @PutMapping("/courses/edit/{id}")
     public ResponseEntity<Course> updateCourse(
@@ -56,11 +63,13 @@ public class CoursesController {
             @RequestParam String courseLanguage, @RequestParam Integer minOfStudents, @RequestParam Integer expOfStudents,
             @RequestParam Integer maxOfStudents, @RequestParam String prerequisites, @RequestParam String learningsOutcome,
             @RequestParam String content, @RequestParam String learningActivities, @RequestParam String examForm,
-            @RequestParam Integer semester, @RequestParam String classCode, @RequestParam StudyProgramme studyProgramme, @RequestParam User studentId) {
+            @RequestParam Integer semester, @RequestParam String classCode, @RequestParam StudyProgramme studyProgramme, @RequestParam Long studentId) {
+
+        User u = usersRepo.findById(studentId);
 
         Course course = new Course(NOC_danish, NOC_english, mandatory_elective, Integer.parseInt(ects), courseLanguage, minOfStudents,
                 expOfStudents, maxOfStudents, prerequisites, learningsOutcome, content, learningActivities, examForm,
-                semester, classCode, studyProgramme, studentId);
+                semester, classCode, studyProgramme, u);
 
         Course courseToBeUpdated = coursesRepo.findById(id);
 
