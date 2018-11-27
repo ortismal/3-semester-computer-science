@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<html xmlns:th="http://www.thymeleaf.org/" lang="en">
 <head>
     <meta charset="UTF-8"/>
     <title>Courses</title>
@@ -63,34 +63,33 @@
                 <th scope="col">Studyprogramme</th>
             </tr>
             </thead>
-            <tbody.table-hover>
-
-                <tr th:each="course:${coursesToBeSendToView}">
-                    <td th:text="${course.id}">{{ID}}</td>
-                    <td th:text="${course.NOC_danish}">{{NOC_Danish}}</td>
-                    <td th:text="${course.NOC_english}">{{NOC_English}}</td>
-                    <td th:text="${course.mandatory_elective}">{{Mandatory/Elective}}</td>
-                    <td th:text="${course.ects}">{{ECTS}}</td>
-                    <td th:text="${course.courseLanguage}">{{Course Language}}</td>
-                    <td th:text="${course.minOfStudents}">{{Minimum amount of students}}</td>
-                    <td th:text="${course.expOfStudents}">{{Expected amount of students}}</td>
-                    <td th:text="${course.maxOfStudents}">{{Maximum amount of students}}</td>
-                    <td th:text="${course.prerequisites}">{{Prerequisites}}</td>
-                    <td th:text="${course.content}">{{Content}}</td>
-                    <td th:text="${course.learningActivities}">{{Learning activities}}</td>
-                    <td th:text="${course.examForm}">{{Exam form}}</td>
-                    <td th:text="${course.semester}">{{Semester}}</td>
-                    <td th:text="${course.classCode}">{{Class code}}</td>
-                    <td th:text="${course.studentId}">{{Student ID}}</td>
-                    <td th:text="${course.studyProgramme}">{{Studyprogramme}}</td>
-                    <td>
-                        <a th:href="'/courses/edit/'+${course.id}" class="btn btn-outline-warning"> Edit </a>
-                        <button type="button" class="course-delete btn btn-outline-danger" th:attr="data-id=${course.id}">Delete
-                        </button>
-                    </td>
-                </tr>
-
-            </tbody.table-hover>
+                <tbody.table-hover>
+                    <tr th:each="course:${coursesToBeSendToView}">
+                        <td class="align-middle" th:text="${course.id}">{{ID}}</td>
+                        <td class="align-middle" th:text="${course.NOC_danish}">{{NOC_Danish}}</td>
+                        <td class="align-middle" th:text="${course.NOC_english}">{{NOC_English}}</td>
+                        <td class="align-middle" th:text="${course.mandatory_elective}">{{Mandatory/Elective}}</td>
+                        <td class="align-middle" th:text="${course.ects}">{{ECTS}}</td>
+                        <td class="align-middle" th:text="${course.courseLanguage}">{{Course Language}}</td>
+                        <td class="align-middle" th:text="${course.minOfStudents}">{{Minimum amount of students}}</td>
+                        <td class="align-middle" th:text="${course.expOfStudents}">{{Expected amount of students}}</td>
+                        <td class="align-middle" th:text="${course.maxOfStudents}">{{Maximum amount of students}}</td>
+                        <td class="align-middle" th:text="${course.prerequisites}">{{Prerequisites}}</td>
+                        <td class="align-middle" th:text="${course.content}">{{Content}}</td>
+                        <td class="align-middle" th:text="${course.learningActivities}">{{Learning activities}}</td>
+                        <td class="align-middle" th:text="${course.examForm}">{{Exam form}}</td>
+                        <td class="align-middle" th:text="${course.semester}">{{Semester}}</td>
+                        <td class="align-middle" th:text="${course.classCode}">{{Class code}}</td>
+                        <td class="align-middle" th:text="${course.studentId}">{{Student ID}}</td>
+                        <td class="align-middle" th:text="${course.studyProgramme}">{{Studyprogramme}}</td>
+                        <td>
+                            <a th:href="'/courses/edit/'+${course.id}" class="btn btn-outline-warning btn-sm btn-block"> Edit </a>
+                            <button type="button" class="course-delete btn btn-outline-danger btn-sm btn-block"
+                                    th:attr="data-id=${course.id}">Delete
+                            </button>
+                        </td>
+                    </tr>
+                </tbody.table-hover>
         </table>
     </div.float-left>
 </div.float-left>
