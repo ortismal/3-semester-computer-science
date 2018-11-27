@@ -84,11 +84,9 @@
                     <td th:text="${course.studentId}">{{Student ID}}</td>
                     <td th:text="${course.studyProgramme}">{{Studyprogramme}}</td>
                     <td>
-                        <a th:href="'/courses/edit/'+${course.id}"><button class="btn btn-outline-warning" th:attr="data-id=${course.id}"> Edit </button></a>
-                        <a th:href="'/courses/delete/'+${course.id}"><button type="button" class="btn btn-outline-danger" th:attr="data-id=${course.id}">
-                            Delete
+                        <a th:href="'/courses/edit/'+${course.id}" class="btn btn-outline-warning"> Edit </a>
+                        <button type="button" class="course-delete btn btn-outline-danger" th:attr="data-id=${course.id}">Delete
                         </button>
-                        </a>
                     </td>
                 </tr>
 
@@ -96,5 +94,27 @@
         </table>
     </div.float-left>
 </div.float-left>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script> $(document).on("click", ".course-delete", function () {
+    console.log("Button press");
+    var courseId = $(this).data("id");
+    console.log(courseId);
+
+    $.ajax({
+        url: 'http://localhost:8080/courses/delete/' + courseId,
+        method: 'delete',
+        success: function (resp) {
+            alert("This course has been deleted\n" + JSON.stringify(resp));
+            location.reload();
+        },
+        error: function (err) {
+            alert("ERROR\n" + JSON.stringify(err));
+            location.reload();
+        }
+    });
+})
+
+</script>
 </body>
 </html>
