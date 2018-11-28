@@ -76,29 +76,29 @@
 </div>
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-    $(document).on("click", "#updatebtn", function () {
-        console.log("btn pressed");
-        console.log($('#brand').val());
-        $.ajax({
-            url: "http://localhost:8080/car/update/5",
-            method: "put",
-            data: {
-                brand: $('#brand').val(),
-                color: $('#color').val(),
-                doors: $('#doors').val(),
-                speed: $('#speed').val()
-            },
-            success: function (resp) {
-                console.log(resp);
-            },
-            error: function (err) {
-                console.log(err);
-            }
-        });
-    });
-</script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+<!--<script>-->
+    <!--$(document).on("click", "#updatebtn", function () {-->
+        <!--console.log("btn pressed");-->
+        <!--console.log($('#brand').val());-->
+        <!--$.ajax({-->
+            <!--url: "http://localhost:8080/car/update/5",-->
+            <!--method: "put",-->
+            <!--data: {-->
+                <!--brand: $('#brand').val(),-->
+                <!--color: $('#color').val(),-->
+                <!--doors: $('#doors').val(),-->
+                <!--speed: $('#speed').val()-->
+            <!--},-->
+            <!--success: function (resp) {-->
+                <!--console.log(resp);-->
+            <!--},-->
+            <!--error: function (err) {-->
+                <!--console.log(err);-->
+            <!--}-->
+        <!--});-->
+    <!--});-->
+<!--</script>-->
 
 <script>
     var userStringFromLS = localStorage.getItem('user');

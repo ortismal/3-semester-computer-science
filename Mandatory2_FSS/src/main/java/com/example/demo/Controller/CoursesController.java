@@ -80,9 +80,6 @@ public class CoursesController {
 
         Course courseToBeUpdated = coursesRepo.findById(id);
 
-        System.out.println(id);
-        System.out.println(course.getNOC_danish());
-
         courseToBeUpdated.setNOC_danish(course.getNOC_danish());
         courseToBeUpdated.setNOC_english(course.getNOC_english());
         courseToBeUpdated.setMandatory_elective(course.getMandatory_elective());

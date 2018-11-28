@@ -1,30 +1,230 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<html xmlns:th="http://www.thymeleaf.org/" lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <title>Create new course</title>
+    <title>Create course</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"/>
+
 </head>
 <body>
-<form method="post" action="/courses/create" th:object="${course}">
-    <input type="text" placeholder="NOC_danish" th:field="${course.NOC_danish}" required="true"/> <br/>
-    <input type="text" placeholder="NOC_english" th:field="${course.NOC_english}" required="true"/> <br/>
-    <input type="text" placeholder="Course Language" th:field="${course.courseLanguage}" required="true"/> <br/>
-    <input type="text" placeholder="Mandatory or elective" th:field="${course.mandatory_elective}" required="true"/> <br/>
-    <input type="number" min="1" placeholder="ECTS" th:field="${course.ects}" required="true"/> <br/>
-    <input type="number" min="1" placeholder="Minimum number of students" th:field="${course.minOfStudents}" required="true"/> <br/>
-    <input type="number" min="0" placeholder="Expected number of students" th:field="${course.expOfStudents}" required="true"/> <br/>
-    <input type="number" min="0" placeholder="maximum number of students" th:field="${course.maxOfStudents}" required="true"/> <br/>
-    <input type="text" placeholder="Prerequisites" th:field="${course.prerequisites}" required="true"/> <br/>
-    <input type="text" placeholder="Learning outcome" th:field="${course.learningsOutcome}" required="true"/> <br/>
-    <input type="text" placeholder="Content" th:field="${course.content}" required="true"/> <br/>
-    <input type="text" placeholder="Learning activities" th:field="${course.learningActivities}" required="true"/> <br/>
-    <input type="text" placeholder="Exam form" th:field="${course.examForm}" required="true"/> <br/>
-    <input type="number" min="0" placeholder="Semester" th:field="${course.semester}" required="true"/> <br/>
-    <input type="text" placeholder="Class code" th:field="${course.classCode}" required="true"/> <br/>
 
-    <button type="submit">Save</button>
-    <button type="reset">Cancel</button>
-</form>
+<!--<nav class="navbar navbar-expand-lg navbar-light" id="nav_top">-->
+<!--<a class="navbar-brand" href="/"><i class="fas fa-car"></i> CarShop</a>-->
+<!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"-->
+<!--aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--<span class="navbar-toggler-icon"></span>-->
+<!--</button>-->
+<!--<div class="collapse navbar-collapse" id="navbarText">-->
+<!--<ul class="navbar-nav mr-auto">-->
+<!--<li class="nav-item">-->
+<!--<a class="nav-link" href="/">Home </a>-->
+<!--</li>-->
+<!--<li class="nav-item active">-->
+<!--<a class="nav-link" href="/car/show">Cars <span class="sr-only">(current)</span></a>-->
+<!--</li>-->
+<!--</ul>-->
+<!--<span class="navbar-text">-->
+<!--Welcome <span id="name_span"></span>-->
+<!--</span>-->
+<!--</div>-->
+<!--</nav>-->
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Create Course</h1>
+        <form method="post" action="/courses/create" th:object="${course}">
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="NOC_danish">NOC_Danish</label>
+                    <input type="text" class="form-control" id="NOC_danish"
+                           th:field="${course.NOC_danish}"
+                           required="true"/>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label for="NOC_english">NOC_English</label>
+                    <input type="text" class="form-control" id="NOC_english"
+                           th:field="${course.NOC_english}"
+                           required="true"/>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="examForm">Exam Form</label>
+                    <input type="text" class="form-control" id="examForm"
+                           th:field="${course.examForm}" required="true"/>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="mandatory_elective">Mandatory/Elective</label>
+                    <input type="text" class="form-control" id="mandatory_elective"
+                           th:field="${course.mandatory_elective}" required="true"/>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label for="ects">ECTS</label>
+                    <input type="number" class="form-control" id="ects"
+                           th:field="${course.ects}" min="0" max="50" required="true"/>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label for="courseLanguage">Course language</label>
+                    <input type="text" class="form-control" id="courseLanguage"
+                           th:field="${course.courseLanguage}" required="true"/>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-2">
+                    <label for="minOfStudents">Min. # of students</label>
+                    <input type="number" class="form-control" id="minOfStudents" min="0" max="300"
+                           th:field="${course.minOfStudents}" required="true"/>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label for="expOfStudents">Exp. # of students</label>
+                    <input type="number" class="form-control" id="expOfStudents" min="0" max="300"
+                           th:field="${course.expOfStudents}" required="true"/>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label for="maxOfStudents">Max. # of students</label>
+                    <input type="number" class="form-control" id="maxOfStudents" min="0"
+                           max="300"
+                           th:field="${course.maxOfStudents}" required="true"/>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="semester">Semester</label>
+                    <input type="number" class="form-control" id="semester" min="0"
+                           max="300"
+                           th:field="${course.semester}" required="true"/>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="prerequisites">Prerequisites</label>
+                    <input type="text" class="form-control" id="prerequisites"
+                           th:field="${course.prerequisites}" required="true"/>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="content">Content</label>
+                    <input type="text" class="form-control" id="content"
+                           th:field="${course.content}" required="true"/>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="learningsOutcome">Learnings outcome</label>
+                    <input type="text" class="form-control" id="learningsOutcome"
+                           th:field="${course.learningsOutcome}" required="true"/>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="learningActivities">Learning activities</label>
+                    <input type="text" class="form-control" id="learningActivities"
+                           th:field="${course.learningActivities}" required="true"/>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="classCode">Class code</label>
+                    <input type="text" class="form-control" id="classCode"
+                           th:field="${course.classCode}" required="true"/>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label for="studyProgramme">Studyprogramme</label>
+                    <input type="number" class="form-control" id="studyProgramme" min="1"
+                           max="30000"
+                           th:field="${course.studyProgramme}" required="true"/>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label for="studentId">Student ID</label>
+                    <input type="text" class="form-control" id="studentId"
+                           th:field="${course.studentId}" required="true"/>
+                </div>
+            </div>
+                <button type="submit" class="btn btn-outline-success" id="update-btn">Create </button>
+            <button type="reset" class="btn btn-outline-warning">Reset</button>
+            <a href="/courses">
+                <button type="button" class="btn btn-outline-danger">Back</button>
+            </a>
+        </form>
+    </div>
+</div>
+
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+<!--<script th:inline="javascript">-->
+    <!--$(document).on('click', '#update-btn', function () {-->
+        <!--console.log("btn pressed");-->
+        <!--console.log('HEEEEE' + $('#ects').val());-->
+        <!--var test = $('#NOC_danish').val();-->
+        <!--// var courseID = [[${course.id}]];-->
+
+        <!--$.ajax({-->
+            <!--url: "http://localhost:8080/courses/create/",-->
+            <!--method: "put",-->
+            <!--NOC_danish: test,-->
+            <!--data: {-->
+                <!--NOC_danish: test,-->
+                <!--NOC_english: $('#NOC_english').val(),-->
+                <!--ects: $('#ects').val(),-->
+                <!--mandatory_elective: $('#mandatory_elective').val(),-->
+                <!--courseLanguage: $('#courseLanguage').val(),-->
+                <!--minOfStudents: $('#minOfStudents').val(),-->
+                <!--expOfStudents: $('#expOfStudents').val(),-->
+                <!--maxOfStudents: $('#maxOfStudents').val(),-->
+                <!--prerequisites: $('#prerequisites').val(),-->
+                <!--learningsOutcome: $('#learningsOutcome').val(),-->
+                <!--content: $('#content').val(),-->
+                <!--learningActivities: $('#learningActivities').val(),-->
+                <!--examForm: $('#examForm').val(),-->
+                <!--semester: $('#semester').val(),-->
+                <!--classCode: $('#classCode').val(),-->
+                <!--studyProgramme: $('#studyProgramme').val(),-->
+                <!--studentId: $('#studentId').val(),-->
+            <!--},-->
+            <!--success: function (resp) {-->
+                <!--alert("This course has been updated\n" + JSON.stringify(resp));-->
+                <!--location.href = "/courses";-->
+            <!--},-->
+            <!--error: function (err) {-->
+                <!--alert("ERROR\n" + JSON.stringify(err));-->
+                <!--location.reload();-->
+            <!--}-->
+        <!--});-->
+    <!--});-->
+<!--</script>-->
+<!--</head>-->
+<!--<body>-->
+<!--<form method="post" action="/courses/edit/" th:object="${course}">-->
+<!--<input type="text" placeholder="NOC_danish" th:field="${course.NOC_danish}" required="true"/> <br/>-->
+<!--<input type="text" placeholder="NOC_English" th:field="${course.NOC_English}" required="true"/> <br/>-->
+<!--<input type="text" placeholder="Course Language" th:field="${course.courseLanguage}" required="true"/> <br/>-->
+<!--<input type="text" placeholder="Mandatory or elective" th:field="${course.mandatory_elective}" required="true"/> <br/>-->
+<!--<input type="number" min="1" placeholder="ECTS" th:field="${course.ects}" required="true"/> <br/>-->
+<!--<input type="number" min="1" placeholder="Minimum number of students" th:field="${course.minOfStudents}" required="true"/> <br/>-->
+<!--<input type="number" min="0" placeholder="Expected number of students" th:field="${course.expOfStudents}" required="true"/> <br/>-->
+<!--<input type="number" min="0" placeholder="maximum number of students" th:field="${course.maxOfStudents}" required="true"/> <br/>-->
+<!--<input type="text" placeholder="Prerequisites" th:field="${course.prerequisites}" required="true"/> <br/>-->
+<!--<input type="text" placeholder="Learning outcome" th:field="${course.learningsOutcome}" required="true"/> <br/>-->
+<!--<input type="text" placeholder="Content" th:field="${course.content}" required="true"/> <br/>-->
+<!--<input type="text" placeholder="Learning activities" th:field="${course.learningActivities}" required="true"/> <br/>-->
+<!--<input type="text" placeholder="Exam form" th:field="${course.examForm}" required="true"/> <br/>-->
+<!--<input type="number" min="0" placeholder="Semester" th:field="${course.semester}" required="true"/> <br/>-->
+<!--<input type="text" placeholder="Class code" th:field="${course.classCode}" required="true"/> <br/>-->
+
+<!--<button type="submit">Save</button>-->
+<!--<button type="reset">Cancel</button>-->
+<!--</form>-->
 
 </body>
 </html>
