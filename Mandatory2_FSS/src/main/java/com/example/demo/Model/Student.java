@@ -18,18 +18,20 @@ public class Student {
     private String email;
     private Long phoneNumber;
     private Long cpr;
-    @ElementCollection
-    private Set<String> courses = new HashSet();
+
+
 
     public Student(){}
 
-    public Student(String firstName, String lastName, String email, Long phoneNumber, Long cpr, Set<String> courses) {
+
+
+    public Student(String firstName, String lastName, String email, Long phoneNumber, Long cpr) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.cpr = cpr;
-        this.courses = courses;
+
     }
 
     public Long getId() {
@@ -76,11 +78,5 @@ public class Student {
         this.cpr = cpr;
     }
 
-    public Set<String> getCourses() {
-        return courses;
-    }
 
-    public void setCourses(Set<String> courses) {
-        this.courses = courses;
-    }
 }

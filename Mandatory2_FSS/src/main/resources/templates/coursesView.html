@@ -12,29 +12,6 @@
 </head>
 <body>
 
-<!--Navbar Nedenunder-->
-
-<!--<nav class="navbar navbar-expand-lg navbar-light" id="nav_top">-->
-<!--<a class="navbar-brand" href="/"><i class="fas fa-car"></i> CarShop</a>-->
-<!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"-->
-<!--aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">-->
-<!--<span class="navbar-toggler-icon"></span>-->
-<!--</button>-->
-<!--<div class="collapse navbar-collapse" id="navbarText">-->
-<!--<ul class="navbar-nav mr-auto">-->
-<!--<li class="nav-item">-->
-<!--<a class="nav-link" href="/">Home </a>-->
-<!--</li>-->
-<!--<li class="nav-item active">-->
-<!--<a class="nav-link" href="/car/show">Cars <span class="sr-only">(current)</span></a>-->
-<!--</li>-->
-<!--</ul>-->
-<!--<span class="navbar-text">-->
-<!--Welcome <span id="name_span"></span>-->
-<!--</span>-->
-<!--</div>-->
-<!--</nav>-->
-
 <div.float-left class="table table-hover">
     <div.float-left class="container">
         <h1 class="display-4">Courses <a href="/courses/create" class="btn btn-outline-primary">Add new course</a>
@@ -87,6 +64,7 @@
                             <button type="button" class="course-delete btn btn-outline-danger btn-sm btn-block"
                                     th:attr="data-id=${course.id}">Delete
                             </button>
+                            <a th:href="'/courses/students/'+${course.id}" class="btn btn-outline-danger btn-sm btn-block">Students</a>
                         </td>
                     </tr>
                 </tbody.table-hover>

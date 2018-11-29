@@ -1,6 +1,7 @@
 package com.example.demo.Model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Course {
@@ -29,13 +30,23 @@ public class Course {
     @ManyToOne
     private StudyProgramme studyProgramme;
 
+    @JoinColumn(name = "id")
+    private List<Student> students;
+
+
+
     public Course() {
+    }
+
+        public void addStudent(Student student){
+        students.add(student);
     }
 
     public Course(String NOC_danish, String NOC_english, String mandatory_elective, Integer ects, String courseLanguage,
                   Integer minOfStudents, Integer expOfStudents, Integer maxOfStudents, String prerequisites,
                   String learningsOutcome, String content, String learningActivities, String examForm, Integer semester,
-                  String classCode, StudyProgramme studyProgramme, User studentId) {
+                  String classCode, StudyProgramme studyProgramme, User studentId, List<Student> students) {
+
         this.NOC_danish = NOC_danish;
         this.NOC_english = NOC_english;
         this.mandatory_elective = mandatory_elective;
@@ -53,6 +64,7 @@ public class Course {
         this.classCode = classCode;
         this.studyProgramme = studyProgramme;
         this.studentId = studentId;
+        this.students = students;
     }
 
     public Long getId() {
@@ -195,4 +207,11 @@ public class Course {
         this.studentId = studentId;
     }
 
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<Student> students) {
+        this.students = students;
+    }
 }
