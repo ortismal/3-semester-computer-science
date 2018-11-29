@@ -25,11 +25,9 @@ public class Course {
     private String classCode;
 
     @ManyToOne
-    private User studentId;
-
-    @ManyToOne
     private StudyProgramme studyProgramme;
 
+    @ManyToMany
     @JoinColumn(name = "id")
     private List<Student> students;
 
@@ -45,7 +43,7 @@ public class Course {
     public Course(String NOC_danish, String NOC_english, String mandatory_elective, Integer ects, String courseLanguage,
                   Integer minOfStudents, Integer expOfStudents, Integer maxOfStudents, String prerequisites,
                   String learningsOutcome, String content, String learningActivities, String examForm, Integer semester,
-                  String classCode, StudyProgramme studyProgramme, User studentId, List<Student> students) {
+                  String classCode, StudyProgramme studyProgramme, List<Student> students) {
 
         this.NOC_danish = NOC_danish;
         this.NOC_english = NOC_english;
@@ -63,7 +61,6 @@ public class Course {
         this.semester = semester;
         this.classCode = classCode;
         this.studyProgramme = studyProgramme;
-        this.studentId = studentId;
         this.students = students;
     }
 
@@ -197,14 +194,6 @@ public class Course {
 
     public void setStudyProgramme(StudyProgramme studyProgramme) {
         this.studyProgramme = studyProgramme;
-    }
-
-    public User getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(User studentId) {
-        this.studentId = studentId;
     }
 
     public List<Student> getStudents() {

@@ -25,12 +25,6 @@ public class CoursesController {
     private CoursesRepo coursesRepo;
 
     @Autowired
-    private usersRepo usersRepo;
-
-    @Autowired
-    private StudyProgrammesRepo studyProgrammesRepo;
-
-    @Autowired
     private StudentRepo studentRepo;
 
     @GetMapping("/courses/create")
@@ -88,15 +82,12 @@ public class CoursesController {
             @RequestParam String courseLanguage, @RequestParam Integer minOfStudents, @RequestParam Integer expOfStudents,
             @RequestParam Integer maxOfStudents, @RequestParam String prerequisites, @RequestParam String learningsOutcome,
             @RequestParam String content, @RequestParam String learningActivities, @RequestParam String examForm,
-            @RequestParam Integer semester, @RequestParam String classCode, @RequestParam StudyProgramme studyProgramme, @RequestParam Long studentId, @RequestParam List<Student> students) {
-
-        User u = usersRepo.findById(studentId);
-        ArrayList<User> au = usersRepo.findAllByUserType("Student");
+            @RequestParam Integer semester, @RequestParam String classCode, @RequestParam StudyProgramme studyProgramme, @RequestParam List<Student> students) {
 
 
         Course course = new Course(NOC_danish, NOC_english, mandatory_elective, Integer.parseInt(ects), courseLanguage, minOfStudents,
                 expOfStudents, maxOfStudents, prerequisites, learningsOutcome, content, learningActivities, examForm,
-                semester, classCode, studyProgramme, u, students);
+                semester, classCode, studyProgramme, students);
 
         Course courseToBeUpdated = coursesRepo.findById(id);
 
@@ -116,7 +107,6 @@ public class CoursesController {
         courseToBeUpdated.setSemester(course.getSemester());
         courseToBeUpdated.setClassCode(course.getClassCode());
         courseToBeUpdated.setStudyProgramme(course.getStudyProgramme());
-        courseToBeUpdated.setStudentId(course.getStudentId());
 
         coursesRepo.save(courseToBeUpdated);
         return new ResponseEntity(courseToBeUpdated, HttpStatus.OK);

@@ -36,7 +36,6 @@
                 <th scope="col">Exam form</th>
                 <th scope="col">Semester</th>
                 <th scope="col">Class code</th>
-                <th scope="col">Student ID</th>
                 <th scope="col">Studyprogramme</th>
             </tr>
             </thead>
@@ -57,7 +56,6 @@
                         <td class="align-middle" th:text="${course.examForm}">{{Exam form}}</td>
                         <td class="align-middle" th:text="${course.semester}">{{Semester}}</td>
                         <td class="align-middle" th:text="${course.classCode}">{{Class code}}</td>
-                        <td class="align-middle" th:text="${course.studentId}">{{Student ID}}</td>
                         <td class="align-middle" th:text="${course.studyProgramme.getName()}">{{Studyprogramme}}</td>
                         <td>
                             <a th:href="'/courses/edit/'+${course.id}" class="btn btn-outline-warning btn-sm btn-block"> Edit </a>
