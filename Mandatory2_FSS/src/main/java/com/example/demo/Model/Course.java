@@ -194,4 +194,5 @@ public class Course {
     public void setStudentId(User studentId) {
         this.studentId = studentId;
     }
+
 }

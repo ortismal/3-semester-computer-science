@@ -161,48 +161,25 @@
     </div>
 </div>
 
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
-<!--<script th:inline="javascript">-->
-    <!--$(document).on('click', '#update-btn', function () {-->
-        <!--console.log("btn pressed");-->
-        <!--console.log('HEEEEE' + $('#ects').val());-->
-        <!--var test = $('#NOC_danish').val();-->
-        <!--// var courseID = [[${course.id}]];-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script th:inline="javascript">
+    $(document).on('click', '#update-btn', function () {
+        console.log("btn pressed");
+        console.log($('#ects').val());
 
-        <!--$.ajax({-->
-            <!--url: "http://localhost:8080/courses/create/",-->
-            <!--method: "put",-->
-            <!--NOC_danish: test,-->
-            <!--data: {-->
-                <!--NOC_danish: test,-->
-                <!--NOC_english: $('#NOC_english').val(),-->
-                <!--ects: $('#ects').val(),-->
-                <!--mandatory_elective: $('#mandatory_elective').val(),-->
-                <!--courseLanguage: $('#courseLanguage').val(),-->
-                <!--minOfStudents: $('#minOfStudents').val(),-->
-                <!--expOfStudents: $('#expOfStudents').val(),-->
-                <!--maxOfStudents: $('#maxOfStudents').val(),-->
-                <!--prerequisites: $('#prerequisites').val(),-->
-                <!--learningsOutcome: $('#learningsOutcome').val(),-->
-                <!--content: $('#content').val(),-->
-                <!--learningActivities: $('#learningActivities').val(),-->
-                <!--examForm: $('#examForm').val(),-->
-                <!--semester: $('#semester').val(),-->
-                <!--classCode: $('#classCode').val(),-->
-                <!--studyProgramme: $('#studyProgramme').val(),-->
-                <!--studentId: $('#studentId').val(),-->
-            <!--},-->
-            <!--success: function (resp) {-->
-                <!--alert("This course has been updated\n" + JSON.stringify(resp));-->
-                <!--location.href = "/courses";-->
-            <!--},-->
-            <!--error: function (err) {-->
-                <!--alert("ERROR\n" + JSON.stringify(err));-->
-                <!--location.reload();-->
-            <!--}-->
-        <!--});-->
-    <!--});-->
-<!--</script>-->
+        $.ajax({
+            url: "http://localhost:8080/courses/create/",
+            success: function (resp) {
+                alert("This course has been created");
+                location.href = "/courses";
+            },
+            error: function (err) {
+                alert("ERROR\n" + JSON.stringify(err));
+                location.reload();
+            }
+        });
+    });
+</script>
 <!--</head>-->
 <!--<body>-->
 <!--<form method="post" action="/courses/edit/" th:object="${course}">-->

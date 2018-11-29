@@ -33,6 +33,7 @@ public class CoursesController {
         return "courseCreate";
     }
 
+    @ResponseBody
     @PostMapping("/courses/create")
     public ResponseEntity<Course> saveCourse(Course course) {
         Course newCourse = coursesRepo.save(course);
