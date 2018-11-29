@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Students</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"/>
+</head>
+<body>
+<div.float-left class="table table-hover">
+    <div.float-left class="container">
+        <h1 class="display-4">Students<a href="/courses/create" class="btn btn-outline-primary">Add new student</a>
+        </h1>
+
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Firstname</th>
+                <th scope="col">Lastname</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phonenumber</th>
+                <th scope="col">CPR</th>
+            </tr>
+            </thead>
+            <tbody.table-hover>
+                <tr th:each="course:${coursesToBeSendToView}">
+                    <td class="align-middle" th:text="${course.id}">{{ID}}</td>
+                    <td class="align-middle" th:text="${course.NOC_danish}">{{NOC_Danish}}</td>
+                    <td class="align-middle" th:text="${course.NOC_english}">{{NOC_English}}</td>
+                    <td class="align-middle" th:text="${course.mandatory_elective}">{{Mandatory/Elective}}</td>
+                    <td class="align-middle" th:text="${course.ects}">{{ECTS}}</td>
+                    <td class="align-middle" th:text="${course.courseLanguage}">{{Course Language}}</td>
+                    <td>
+                        <a th:href="'/courses/edit/'+${course.id}" class="btn btn-outline-warning btn-sm btn-block"> Edit </a>
+                        <button type="button" class="course-delete btn btn-outline-danger btn-sm btn-block"
+                                th:attr="data-id=${course.id}">Delete
+                        </button>
+                    </td>
+                </tr>
+            </tbody.table-hover>
+        </table>
+    </div.float-left>
+</div.float-left>
+
+</body>
+</html>

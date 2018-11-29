@@ -2,8 +2,10 @@ package com.example.demo.Controller;
 
 import com.example.demo.CoursesRepo;
 import com.example.demo.Model.Course;
+import com.example.demo.Model.Student;
 import com.example.demo.Model.StudyProgramme;
 import com.example.demo.Model.User;
+import com.example.demo.StudentRepo;
 import com.example.demo.StudyProgrammesRepo;
 import com.example.demo.usersRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,8 @@ public class CoursesController {
 
     @Autowired
     private StudyProgrammesRepo studyProgrammesRepo;
+    @Autowired
+    private StudentRepo studentRepo;
 
     @GetMapping("/courses/create")
     public String addCourse(Model model) {
@@ -33,7 +37,6 @@ public class CoursesController {
         return "courseCreate";
     }
 
-    @ResponseBody
     @PostMapping("/courses/create")
     public ResponseEntity<Course> saveCourse(Course course) {
         Course newCourse = coursesRepo.save(course);
@@ -60,7 +63,14 @@ public class CoursesController {
         return "courseEdit";
     }
 
-
+    // Rykkes til "usercontroller"
+    @GetMapping("/courses/students/{id}")
+    public String viewStudents(Model model, @PathVariable Long id){
+//        List<User> users = usersRepo.findAllByUserType("Student");
+        Student student = studentRepo.findById(id);
+        model.addAttribute("studentToBeSendToView", student);
+        return ""
+    }
 
     @ResponseBody
     @PutMapping("/courses/edit/{id}")
