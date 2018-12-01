@@ -121,5 +121,35 @@ public class CoursesController {
         return new ResponseEntity(course, HttpStatus.OK);
     }
 
+    @GetMapping("/student/create")
+    public String createStudent(Model model){
+        model.addAttribute("student", new Student());
+        return "studentCreate";
+    }
+
+    @PostMapping("/student/create")
+    public String createStudent(@ModelAttribute Student student){
+        System.out.println(student.toString());
+        studentRepo.save(student);
+        return "redirect:/courses";
+    }
+
+    @GetMapping("/student/join/{id}")
+    public String joinStudent(Model model, @ModelAttribute Course course){
+        List<Student> students = studentRepo.findAll();
+        model.addAttribute("student", students);
+        model.addAttribute("course", course);
+        return "joinStudent";
+    }
+
+    @PostMapping("/student/join")
+    public String joinStudent(@ModelAttribute Course course, @ModelAttribute Student student){
+        System.out.println(course.getId());
+        System.out.println(student.getFirstName());
+        course.addStudent(studentRepo.findById(student.getId()));
+        coursesRepo.save(course);
+        return "redirect:/courses";
+    }
+
 }
 

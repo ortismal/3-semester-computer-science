@@ -11,11 +11,9 @@
 <body>
 <div.float-left class="table table-hover">
     <div.float-left class="container">
-        <h1 class="display-4">Students<a href="/student/create" class="btn btn-outline-primary">Create student</a>
-        </h1>
-        <a th:href="'/student/join/'+${courses.id}" class="btn btn-outline-primary">Add students to course</a>
+        <h1 class="display-4">Students</h1>
 
-
+        <form method="post" action="/student/join">
         <table class="table table-striped">
             <thead>
             <tr>
@@ -28,7 +26,7 @@
             </tr>
             </thead>
             <tbody.table-hover>
-                <tr th:each="student:${courses.students}">
+                <tr th:each="student:${student}">
                     <td class="align-middle" th:text="${student.id}">{{ID}}</td>
                     <td class="align-middle" th:text="${student.firstName}">{{NOC_Danish}}</td>
                     <td class="align-middle" th:text="${student.lastName}">{{NOC_English}}</td>
@@ -36,36 +34,17 @@
                     <td class="align-middle" th:text="${student.phoneNumber}">{{ECTS}}</td>
                     <td class="align-middle" th:text="${student.cpr}">{{Course Language}}</td>
                     <td>
-                        <button type="button" class="student-delete btn btn-outline-danger btn-sm btn-block"
-                                th:attr="data-id=${student.id}">Delete
+                        <button type="submit" value="send" class="student-delete btn btn-outline-danger btn-sm btn-block"
+                               >Add to course
                         </button>
                     </td>
                 </tr>
             </tbody.table-hover>
         </table>
+        </form>
     </div.float-left>
 </div.float-left>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script> $(document).on("click", ".student-delete", function () {
-    console.log("Button press");
-    var studentId = $(this).data("id");
-    console.log(studentId);
-
-    $.ajax({
-        url: 'http://localhost:8080/courses/delete/' + studentId,
-        method: 'delete',
-        success: function (resp) {
-            alert("This student has been deleted\n" + JSON.stringify(resp));
-            location.reload();
-        },
-        error: function (err) {
-            alert("ERROR\n" + JSON.stringify(err));
-            location.reload();
-        }
-    });
-})
-
-</script>
 </body>
 </html>
