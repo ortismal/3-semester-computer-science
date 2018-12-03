@@ -183,7 +183,7 @@ public class CoursesController {
     }
 
     //Rykkes til "teacherController"
-    @DeleteMapping("courses/students/delete/{id}")
+    @DeleteMapping("courses/teacher/delete/{id}")
     public ResponseEntity<Teacher> deleteTeacher(@PathVariable Long id) {
         Teacher teacher = teacherRepo.findById(id);
         teacherRepo.delete(id);
@@ -192,6 +192,7 @@ public class CoursesController {
     }
 
     //Rykkes til "teacherController"
+    @GetMapping("/teacher/join/{id}")
     public String joinTeacher(Model model, @PathVariable Long id){
         List<Teacher> teachers = teacherRepo.findAll();
         Course course = coursesRepo.findById(id);
