@@ -1,13 +1,7 @@
 package com.example.demo.Controller;
 
-import com.example.demo.CoursesRepo;
-import com.example.demo.Model.Course;
-import com.example.demo.Model.Student;
-import com.example.demo.Model.StudyProgramme;
-import com.example.demo.Model.User;
-import com.example.demo.StudentRepo;
-import com.example.demo.StudyProgrammesRepo;
-import com.example.demo.usersRepo;
+import com.example.demo.*;
+import com.example.demo.Model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,8 +18,13 @@ public class CoursesController {
     @Autowired
     private CoursesRepo coursesRepo;
 
+    //Rykkes til "studentController"
     @Autowired
     private StudentRepo studentRepo;
+
+    //Rykkes til "teacherController"
+    @Autowired
+    private TeacherRepo teacherRepo;
 
     @GetMapping("/courses/create")
     public String addCourse(Model model) {
@@ -58,7 +57,7 @@ public class CoursesController {
 
 
 
-    // Rykkes til "usercontroller"
+    // Rykkes til "studentController"
     @GetMapping("/courses/students/{id}")
     public String viewStudents(Model model, @PathVariable Long id){
         Course courses = coursesRepo.findById(id);
@@ -67,7 +66,7 @@ public class CoursesController {
         return "studentView";
     }
 
-    //rykkes til "userController"
+    //Rykkes til "studentController"
     @DeleteMapping("courses/students/delete/{id}")
     public ResponseEntity<Student> deleteStudent(@PathVariable Long id) {
         Student student = studentRepo.findById(id);
@@ -80,16 +79,16 @@ public class CoursesController {
     @ResponseBody
     @PutMapping("/courses/edit/{id}")
     public ResponseEntity<Course> updateCourse(
-            @PathVariable Long id, @RequestParam String NOC_danish, @RequestParam String NOC_english, @RequestParam String mandatory_elective, @RequestParam String ects,
+            @PathVariable Long id, @RequestParam String NOC_danish, @RequestParam String NOC_english, @RequestParam String mandatory_elective, @RequestParam Integer ects,
             @RequestParam String courseLanguage, @RequestParam Integer minOfStudents, @RequestParam Integer expOfStudents,
             @RequestParam Integer maxOfStudents, @RequestParam String prerequisites, @RequestParam String learningsOutcome,
             @RequestParam String content, @RequestParam String learningActivities, @RequestParam String examForm,
-            @RequestParam Integer semester, @RequestParam String classCode, @RequestParam StudyProgramme studyProgramme, @RequestParam List<Student> students) {
+            @RequestParam Integer semester, @RequestParam String classCode, @RequestParam StudyProgramme studyProgramme) {
 
 
-        Course course = new Course(NOC_danish, NOC_english, mandatory_elective, Integer.parseInt(ects), courseLanguage, minOfStudents,
+        Course course = new Course(NOC_danish, NOC_english, mandatory_elective, ects, courseLanguage, minOfStudents,
                 expOfStudents, maxOfStudents, prerequisites, learningsOutcome, content, learningActivities, examForm,
-                semester, classCode, studyProgramme, students);
+                semester, classCode, studyProgramme);
 
         Course courseToBeUpdated = coursesRepo.findById(id);
 
@@ -110,6 +109,7 @@ public class CoursesController {
         courseToBeUpdated.setClassCode(course.getClassCode());
         courseToBeUpdated.setStudyProgramme(course.getStudyProgramme());
 
+
         coursesRepo.save(courseToBeUpdated);
         return new ResponseEntity(courseToBeUpdated, HttpStatus.OK);
     }
@@ -123,12 +123,14 @@ public class CoursesController {
         return new ResponseEntity(course, HttpStatus.OK);
     }
 
+    //Rykkes til "studentController"
     @GetMapping("/student/create")
     public String createStudent(Model model){
         model.addAttribute("student", new Student());
         return "studentCreate";
     }
 
+    //Rykkes til "studentController"
     @PostMapping("/student/create")
     public String createStudent(@ModelAttribute Student student){
         System.out.println(student.toString());
@@ -136,6 +138,7 @@ public class CoursesController {
         return "redirect:/courses";
     }
 
+    //Rykkes til "studentController"
     @GetMapping("/student/join/{id}")
     public String joinStudent(Model model, @PathVariable Long id){
         List<Student> students = studentRepo.findAll();
@@ -145,12 +148,65 @@ public class CoursesController {
         return "joinStudent";
     }
 
+    //Rykkes til "studentController"
     @GetMapping("/student/join/{courseId}/{studentId}")
     public String joinStudent(@PathVariable Long courseId, @PathVariable Long studentId){
         Course courseStudent = coursesRepo.findById(courseId);
         Student studentCourse = studentRepo.findById(studentId);
         courseStudent.getStudents().add(studentCourse);
         coursesRepo.save(courseStudent);
+        return "redirect:/courses";
+    }
+
+    //Rykkes til "teacherController"
+    @GetMapping("/teacher/create")
+    public String createTeacher(Model model){
+        model.addAttribute("teacher", new Teacher());
+        return "teacherCreate";
+    }
+
+    //Rykkes til "teacherController"
+    @PostMapping("/teacher/create")
+    public String createTeacher(@ModelAttribute Teacher teacher){
+        System.out.println(teacher.toString());
+        teacherRepo.save(teacher);
+        return "redirect:/courses";
+    }
+
+    //Rykkes til "teacherController"
+    @GetMapping("/courses/teachers/{id}")
+    public String viewTeachers(Model model, @PathVariable Long id){
+        Course courses = coursesRepo.findById(id);
+        model.addAttribute("teachers", teacherRepo.findAll());
+        model.addAttribute("courses", courses);
+        return "teacherView";
+    }
+
+    //Rykkes til "teacherController"
+    @DeleteMapping("courses/students/delete/{id}")
+    public ResponseEntity<Teacher> deleteTeacher(@PathVariable Long id) {
+        Teacher teacher = teacherRepo.findById(id);
+        teacherRepo.delete(id);
+
+        return new ResponseEntity(teacher, HttpStatus.OK);
+    }
+
+    //Rykkes til "teacherController"
+    public String joinTeacher(Model model, @PathVariable Long id){
+        List<Teacher> teachers = teacherRepo.findAll();
+        Course course = coursesRepo.findById(id);
+        model.addAttribute("teacher", teachers);
+        model.addAttribute("currentCourse", course);
+        return "joinTeacher";
+    }
+
+    //Rykkes til "teacherController"
+    @GetMapping("/teacher/join/{courseId}/{teacherId}")
+    public String joinTeacher(@PathVariable Long courseId, @PathVariable Long teacherId){
+        Course courseTeacher = coursesRepo.findById(courseId);
+        Teacher teacherCourse = teacherRepo.findById(teacherId);
+        courseTeacher.getTeachers().add(teacherCourse);
+        coursesRepo.save(courseTeacher);
         return "redirect:/courses";
     }
 

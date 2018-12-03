@@ -31,6 +31,10 @@ public class Course {
     @JoinColumn(name = "id")
     private List<Student> students;
 
+    @ManyToMany
+    @JoinColumn(name = "id")
+    private List<Teacher> teachers;
+
 
 
     public Course() {
@@ -44,7 +48,7 @@ public class Course {
     public Course(String NOC_danish, String NOC_english, String mandatory_elective, Integer ects, String courseLanguage,
                   Integer minOfStudents, Integer expOfStudents, Integer maxOfStudents, String prerequisites,
                   String learningsOutcome, String content, String learningActivities, String examForm, Integer semester,
-                  String classCode, StudyProgramme studyProgramme, List<Student> students) {
+                  String classCode, StudyProgramme studyProgramme) {
 
         this.NOC_danish = NOC_danish;
         this.NOC_english = NOC_english;
@@ -62,7 +66,11 @@ public class Course {
         this.semester = semester;
         this.classCode = classCode;
         this.studyProgramme = studyProgramme;
+    }
+
+    public Course(List<Student> students, List<Teacher> teachers) {
         this.students = students;
+        this.teachers = teachers;
     }
 
     public Long getId() {
@@ -203,5 +211,13 @@ public class Course {
 
     public void setStudents(List<Student> students) {
         this.students = students;
+    }
+
+    public List<Teacher> getTeachers() {
+        return teachers;
+    }
+
+    public void setTeachers(List<Teacher> teachers) {
+        this.teachers = teachers;
     }
 }
