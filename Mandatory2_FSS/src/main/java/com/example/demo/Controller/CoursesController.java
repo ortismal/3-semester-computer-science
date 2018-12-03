@@ -26,6 +26,9 @@ public class CoursesController {
     @Autowired
     private TeacherRepo teacherRepo;
 
+    @Autowired
+    private StudyProgrammesRepo studyProgrammesRepo;
+
     @GetMapping("/courses/create")
     public String addCourse(Model model) {
         model.addAttribute("course", new Course());
@@ -50,6 +53,8 @@ public class CoursesController {
     public String editCourse(Model model, @PathVariable Long id) {
         Course course = coursesRepo.findById(id);
         model.addAttribute("course", course);
+        List<StudyProgramme> studyProgrammes = studyProgrammesRepo.findAll();
+        model.addAttribute("studyProgrammes", studyProgrammes);
         List<Course> coursesList = coursesRepo.findAll();
         model.addAttribute("courses", coursesList);
         return "courseEdit";
@@ -91,6 +96,7 @@ public class CoursesController {
                 semester, classCode, studyProgramme);
 
         Course courseToBeUpdated = coursesRepo.findById(id);
+
 
         courseToBeUpdated.setNOC_danish(course.getNOC_danish());
         courseToBeUpdated.setNOC_english(course.getNOC_english());

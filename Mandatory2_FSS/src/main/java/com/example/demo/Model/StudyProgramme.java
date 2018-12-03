@@ -12,9 +12,12 @@ public class StudyProgramme {
     private Long id;
     private String name;
 
-    public StudyProgramme(){}
+    public StudyProgramme() {
+    }
 
-    public StudyProgramme(String name) {
+
+    public StudyProgramme(Long id, String name) {
+        this.id = id;
         this.name = name;
     }
 

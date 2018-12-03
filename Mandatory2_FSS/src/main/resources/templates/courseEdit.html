@@ -150,13 +150,15 @@
                        th:field="${course.classCode}" required="true"/>
             </div>
 
-            <div class="form-group col-md-2">
-                <label for="studyProgramme">Studyprogramme</label>
-                <input type="number" class="form-control" id="studyProgramme" min="1"
-                       max="30000"
-                       placeholder="Studyprogramme ID"
-                       th:field="${course.studyProgramme}" required="true"/>
-            </div>
+                <div class="form-group">
+                    <label for="studyProgramme">Study programmes</label>
+                    <select th:field="${course.studyProgramme}" class="form-control" id="studyProgramme">
+                        <option value="0">Choose</option>
+                        <option th:each="studyProgrammes : ${studyProgrammes}" th:value="${studyProgrammes.id}"
+                                th:text="${studyProgrammes.name}">Choose
+                        </option>
+                    </select>
+                </div>
             </div>
 
             <button type="button" class="btn btn-outline-success" id="update-btn">Update
@@ -174,15 +176,13 @@
     $(document).on('click', '#update-btn', function () {
         console.log("btn pressed");
         console.log('#studyProgramme' + $('#ects').val());
-        var test = $('#NOC_danish').val();
         var courseID = [[${course.id}]];
 
         $.ajax({
             url: "http://localhost:8080/courses/edit/" + courseID,
             method: "put",
-            NOC_danish: test,
             data: {
-                NOC_danish: test,
+                NOC_danish: $('#NOC_danish').val(),
                 NOC_english: $('#NOC_english').val(),
                 ects: $('#ects').val(),
                 mandatory_elective: $('#mandatory_elective').val(),
@@ -198,7 +198,6 @@
                 semester: $('#semester').val(),
                 classCode: $('#classCode').val(),
                 studyProgramme: $('#studyProgramme').val(),
-                studentId: $('#studentId').val(),
             },
             success: function (resp) {
                 alert("This course has been updated\n" + JSON.stringify(resp));
