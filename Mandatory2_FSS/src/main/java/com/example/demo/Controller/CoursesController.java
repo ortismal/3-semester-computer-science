@@ -56,6 +56,8 @@ public class CoursesController {
         return "courseEdit";
     }
 
+
+
     // Rykkes til "usercontroller"
     @GetMapping("/courses/students/{id}")
     public String viewStudents(Model model, @PathVariable Long id){
@@ -135,19 +137,20 @@ public class CoursesController {
     }
 
     @GetMapping("/student/join/{id}")
-    public String joinStudent(Model model, @ModelAttribute Course course){
+    public String joinStudent(Model model, @PathVariable Long id){
         List<Student> students = studentRepo.findAll();
+        Course course = coursesRepo.findById(id);
         model.addAttribute("student", students);
-        model.addAttribute("course", course);
+        model.addAttribute("currentCourse", course);
         return "joinStudent";
     }
 
-    @PostMapping("/student/join")
-    public String joinStudent(@ModelAttribute Course course, @ModelAttribute Student student){
-        System.out.println(course.getId());
-        System.out.println(student.getFirstName());
-        course.addStudent(studentRepo.findById(student.getId()));
-        coursesRepo.save(course);
+    @GetMapping("/student/join/{courseId}/{studentId}")
+    public String joinStudent(@PathVariable Long courseId, @PathVariable Long studentId){
+        Course courseStudent = coursesRepo.findById(courseId);
+        Student studentCourse = studentRepo.findById(studentId);
+        courseStudent.getStudents().add(studentCourse);
+        coursesRepo.save(courseStudent);
         return "redirect:/courses";
     }
 

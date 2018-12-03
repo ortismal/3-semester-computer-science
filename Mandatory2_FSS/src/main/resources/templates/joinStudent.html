@@ -13,7 +13,7 @@
     <div.float-left class="container">
         <h1 class="display-4">Students</h1>
 
-        <form method="post" action="/student/join">
+        <form method="post" action="/student/join/">
         <table class="table table-striped">
             <thead>
             <tr>
@@ -34,9 +34,8 @@
                     <td class="align-middle" th:text="${student.phoneNumber}">{{ECTS}}</td>
                     <td class="align-middle" th:text="${student.cpr}">{{Course Language}}</td>
                     <td>
-                        <button type="submit" value="send" class="student-delete btn btn-outline-danger btn-sm btn-block"
-                               >Add to course
-                        </button>
+                        <a class="student-delete btn btn-outline-danger btn-sm btn-block" th:href="'/student/join/'+${currentCourse.id}+'/'+${student.id}">
+                    Add to course </a>
                     </td>
                 </tr>
             </tbody.table-hover>
