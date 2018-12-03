@@ -16,17 +16,17 @@ public class User {
     private Long cpr;
     private String mail;
     private Long telephone;
-    private String userType;
+
 
     public User(){}
 
-    public User(String firstName, String lastName, Long cpr, String mail, Long telephone, String userType) {
+    public User(String firstName, String lastName, Long cpr, String mail, Long telephone) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.cpr = cpr;
         this.mail = mail;
         this.telephone = telephone;
-        this.userType = userType;
+
     }
 
     public Long getId() {
@@ -72,13 +72,5 @@ public class User {
 
     public void setTelephone(Long telephone) {
         this.telephone = telephone;
-    }
-
-    public String getUserType() {
-        return userType;
-    }
-
-    public void setUserType(String userType) {
-        this.userType = userType;
     }
 }
