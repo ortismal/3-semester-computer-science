@@ -58,14 +58,13 @@ public class CoursesController {
         return "studentView";
     }
 
-    //Rykkes til "studentController"
-    @DeleteMapping("courses/students/delete/{id}")
-    public ResponseEntity<Student> deleteStudent(@PathVariable Long id) {
-        Student student = studentRepo.findById(id);
-        studentRepo.delete(id);
-
-        return new ResponseEntity(student, HttpStatus.OK);
-    }
+//    //Rykkes til "studentController"
+//    @DeleteMapping("courses/students/delete/{id}")
+//    public ResponseEntity<Student> deleteStudent(@PathVariable Long id) {
+//        Student student = studentRepo.findById(id);
+//        coursesRepo.deleteById(id);
+//        return new ResponseEntity(student, HttpStatus.OK);
+//    }
 
     @GetMapping("/courses/edit/{id}")
     public String editCourse(Model model, @PathVariable Long id) {
@@ -185,14 +184,14 @@ public class CoursesController {
         return "teacherView";
     }
 
-    //Rykkes til "teacherController"
-    @DeleteMapping("courses/teacher/delete/{id}")
-    public ResponseEntity<Teacher> deleteTeacher(@PathVariable Long id) {
-        Teacher teacher = teacherRepo.findById(id);
-        teacherRepo.delete(id);
-
-        return new ResponseEntity(teacher, HttpStatus.OK);
-    }
+//    //Rykkes til "teacherController"
+//    @DeleteMapping("courses/teacher/delete/{id}")
+//    public ResponseEntity<Teacher> deleteTeacher(@PathVariable Long id) {
+//        Teacher teacher = teacherRepo.findById(id);
+//        teacherRepo.delete(id);
+//
+//        return new ResponseEntity(teacher, HttpStatus.OK);
+//    }
 
     //Rykkes til "teacherController"
     @GetMapping("/teacher/join/{id}")

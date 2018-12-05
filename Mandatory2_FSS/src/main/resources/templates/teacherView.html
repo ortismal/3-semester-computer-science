@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8"/>
-    <title>Students</title>
+    <title>teachers</title>
     <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" rel="stylesheet"/>
     <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
@@ -12,9 +12,9 @@
 <div.float-left class="table table-hover">
     <div.float-left class="container">
         <div>
-            <h1 class="display-4">Students</h1>
-            <a class="btn btn-outline-primary" href="/student/create">Create student</a>
-            <a class="btn btn-outline-primary" href="'/student/join/'+${courses.id}">Add students to course</a>
+            <h1 class="display-4">teachers</h1>
+            <a class="btn btn-outline-primary" href="/student/create">Create teacher</a>
+            <a class="btn btn-outline-primary" href="'/student/join/'+${courses.id}">Add teachers to course</a>
         </div>
 
         <table class="table table-striped">
@@ -29,16 +29,16 @@
             </tr>
             </thead>
             <tbody.table-hover>
-                <tr th:each="student:${courses.students}">
-                    <td class="align-middle" th:text="${student.id}">{{ID}}</td>
-                    <td class="align-middle" th:text="${student.firstName}">{{NOC_Danish}}</td>
-                    <td class="align-middle" th:text="${student.lastName}">{{NOC_English}}</td>
-                    <td class="align-middle" th:text="${student.email}">{{Mandatory/Elective}}</td>
-                    <td class="align-middle" th:text="${student.phoneNumber}">{{ECTS}}</td>
-                    <td class="align-middle" th:text="${student.cpr}">{{Course Language}}</td>
+                <tr th:each="teachers:${courses.teachers}">
+                    <td class="align-middle" th:text="${teachers.id}">{{ID}}</td>
+                    <td class="align-middle" th:text="${teachers.firstName}">{{NOC_Danish}}</td>
+                    <td class="align-middle" th:text="${teachers.lastName}">{{NOC_English}}</td>
+                    <td class="align-middle" th:text="${teachers.email}">{{Mandatory/Elective}}</td>
+                    <td class="align-middle" th:text="${teachers.phoneNumber}">{{ECTS}}</td>
+                    <td class="align-middle" th:text="${teachers.cpr}">{{Course Language}}</td>
                     <td>
                         <!--<button class="student-delete btn btn-outline-danger btn-sm btn-block" th:attr="data-id=${student.id}"-->
-                                <!--type="button">Delete-->
+                        <!--type="button">Delete-->
                         <!--</button>-->
                     </td>
                 </tr>
@@ -52,22 +52,22 @@
 
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
 <!--<script> $(document).on("click", ".student-delete", function () {-->
-    <!--console.log("Button press");-->
-    <!--var studentId = $(this).data("id");-->
-    <!--console.log(studentId);-->
+<!--console.log("Button press");-->
+<!--var studentId = $(this).data("id");-->
+<!--console.log(studentId);-->
 
-    <!--$.ajax({-->
-        <!--url: 'http://localhost:8080/courses/students/delete/' + studentId,-->
-        <!--method: 'delete',-->
-        <!--success: function (resp) {-->
-            <!--alert("This student has been deleted\n" + JSON.stringify(resp));-->
-            <!--location.reload();-->
-        <!--},-->
-        <!--error: function (err) {-->
-            <!--alert("ERROR\n" + JSON.stringify(err));-->
-            <!--location.reload();-->
-        <!--}-->
-    <!--});-->
+<!--$.ajax({-->
+<!--url: 'http://localhost:8080/courses/students/delete/' + studentId,-->
+<!--method: 'delete',-->
+<!--success: function (resp) {-->
+<!--alert("This student has been deleted\n" + JSON.stringify(resp));-->
+<!--location.reload();-->
+<!--},-->
+<!--error: function (err) {-->
+<!--alert("ERROR\n" + JSON.stringify(err));-->
+<!--location.reload();-->
+<!--}-->
+<!--});-->
 <!--})-->
 
 <!--</script>-->
