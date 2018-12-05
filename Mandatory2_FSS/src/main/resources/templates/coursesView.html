@@ -57,7 +57,7 @@
                         <td class="align-middle" th:text="${course.semester}">{{Semester}}</td>
                         <td class="align-middle" th:text="${course.classCode}">{{Class code}}</td>
                         <td class="align-middle" th:text="${course.studyProgramme.getName()}">{{Studyprogramme}}</td>
-                        <!--<td class="align-middle" th:text="${course.teachers.getFirstName}">{{teachers}}</td>-->
+                        <!--<td class="align-middle" th:text="${course.teachers.getFirstName()}">{{teachers}}</td>-->
                         <td>
                             <a th:href="'/courses/edit/'+${course.id}" class="btn btn-outline-warning btn-sm btn-block"> Edit </a>
                             <button type="button" class="course-delete btn btn-outline-danger btn-sm btn-block"

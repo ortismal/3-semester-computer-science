@@ -20,15 +20,12 @@ public class Teacher{
     public Teacher() {
     }
 
-    public Teacher(String email, Long phoneNumber, Long cpr) {
+    public Teacher(String firstName, String lastName, String email, Long phoneNumber, Long cpr) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.cpr = cpr;
-    }
-
-    public Teacher(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
     }
 
     public Long getId() {
