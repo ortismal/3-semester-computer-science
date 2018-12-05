@@ -49,19 +49,6 @@ public class CoursesController {
         return "coursesView";
     }
 
-    @GetMapping("/courses/edit/{id}")
-    public String editCourse(Model model, @PathVariable Long id) {
-        Course course = coursesRepo.findById(id);
-        model.addAttribute("course", course);
-        List<StudyProgramme> studyProgrammes = studyProgrammesRepo.findAll();
-        model.addAttribute("studyProgrammes", studyProgrammes);
-        List<Course> coursesList = coursesRepo.findAll();
-        model.addAttribute("courses", coursesList);
-        return "courseEdit";
-    }
-
-
-
     // Rykkes til "studentController"
     @GetMapping("/courses/students/{id}")
     public String viewStudents(Model model, @PathVariable Long id){
@@ -80,6 +67,16 @@ public class CoursesController {
         return new ResponseEntity(student, HttpStatus.OK);
     }
 
+    @GetMapping("/courses/edit/{id}")
+    public String editCourse(Model model, @PathVariable Long id) {
+        Course course = coursesRepo.findById(id);
+        model.addAttribute("course", course);
+        List<StudyProgramme> studyProgrammes = studyProgrammesRepo.findAll();
+        model.addAttribute("studyProgrammes", studyProgrammes);
+        List<Course> coursesList = coursesRepo.findAll();
+        model.addAttribute("courses", coursesList);
+        return "courseEdit";
+    }
 
     @ResponseBody
     @PutMapping("/courses/edit/{id}")
