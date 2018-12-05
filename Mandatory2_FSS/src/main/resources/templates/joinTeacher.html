@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Students</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"/>
+</head>
+<body>
+<div.float-left class="table table-hover">
+    <div.float-left class="container">
+        <h1 class="display-4">Students</h1>
+
+        <form method="post" action="/teacher/join/">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Firstname</th>
+                    <th scope="col">Lastname</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phonenumber</th>
+                    <th scope="col">CPR</th>
+                </tr>
+                </thead>
+                <tbody.table-hover>
+                    <tr th:each="teacher:${teacher}">
+                        <td class="align-middle" th:text="${teacher.id}">{{ID}}</td>
+                        <td class="align-middle" th:text="${teacher.firstName}">{{NOC_Danish}}</td>
+                        <td class="align-middle" th:text="${teacher.lastName}">{{NOC_English}}</td>
+                        <td class="align-middle" th:text="${teacher.email}">{{Mandatory/Elective}}</td>
+                        <td class="align-middle" th:text="${teacher.phoneNumber}">{{ECTS}}</td>
+                        <td class="align-middle" th:text="${teacher.cpr}">{{Course Language}}</td>
+                        <td>
+                            <a class="teacher-delete btn btn-outline-danger btn-sm btn-block" th:href="'/teacher/join/'+${currentCourse.id}+'/'+${teacher.id}">
+                                Add to course </a>
+                        </td>
+                    </tr>
+                </tbody.table-hover>
+            </table>
+        </form>
+    </div.float-left>
+</div.float-left>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</body>
+</html>

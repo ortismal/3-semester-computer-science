@@ -13,8 +13,8 @@
     <div.float-left class="container">
         <div>
             <h1 class="display-4">Students</h1>
-            <a class="btn btn-outline-primary" href="/student/create">Create student</a>
-            <a class="btn btn-outline-primary" href="'/student/join/'+${courses.id}">Add students to course</a>
+            <a class="btn btn-outline-primary" th:href="'/student/create'">Create student</a>
+            <a class="btn btn-outline-primary" th:href="'/student/join/'+${courses.id}">Add students to course</a>
         </div>
 
         <table class="table table-striped">
@@ -45,7 +45,7 @@
             </tbody.table-hover>
         </table>
         <div class="text-right">
-            <a class="btn btn-outline-warning" href="/courses">go back</a>
+            <a class="btn btn-outline-warning" th:href="'/courses'">go back</a>
         </div>
     </div.float-left>
 </div.float-left>

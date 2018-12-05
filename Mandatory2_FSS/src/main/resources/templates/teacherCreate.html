@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Create course</title>
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" rel="stylesheet"/>
+    <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" rel="stylesheet"/>
+
+</head>
+<body>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Create Student</h1>
+        <form action="/teacher/create" method="post" th:object="${teacher}">
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label>First name</label>
+                    <input class="form-control" required="true"
+                           th:field="${teacher.firstName}"
+                           type="text"/>
+                </div>
+                <!-- String firstName, String lastName, String email, Long phoneNumber, Long cpr -->
+
+                <div class="form-group col-md-3">
+                    <label>Last name</label>
+                    <input class="form-control" required="true"
+                           th:field="${teacher.lastName}"
+                           type="text"/>
+                </div>
+                <div class="form-group col-md-2">
+                    <label>Email</label>
+                    <input class="form-control" required="true"
+                           th:field="${teacher.email}" type="email"/>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label>Phone number</label>
+                    <input class="form-control" required="true"
+                           th:field="${teacher.phoneNumber}" type="number"/>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label>CPR</label>
+                    <input class="form-control" required="true"
+                           th:field="${teacher.cpr}" type="number"/>
+                </div>
+            </div>
+            <button class="btn btn-outline-success" id="update-btn" type="submit">Create</button>
+            <button class="btn btn-outline-warning" type="reset">Reset</button>
+            <a th:href="'/courses'">
+                <button class="btn btn-outline-danger" type="button">Back</button>
+            </a>
+        </form>
+    </div>
+</div>
+<!--
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script th:inline="javascript">
+    $(document).on('click', '#update-btn', function () {
+        console.log("btn pressed");
+        console.log($('#ects').val());
+
+        $.ajax({
+            url: "http://localhost:8080/teacher/create/",
+            success: function (resp) {
+                alert("The teacher has been created");
+                location.href = "/courses";
+            },
+            error: function (err) {
+                alert("ERROR\n" + JSON.stringify(err));
+                location.reload();
+            }
+        });
+    });
+</script>
+-->
+</body>
+</html>
