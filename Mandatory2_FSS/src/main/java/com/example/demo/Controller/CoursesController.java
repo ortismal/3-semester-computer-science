@@ -18,14 +18,6 @@ public class CoursesController {
     @Autowired
     private CoursesRepo coursesRepo;
 
-    //Rykkes til "studentController"
-    @Autowired
-    private StudentRepo studentRepo;
-
-    //Rykkes til "teacherController"
-    @Autowired
-    private TeacherRepo teacherRepo;
-
     @Autowired
     private StudyProgrammesRepo studyProgrammesRepo;
 
@@ -49,14 +41,7 @@ public class CoursesController {
         return "coursesView";
     }
 
-    // Rykkes til "studentController"
-    @GetMapping("/courses/students/{id}")
-    public String viewStudents(Model model, @PathVariable Long id){
-        Course courses = coursesRepo.findById(id);
-        model.addAttribute("students", studentRepo.findAll());
-        model.addAttribute("courses", courses);
-        return "studentView";
-    }
+
 
 //    //Rykkes til "studentController"
 //    @DeleteMapping("courses/students/delete/{id}")
@@ -124,66 +109,6 @@ public class CoursesController {
 
         return new ResponseEntity(course, HttpStatus.OK);
     }
-
-    //Rykkes til "studentController"
-    @GetMapping("/student/create")
-    public String createStudent(Model model){
-        model.addAttribute("student", new Student());
-        return "studentCreate";
-    }
-
-    //Rykkes til "studentController"
-    @PostMapping("/student/create")
-    public String createStudent(@ModelAttribute Student student){
-        System.out.println(student.toString());
-        studentRepo.save(student);
-        return "redirect:/courses";
-    }
-
-    //Rykkes til "studentController"
-    @GetMapping("/student/join/{id}")
-    public String joinStudent(Model model, @PathVariable Long id){
-        List<Student> students = studentRepo.findAll();
-        Course course = coursesRepo.findById(id);
-        model.addAttribute("student", students);
-        model.addAttribute("currentCourse", course);
-        return "joinStudent";
-    }
-
-    //Rykkes til "studentController"
-    @GetMapping("/student/join/{courseId}/{studentId}")
-    public String joinStudent(@PathVariable Long courseId, @PathVariable Long studentId){
-        Course courseStudent = coursesRepo.findById(courseId);
-        Student studentCourse = studentRepo.findById(studentId);
-        courseStudent.getStudents().add(studentCourse);
-        coursesRepo.save(courseStudent);
-        return "redirect:/courses";
-    }
-
-    //Rykkes til "teacherController"
-    @GetMapping("/teacher/create")
-    public String createTeacher(Model model){
-        model.addAttribute("teacher", new Teacher());
-        return "teacherCreate";
-    }
-
-    //Rykkes til "teacherController"
-    @PostMapping("/teacher/create")
-    public String createTeacher(@ModelAttribute Teacher teacher){
-        System.out.println(teacher.toString());
-        teacherRepo.save(teacher);
-        return "redirect:/courses";
-    }
-
-    //Rykkes til "teacherController"
-    @GetMapping("/courses/teachers/{id}")
-    public String viewTeachers(Model model, @PathVariable Long id){
-        Course courses = coursesRepo.findById(id);
-        model.addAttribute("teachers", teacherRepo.findAll());
-        model.addAttribute("courses", courses);
-        return "teacherView";
-    }
-
 //    //Rykkes til "teacherController"
 //    @DeleteMapping("courses/teacher/delete/{id}")
 //    public ResponseEntity<Teacher> deleteTeacher(@PathVariable Long id) {
@@ -192,26 +117,5 @@ public class CoursesController {
 //
 //        return new ResponseEntity(teacher, HttpStatus.OK);
 //    }
-
-    //Rykkes til "teacherController"
-    @GetMapping("/teacher/join/{id}")
-    public String joinTeacher(Model model, @PathVariable Long id){
-        List<Teacher> teachers = teacherRepo.findAll();
-        Course course = coursesRepo.findById(id);
-        model.addAttribute("teacher", teachers);
-        model.addAttribute("currentCourse", course);
-        return "joinTeacher";
-    }
-
-    //Rykkes til "teacherController"
-    @GetMapping("/teacher/join/{courseId}/{teacherId}")
-    public String joinTeacher(@PathVariable Long courseId, @PathVariable Long teacherId){
-        Course courseTeacher = coursesRepo.findById(courseId);
-        Teacher teacherCourse = teacherRepo.findById(teacherId);
-        courseTeacher.getTeachers().add(teacherCourse);
-        coursesRepo.save(courseTeacher);
-        return "redirect:/courses";
-    }
-
 }
 
