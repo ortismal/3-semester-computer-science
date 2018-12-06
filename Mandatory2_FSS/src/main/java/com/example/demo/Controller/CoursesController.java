@@ -9,9 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class CoursesController {
@@ -41,15 +39,6 @@ public class CoursesController {
         return "coursesView";
     }
 
-
-
-//    //Rykkes til "studentController"
-//    @DeleteMapping("courses/students/delete/{id}")
-//    public ResponseEntity<Student> deleteStudent(@PathVariable Long id) {
-//        Student student = studentRepo.findById(id);
-//        coursesRepo.deleteById(id);
-//        return new ResponseEntity(student, HttpStatus.OK);
-//    }
 
     @GetMapping("/courses/edit/{id}")
     public String editCourse(Model model, @PathVariable Long id) {
@@ -109,13 +98,5 @@ public class CoursesController {
 
         return new ResponseEntity(course, HttpStatus.OK);
     }
-//    //Rykkes til "teacherController"
-//    @DeleteMapping("courses/teacher/delete/{id}")
-//    public ResponseEntity<Teacher> deleteTeacher(@PathVariable Long id) {
-//        Teacher teacher = teacherRepo.findById(id);
-//        teacherRepo.delete(id);
-//
-//        return new ResponseEntity(teacher, HttpStatus.OK);
-//    }
 }
 

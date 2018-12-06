@@ -55,26 +55,5 @@
         </form>
     </div>
 </div>
-<!--
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script th:inline="javascript">
-    $(document).on('click', '#update-btn', function () {
-        console.log("btn pressed");
-        console.log($('#ects').val());
-
-        $.ajax({
-            url: "http://localhost:8080/student/create/",
-            success: function (resp) {
-                alert("The student has been created");
-                location.href = "/courses";
-            },
-            error: function (err) {
-                alert("ERROR\n" + JSON.stringify(err));
-                location.reload();
-            }
-        });
-    });
-</script>
--->
 </body>
 </html>

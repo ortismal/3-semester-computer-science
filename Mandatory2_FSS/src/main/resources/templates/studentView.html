@@ -35,10 +35,8 @@
                     <td class="align-middle" th:text="${student.phoneNumber}">{{ECTS}}</td>
                     <td class="align-middle" th:text="${student.cpr}">{{Course Language}}</td>
                     <td>
-                        <!--<button class="student-delete btn btn-outline-danger btn-sm btn-block" th:attr="data-id=${student.id}"-->
-                                <!--type="button">Delete-->
-                        <!--</button>-->
                     </td>
+
                 </tr>
             </tbody.table-hover>
         </table>
@@ -48,26 +46,5 @@
     </div.float-left>
 </div.float-left>
 
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
-<!--<script> $(document).on("click", ".student-delete", function () {-->
-    <!--console.log("Button press");-->
-    <!--var studentId = $(this).data("id");-->
-    <!--console.log(studentId);-->
-
-    <!--$.ajax({-->
-        <!--url: 'http://localhost:8080/courses/students/delete/' + studentId,-->
-        <!--method: 'delete',-->
-        <!--success: function (resp) {-->
-            <!--alert("This student has been deleted\n" + JSON.stringify(resp));-->
-            <!--location.reload();-->
-        <!--},-->
-        <!--error: function (err) {-->
-            <!--alert("ERROR\n" + JSON.stringify(err));-->
-            <!--location.reload();-->
-        <!--}-->
-    <!--});-->
-<!--})-->
-
-<!--</script>-->
 </body>
 </html>

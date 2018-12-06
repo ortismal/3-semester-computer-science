@@ -26,11 +26,11 @@
             <tbody.table-hover>
                 <tr th:each="student:${student}">
                     <td class="align-middle" th:text="${student.id}">{{ID}}</td>
-                    <td class="align-middle" th:text="${student.firstName}">{{NOC_Danish}}</td>
-                    <td class="align-middle" th:text="${student.lastName}">{{NOC_English}}</td>
-                    <td class="align-middle" th:text="${student.email}">{{Mandatory/Elective}}</td>
-                    <td class="align-middle" th:text="${student.phoneNumber}">{{ECTS}}</td>
-                    <td class="align-middle" th:text="${student.cpr}">{{Course Language}}</td>
+                    <td class="align-middle" th:text="${student.firstName}">{{FirstName}}</td>
+                    <td class="align-middle" th:text="${student.lastName}">{{LastName}}</td>
+                    <td class="align-middle" th:text="${student.email}">{{Email}}</td>
+                    <td class="align-middle" th:text="${student.phoneNumber}">{{PhoneNumber}}</td>
+                    <td class="align-middle" th:text="${student.cpr}">{{CPR}}</td>
                     <td>
                         <a class="student-delete btn btn-outline-danger btn-sm btn-block" th:href="'/student/join/'+${currentCourse.id}+'/'+${student.id}">
                     Add to course </a>
