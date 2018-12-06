@@ -38,7 +38,6 @@ public class StudentController {
 
     @PostMapping("/student/create")
     public String createStudent(@ModelAttribute Student student){
-        System.out.println(student.toString());
         studentRepo.save(student);
         return "redirect:/courses";
     }

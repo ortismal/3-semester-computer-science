@@ -136,19 +136,23 @@
                            th:field="${course.classCode}" required="true"/>
                 </div>
 
-                <div class="form-group col-md-2">
-                    <label for="studyProgramme">Studyprogramme</label>
-                    <input type="number" class="form-control" id="studyProgramme" min="1"
-                           max="30000"
-                           th:field="${course.studyProgramme}" required="true"/>
+                <div class="form-group">
+                    <label for="studyProgramme">Study programmes</label>
+                    <select th:field="${course.studyProgramme}" class="form-control" id="studyProgramme">
+                        <option value="0">Choose</option>
+                        <option th:each="studyProgramme : ${studyProgramme}" th:value="${studyProgramme.id}"
+                                th:text="${studyProgramme.name}">Choose
+                        </option>
+                    </select>
                 </div>
+            </div>
+
                 <!--
                 <div class="form-group col-md-2">
                     <label for="studentId">Student ID</label>
                     <input type="text" class="form-control" id="studentId"
                            th:field="${course.students}" required="true"/>
                 </div> -->
-            </div>
                 <button type="submit" class="btn btn-outline-success" id="update-btn">Create </button>
             <button type="reset" class="btn btn-outline-warning">Reset</button>
             <a href="/courses">

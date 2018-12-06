@@ -24,14 +24,14 @@ public class CoursesController {
     @GetMapping("/courses/create")
     public String addCourse(Model model) {
         model.addAttribute("course", new Course());
+        model.addAttribute("studyProgramme", studyProgrammesRepo.findAll());
         return "courseCreate";
     }
 
     @PostMapping("/courses/create")
-    public ResponseEntity<Course> saveCourse(Course course) {
-        Course newCourse = coursesRepo.save(course);
-
-        return new ResponseEntity(newCourse, HttpStatus.OK);
+    public String saveCourse(Course course) {
+        coursesRepo.save(course);
+        return "redirect:/courses";
     }
 
     @GetMapping("/courses")
