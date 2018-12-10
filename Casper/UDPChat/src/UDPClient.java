@@ -8,11 +8,14 @@ public class UDPClient {
         String sentence;
         int length;
 
+        DatagramSocket receivingSocket = new DatagramSocket(6710);
+        DatagramSocket sendingSocket = new DatagramSocket();
+        InetAddress IPAdress = InetAddress.getByName("127.0.0.1");
+
+        while (true) {
             Scanner inFromKbd = new Scanner(System.in);
-            DatagramSocket receivingSocket = new DatagramSocket(6710);
-            DatagramSocket sendingSocket = new DatagramSocket();
-            InetAddress IPAdress = InetAddress.getByName("10.111.176.45");
             byte[] data;
+
 
             System.out.println("Please type your message: ");
             sentence = inFromKbd.nextLine();
@@ -20,10 +23,13 @@ public class UDPClient {
             data = sentence.getBytes();
             DatagramPacket sendPacket = new DatagramPacket(data, length, IPAdress, 6701);
 
+
             sendingSocket.send(sendPacket);
-            sentence = "            ";
             data = sentence.getBytes();
 
+            if (sentence.equalsIgnoreCase("quit")) {
+                break;
+            }
 
 
             DatagramPacket receivePackage = new DatagramPacket(data, data.length);
@@ -31,5 +37,9 @@ public class UDPClient {
             sentence = new String(receivePackage.getData());
             System.out.println("FROM SERVER: " + sentence);
 
+            if (sentence.equalsIgnoreCase("quit")) {
+                break;
+            }
+        }
     }
 }

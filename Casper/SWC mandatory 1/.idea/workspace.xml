@@ -2,13 +2,43 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03bc6a30-f686-43fe-a375-46361530d814" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TCPclient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TCPserver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../TCPchat/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../TCPchat/src/TCPclient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../TCPchat/src/TCPserver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ThreadsCounter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ThreadsCounter/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SWC mandatory 1/TCPclient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SWC mandatory 1/TCPclient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SWC mandatory 1/TCPserver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SWC mandatory 1/TCPserver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TCPclient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TCPclient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TCPserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TCPserver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TCPServer_test/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TCPServer_test/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TCPServer_test/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TCPServer_test/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TCPServer_test/out/production/TCPConnection/TCPClient_test.class" beforeDir="false" afterPath="$PROJECT_DIR$/../TCPServer_test/out/production/TCPConnection/TCPClient_test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TCPServer_test/out/production/TCPConnection/TCPServer_test.class" beforeDir="false" afterPath="$PROJECT_DIR$/../TCPServer_test/out/production/TCPConnection/TCPServer_test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TCPServer_test/src/TCPClient_test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../TCPServer_test/src/TCPClient_test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TCPchat/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TCPchat/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UDPConnection/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UDPConnection/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UDPConnection/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UDPConnection/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UDPConnection/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UDPConnection/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UDPConnection/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UDPConnection/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UDPConnection/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UDPConnection/UDPConnection.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UDPConnection/out/production/UDPConnection/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UDPConnection/out/production/UDPConnection/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UDPConnection/out/production/UDPConnection/.idea/src.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UDPConnection/out/production/UDPConnection/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UDPConnection/out/production/UDPConnection/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UDPConnection/out/production/UDPConnection/UDPClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UDPConnection/out/production/UDPConnection/UDPServer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UDPConnection/src/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UDPConnection/src/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UDPConnection/src/.idea/src.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UDPConnection/src/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UDPConnection/src/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UDPConnection/src/UDPClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UDPConnection/src/UDPServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UDPSendReceive/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UDPSendReceive/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../UDPSendReceive/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UDPSendReceive/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -18,43 +48,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="1272276745">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.open.time.3" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="java" value="5" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="JAVA" value="5" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="java" value="1134" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="1134" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TCPclient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-202">
-              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="-115">
+              <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -65,8 +65,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/TCPserver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+            <state relative-caret-position="410">
+              <caret line="47" column="16" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -99,16 +99,11 @@
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="23" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
     <option name="width" value="1440" />
-    <option name="height" value="873" />
+    <option name="height" value="875" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -116,7 +111,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -128,14 +123,14 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538484138936" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ThreadsCounter" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544438660865" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../WebServer" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
@@ -189,81 +184,69 @@
       <option name="presentableId" value="Default" />
       <updated>1538473059787</updated>
       <workItem from="1538473063791" duration="9807000" />
+      <workItem from="1544438277741" duration="275000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9807000" />
+    <option name="totallyTimeSpent" value="10082000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="85" y="-8" width="1843" height="1096" extended-state="6" />
+    <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24957936" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25248072" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32848233" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3281412" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991684" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Database" />
-      <window_info anchor="right" id="Maven Projects" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="right" id="Maven" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="8" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/net/Socket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="904" selection-start-line="904" selection-end-line="904" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/net/Socket.java" />
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/io/OutputStream.java" />
     <entry file="file://$PROJECT_DIR$/src/TCPclient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-202">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+        <state relative-caret-position="-115">
+          <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/io/OutputStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="76" column="14" lean-forward="true" selection-start-line="76" selection-start-column="14" selection-end-line="76" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TCPserver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+        <state relative-caret-position="410">
+          <caret line="47" column="16" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

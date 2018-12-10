@@ -3,8 +3,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
-import java.net.SocketException;
-import java.net.UnknownHostException;
 import java.util.Scanner;
 
 public class TCPclient {
@@ -59,14 +57,6 @@ public class TCPclient {
 
                 System.out.println("IN: " + msgIn);
 
-                /*if (msgToSend.equalsIgnoreCase("quit")) {
-
-                    System.out.println("Shutting down");
-                    input.close();
-                    output.close();
-                    socket.close();
-                    break;
-                }*/
             }
 
         } catch (IOException e) {

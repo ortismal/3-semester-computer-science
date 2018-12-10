@@ -10,7 +10,7 @@ class TCPClient_test {
         BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
 
         System.out.println("trying to connect");
-        Socket clientSocket = new Socket("10.111.176.43", 5656);
+        Socket clientSocket = new Socket("10.111.176.55", 5656);
         System.out.println("we are connected");
 
         while (true) {
