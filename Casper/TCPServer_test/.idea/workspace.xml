@@ -2,42 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d01b91c-53c4-4466-b08a-62b236ca0b23" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../SWC mandatory 1/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SWC mandatory 1/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SWC mandatory 1/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SWC mandatory 1/out/production/SWC mandatory 1/TCPclient.class" beforeDir="false" afterPath="$PROJECT_DIR$/../SWC mandatory 1/out/production/SWC mandatory 1/TCPclient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SWC mandatory 1/out/production/SWC mandatory 1/TCPserver.class" beforeDir="false" afterPath="$PROJECT_DIR$/../SWC mandatory 1/out/production/SWC mandatory 1/TCPserver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SWC mandatory 1/src/TCPclient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SWC mandatory 1/src/TCPclient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Web_server1.1/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Web_server1.1/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SWC mandatory 1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SWC mandatory 1/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TCPConnection/TCPClient_test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TCPConnection/TCPClient_test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TCPConnection/TCPServer_test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TCPConnection/TCPServer_test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TCPClient_test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TCPClient_test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TCPchat/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TCPchat/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UDPConnection/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/UDPConnection.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/out/production/UDPConnection/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/out/production/UDPConnection/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/out/production/UDPConnection/.idea/src.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/out/production/UDPConnection/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/out/production/UDPConnection/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/out/production/UDPConnection/UDPClient.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/out/production/UDPConnection/UDPServer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/src/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/src/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/src/.idea/src.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/src/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/src/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/src/UDPClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/src/UDPServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPSendReceive/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UDPSendReceive/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPSendReceive/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UDPSendReceive/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UDPChat/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UDPChat/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebServer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebServer/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -99,9 +69,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
     <option name="width" value="1440" />
     <option name="height" value="875" />
   </component>
@@ -135,7 +105,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544438660740" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../UDPSendReceive" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../WebServer" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -209,12 +179,12 @@
       <workItem from="1537872414477" duration="1908000" />
       <workItem from="1538029224399" duration="161000" />
       <workItem from="1538029501697" duration="1680000" />
-      <workItem from="1544436832878" duration="1205000" />
+      <workItem from="1544436832878" duration="1550000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12821000" />
+    <option name="totallyTimeSpent" value="13166000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -227,7 +197,6 @@
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49944875" visible="true" weight="0.3281412" />
@@ -240,7 +209,7 @@
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5005513" side_tool="true" weight="0.3281412" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32917964" />
-      <window_info anchor="right" id="Maven" />
+      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -250,6 +219,7 @@
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Maven Projects" order="8" />
+      <window_info anchor="right" id="Maven" order="9" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
