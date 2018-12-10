@@ -2,41 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e253ee6-e3ca-4bc5-8bb8-4534690dd08d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../SWC mandatory 1/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SWC mandatory 1/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SWC mandatory 1/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SWC mandatory 1/out/production/SWC mandatory 1/TCPclient.class" beforeDir="false" afterPath="$PROJECT_DIR$/../SWC mandatory 1/out/production/SWC mandatory 1/TCPclient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SWC mandatory 1/out/production/SWC mandatory 1/TCPserver.class" beforeDir="false" afterPath="$PROJECT_DIR$/../SWC mandatory 1/out/production/SWC mandatory 1/TCPserver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SWC mandatory 1/src/TCPclient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SWC mandatory 1/src/TCPclient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TCPServer_test/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TCPServer_test/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TCPServer_test/out/production/TCPConnection/TCPClient_test.class" beforeDir="false" afterPath="$PROJECT_DIR$/../TCPServer_test/out/production/TCPConnection/TCPClient_test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TCPServer_test/out/production/TCPConnection/TCPServer_test.class" beforeDir="false" afterPath="$PROJECT_DIR$/../TCPServer_test/out/production/TCPConnection/TCPServer_test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TCPServer_test/src/TCPClient_test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../TCPServer_test/src/TCPClient_test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TCPchat/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TCPchat/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UDPConnection/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/UDPConnection.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/out/production/UDPConnection/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/out/production/UDPConnection/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/out/production/UDPConnection/.idea/src.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/out/production/UDPConnection/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/out/production/UDPConnection/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/out/production/UDPConnection/UDPClient.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/out/production/UDPConnection/UDPServer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/src/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/src/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/src/.idea/src.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/src/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/src/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/src/UDPClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPConnection/src/UDPServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPSendReceive/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UDPSendReceive/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UDPSendReceive/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UDPSendReceive/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Web_server1.1/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Web_server1.1/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SWC mandatory 1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SWC mandatory 1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TCPServer_test/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TCPServer_test/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebServer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebServer/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -94,8 +65,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
     <option name="width" value="1440" />
     <option name="height" value="875" />
   </component>
@@ -199,10 +170,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10620000" />
+    <option name="totallyTimeSpent" value="10744000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
+    <frame x="54" y="-8" width="1874" height="1096" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12954795" />
